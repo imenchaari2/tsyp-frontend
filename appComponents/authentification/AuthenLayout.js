@@ -1,0 +1,79 @@
+import React from 'react';
+import {
+    View,
+    Text, Image
+} from 'react-native';
+import {COLORS, FONTS, images, SIZES} from "../../constants";
+
+import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
+const AuthenLayout= ({title, subtitle,titleContainerStyle, children}) => {
+    return (
+        <View
+            style={{
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingVertical: SIZES.padding,
+                backgroundColor: COLORS.white
+
+            }}
+        >
+            <KeyboardAwareScrollView
+                onKeyboardDismissMode="on-Drag"
+                contentContainerStyle={{
+                    flex:1,
+                    paddingHorizontal: SIZES.padding
+                }}
+            >
+                {/*{App icon}*/}
+                <View
+                    style={{
+                        alignItems: 'center'
+                    }}
+                >
+                <Image
+                    source={images.logo}
+                    resizeMode="contain"
+                    style={{
+                        height: 100,
+                        width: 200
+                    }}
+                />
+                </View>
+                {/*{title }*/}
+                <View
+                    style={{
+                        marginTop: SIZES.padding,
+                        ...titleContainerStyle
+                    }}
+                >
+                    <Text
+                        style={{
+                            textAlign: 'center',
+                            ...FONTS.h2
+                        }}
+                    >
+                        {title}
+                    </Text>
+                    <Text
+                        style={{
+                            textAlign: 'center',
+                            Color: COLORS.darkGray,
+                            marginTop: SIZES.base,
+                            ...FONTS.body3
+                        }}
+                    >
+                        {subtitle}
+                    </Text>
+
+                </View>
+                {/*{content }*/}
+                {children}
+            </KeyboardAwareScrollView>
+
+
+        </View>
+    )
+}
+
+export default AuthenLayout;
