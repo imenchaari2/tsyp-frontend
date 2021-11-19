@@ -86,7 +86,7 @@ const TsypPlan = ({navigation}) => {
 
             }}>
             {Plandetails.map((item, index) => (
-                <View key={'day'+'image'+ index}
+                <View key={'day'+'image'+ index.toString()}
                       style={{
                           alignItems: 'center'
                       }}>
@@ -95,14 +95,14 @@ const TsypPlan = ({navigation}) => {
                         onPress={() => {
                             setSeletedDayIndex(index);
                             setSeletedImageIndex(index);
-                            fliterDay(index);
+                            fliterDay(index.toString());
                         }}
                         style={[
                             style.categoryBtn,
                             {
                                 backgroundColor:
-                                    (selectedDayIndex === index
-                                         && selectedImageIndex === index)? COLORS.white
+                                    (selectedDayIndex === index.toString()
+                                         && selectedImageIndex === index.toString())? COLORS.white
                                         : COLORS.white,
                             },
                         ]}>
@@ -161,7 +161,7 @@ const style = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 10,
-        elevation: 8,
+        elevation: 8.5,
 
 
     },
@@ -176,15 +176,13 @@ const style = StyleSheet.create({
         alignItems: 'center',
     },
     cardDetailsContainer: {
-        height: 110,
         backgroundColor: COLORS.white,
-        flex: 1,
+        width:'100%',
         flexDirection: 'row',
-        marginTop:-5,
         paddingHorizontal: 40,
-        marginBottom:12,
-        paddingTop: 10,
-        elevation: 1.5
+        paddingVertical: 8,
+        marginBottom:10,
+        elevation: 3
     },
 });
 export default TsypPlan;

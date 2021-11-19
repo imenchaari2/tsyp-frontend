@@ -7,9 +7,10 @@ import {AuthenLayout} from "../authentification";
 import {COLORS, FONTS, SIZES} from "../../constants";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
 import {CustomButton, TextButton} from "../../utils";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 
-const Authentification= () => {
+const Authentification= ({navigation}) => {
     const [timer, setTimer] = React.useState(60)
     React.useEffect(()=>{
         let intervall = setInterval(()=>{
@@ -23,6 +24,26 @@ const Authentification= () => {
         },200)
     },[])
     return (
+        <View
+            style={{
+                flex: 1,
+                /*alignItems: 'center',
+                justifyContent: 'center',*/
+                backgroundColor: COLORS.white
+
+            }}>
+        <Icon
+            name="arrow-back"
+            size={30}
+            color={COLORS.black}
+            onPress={navigation.goBack}
+            style={{
+                paddingTop: 20,
+                paddingHorizontal: 20,
+                position:"relative",
+                left:10
+            }}
+        />
         <AuthenLayout
             title=" Authentification"
             subtitle="An Authentification code has been sent to your email"
@@ -109,6 +130,7 @@ const Authentification= () => {
                 </Text>
             </View>
         </AuthenLayout>
+        </View>
     )
 }
 

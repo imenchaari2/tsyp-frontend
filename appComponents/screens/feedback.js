@@ -20,11 +20,8 @@ const Feedback= ({navigation}) => {
     return (
         <View
             style={{
-
                 flex: 1,
                 backgroundColor: COLORS.white
-
-
             }}
         >
             <View style={style.header}>
@@ -35,7 +32,7 @@ const Feedback= ({navigation}) => {
                     color={COLORS.gray}
                     onPress={navigation.goBack}
                     style={{
-                        borderColor: COLORS.lightGray1,
+                        borderColor: COLORS.darkGray,
                         borderWidth: 1,
                         borderRadius: 10,
                         width: 50,
@@ -107,7 +104,7 @@ const Feedback= ({navigation}) => {
             </View>
             <Text style={{ justifyContent:'center',marginLeft: 110,marginTop:5, fontSize: 20,
                 fontWeight:defaultRating ===5? 'bold': 'normal' }}>
-                {defaultRating ===1? <Text>very disappointed 😔</Text>:
+                {defaultRating ===1? <Text>disappointed 😔</Text>:
                     defaultRating ===2? <Text>unsatisfied 😕</Text> :
                         defaultRating ===3? <Text>satisfied 😊</Text> :
                             defaultRating ===4? <Text>enjoyed it 😍</Text> :
@@ -150,16 +147,14 @@ const Feedback= ({navigation}) => {
 const style = StyleSheet.create({
 
     userDetail: {
-        flex: 0.48,
         backgroundColor: COLORS.lightGray2,
-        paddingHorizontal: 20,
+        paddingHorizontal: 15,
         color: COLORS.darkGray,
         fontSize: 15,
         borderRadius : 20,
-        marginHorizontal : 20,
-        paddingTop: 20,
+        paddingVertical : 20,
         textAlign: 'center',
-        marginTop:40
+        marginHorizontal:20
     },
     header: {
         flexDirection: 'row',
@@ -197,8 +192,6 @@ const style = StyleSheet.create({
         resizeMode: 'contain',
         marginTop:-30,
         marginLeft:3,
-
-
     }
 
 });

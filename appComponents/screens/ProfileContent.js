@@ -3,25 +3,27 @@ import {
     View,
     Text, Image, TouchableOpacity, StyleSheet, SafeAreaView, TextInput, ScrollView
 } from 'react-native';
-import {AuthenLayout} from "../authentification";
 import {COLORS, FONTS, icons, SIZES} from "../../constants";
 import validation from "../../utils/validation";
 import {CustomButton, FormInput} from "../../utils";
 import DatePicker from 'react-native-datepicker';
 import moment from "moment";
+import {AuthenLayout} from "../authentification";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 
 
-const checkIn= ({navigation}) => {
+const ProfileContent= ({navigation}) =>{
     const [emailError, setEmailError] = React.useState("")
     const [email, setEmail] = React.useState("")
-    const [setFirstName] = React.useState("")
-    const [setLastName] = React.useState("")
+    const [setOccupation] = React.useState("")
+    const [setFullName] = React.useState("")
+    const [setStudentBranch] = React.useState("")
     const [setPhone] = React.useState("")
-    const [setCin] = React.useState("")
+    const [setId] = React.useState("")
+    const [setRoom] = React.useState("")
+    const [setHotel] = React.useState("")
     const [setRoomSharing] = React.useState("")
-    const [state, setState] = React.useState(new Date())
     const [number, onChangeNumber] = React.useState(null);
 
     return (
@@ -29,8 +31,6 @@ const checkIn= ({navigation}) => {
         <View
             style={{
                 flex: 1,
-                /*alignItems: 'center',
-                justifyContent: 'center',*/
                 backgroundColor: COLORS.white
 
             }}
@@ -48,13 +48,12 @@ const checkIn= ({navigation}) => {
                 }}
             />
             <AuthenLayout
-                title="Check In"
+                title="Profile Content"
                 subtitle="Please fill in the form with your data"
                 titleContainerStyle={{
-                    marginTop: 10
+                    marginTop: SIZES.radius
                 }}
             >
-
 
                 <ScrollView>
                 <View
@@ -62,6 +61,15 @@ const checkIn= ({navigation}) => {
                         marginTop: SIZES.padding,
                     }}
                 >
+                    <FormInput
+                        label="Full Name"
+                        containerStyle={{
+                            marginTop: SIZES.radius,
+                        }}
+                        onchange={(value) =>{
+                            setFullName(value)
+                        }}
+                    />
                     <FormInput
                         label="Email"
                         keyboardType="Email-address"
@@ -104,7 +112,7 @@ const checkIn= ({navigation}) => {
                         appendComponent={
                             <TextInput
                                 style={{borderColor:COLORS.transparent }}
-                                onChangeText={onChangeNumber}
+                                onChangeText={onChangeNumber }
                                 value={number}
                                 placeholder="(+216)      "
                                 keyboardType="numeric"
@@ -112,7 +120,7 @@ const checkIn= ({navigation}) => {
                         }
                     />
                     <FormInput
-                        label="Cin number"
+                        label="ID number"
                         containerStyle={{
                             marginTop: SIZES.radius,
                             width:'49%',
@@ -120,15 +128,16 @@ const checkIn= ({navigation}) => {
 
                         }}
                         onchange={(value) =>{
-                            setCin(value)
+                            setId(value)
                         }}
                         appendComponent={
                             <TextInput
                                 style={{borderColor:COLORS.transparent }}
                                 onChangeText={onChangeNumber}
                                 value={number}
-                                placeholder="      "
+                                placeholder="            "
                                 keyboardType="numeric"
+
                             />
                         }
                     />
@@ -137,100 +146,61 @@ const checkIn= ({navigation}) => {
 
                     <View style={{flexDirection: 'row', justifyContent:'space-between'}}>
                     <FormInput
-                        label="First name"
+                        label="Student Branch"
                         containerStyle={{
                             marginTop: SIZES.radius,
                             width:'49%'
                         }}
                         onchange={(value) =>{
-                            setFirstName(value)
+                            setStudentBranch(value)
                         }}
                     />
                     <FormInput
-                        label="Last name"
+                        label="Occupation"
                         containerStyle={{
                             marginTop: SIZES.radius,
                             width:'49%'
                         }}
                         onchange={(value) =>{
-                            setLastName(value)
+                            setOccupation(value)
                         }}
                     />
 
                     </View>
                     <View style={{flexDirection: 'row', justifyContent:'space-between'}}>
-
-                    <FormInput
-                        label="Check in date"
-                        containerStyle={{
-                            marginTop: SIZES.radius,
-                            width:'49%'
-                        }}
-                        onchange={(value) =>{
-                            setLastName(value)
-                        }}
-                    appendComponent={
-                        <View >
-                        <DatePicker
-                            showIcon={true}
-                            androidMode="spinner"
-                            style={{ paddingVertical:8,}}
-                            date={state}
-                            mode="date"
-                            placeholder="DD/MM/YYYY"
-                            format="DD-MM-YYYY"
-                            minDate={moment().format('DD-MM-YYYY')}
-                            confirmBtnText="Chọn"
-                            cancelBtnText="Hủy"
-                            customStyles={{
-                                dateInput: {
-                                    backgroundColor: COLORS.lightGray2,
-                                    borderColor: COLORS.transparent
-
-                                },
+                        <FormInput
+                            label="Hotel"
+                            containerStyle={{
+                                marginTop: SIZES.radius,
+                                width:'49%'
                             }}
-                            onDateChange={(date) => {
-                                setState( date );
+                            onchange={(value) =>{
+                                setHotel(value)
                             }}
                         />
-                        </View>}
-                    />
-                    <FormInput
-                        label="Check out date"
-                        containerStyle={{
-                            marginTop: SIZES.radius,
-                            width:'49%'
-                        }}
-                        onchange={(value) =>{
-                            setLastName(value)
-                        }}
-                        appendComponent={
-                            <View >
-                                <DatePicker
-                                    showIcon={true}
-                                    androidMode="spinner"
-                                    style={{ paddingVertical:8,}}
-                                    date={state}
-                                    mode="date"
-                                    placeholder="DD/MM/YYYY"
-                                    format="DD-MM-YYYY"
-                                    minDate={moment().format('DD-MM-YYYY')}
-                                    confirmBtnText="Chọn"
-                                    cancelBtnText="Hủy"
-                                    customStyles={{
-                                        dateInput: {
-                                            backgroundColor: COLORS.lightGray2,
-                                            borderColor: COLORS.transparent,
+                        <FormInput
+                            label="Room number"
+                            containerStyle={{
+                                marginTop: SIZES.radius,
+                                width:'49%',
+                                justifyContent:'center'
 
-                                        },
-                                    }}
-                                    onDateChange={(date) => {
-                                        setState( date );
-                                    }}
+                            }}
+                            onchange={(value) =>{
+                                setRoom(value)
+                            }}
+                            appendComponent={
+                                <TextInput
+                                    style={{borderColor:COLORS.transparent }}
+                                    onChangeText={onChangeNumber}
+                                    value={number}
+                                    keyboardType="numeric"
                                 />
-                            </View>}
-                    />
+                            }
+                        />
+
                     </View>
+
                     <FormInput
                         label="Room shared with"
                         containerStyle={{
@@ -261,4 +231,4 @@ const checkIn= ({navigation}) => {
     )
 }
 
-export default checkIn;
+export default ProfileContent;

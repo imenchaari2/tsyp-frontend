@@ -1,13 +1,191 @@
 import React from 'react';
 import {
     View,
-    Text, StyleSheet, Image, TouchableOpacity
+    Text, StyleSheet, Image, TouchableOpacity, ScrollView
 } from 'react-native';
-import {COLORS, images, SIZES} from "../../constants";
+import {COLORS, FONTS, icons, images, SIZES} from "../../constants";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import {CustomButton, ProfileValue, TextButton} from "../../utils";
 
 
 const UserProfile = ({navigation}) => {
+     function renderProfileCard(){
+         return(
+             <View style={{
+                 borderRadius: SIZES.radius,
+                 backgroundColor: COLORS.black
+             }}>
+                 {/*profile image*/}
+                 <TouchableOpacity
+                    style={{
+                        paddingVertical:10
+                    }}
+                 />
+                 <View style={{flexDirection: 'row', paddingHorizontal: 20}}>
+                 <Image
+                    source={images.profile}
+                    style={{
+                        width:60,
+                        height:60,
+                        borderRadius: 40,
+                        borderWidth: 1,
+
+                    }}
+                    resizeMode="contain"
+                 />
+                 {/*details*/}
+                 <View
+                    style={{
+                        flex: 1,
+                        marginLeft: SIZES.radius,
+                        alignItems: 'flex-start'
+                    }}
+                 >
+                     <Text
+                        style={{
+                            color: COLORS.doree,
+                            ...FONTS.h3,
+                            fontWeight: 'bold'
+                        }}
+                     >
+                         TSYP 9TH
+                     </Text>
+                     <Text
+                         style={{
+                             color: COLORS.white,
+                             ...FONTS.body5
+                         }}
+                     >
+                         Please fill your profile content
+                     </Text>
+                     <CustomButton
+                         buttonText="+ Fill in your details"
+                         buttonContainerStyle={{
+                             height:35,
+                             marginTop: 10,
+                             paddingHorizontal: SIZES.radius,
+                             borderRadius: 20,
+                             marginBottom:20,
+                             backgroundColor: COLORS.white
+                         }}
+                         colors={ [COLORS.white2 , COLORS.doree]}
+                         onPress={()=>navigation.navigate("ProfileContent")}
+                     />
+                 </View>
+
+                 </View>
+
+             </View>
+         )
+     }
+     function renderProfileSection1(){
+         return(
+             <View
+                style={style.profileSectionContainer}
+             >
+                 <ProfileValue
+                 icon={icons.profile}
+                 label="Full Name"
+                 value="Imen Chaari"
+                 />
+                 <View
+                     style={{
+                         height: 2,
+                         backgroundColor: COLORS.lightGray1,
+                     }}
+                 />
+                 <ProfileValue
+                     icon={icons.email}
+                     label="Email"
+                     value="imen.chaari@enis.tn"
+                 />
+                 <View
+                     style={{
+                         height: 2,
+                         backgroundColor: COLORS.lightGray1,
+                     }}
+                 />
+                 <ProfileValue
+                     icon={icons.phone}
+                     label="Phone number"
+                     value="50586370"
+                 />
+                 <View
+                     style={{
+                         height: 2,
+                         backgroundColor: COLORS.lightGray1,
+                     }}
+                 />
+                 <ProfileValue
+                     icon={icons.email}
+                     label="User Id"
+                     value="11127396"
+                 />
+                 <View
+                     style={{
+                         height: 2,
+                         backgroundColor: COLORS.lightGray1,
+                     }}
+                 />
+                 <ProfileValue
+                     icon={icons.email}
+                     label="Student Branch"
+                     value="Enis student branch"
+                 />
+                 <View
+                     style={{
+                         height: 2,
+                         backgroundColor: COLORS.lightGray1,
+                     }}
+                 />
+                 <ProfileValue
+                     icon={icons.email}
+                     label="Occupation"
+                     value="IT coordinator"
+                 />
+
+             </View>
+         )
+     }
+     function renderProfileSection2(){
+         return(
+             <View
+                 style={style.profileSectionContainer}
+             >
+                 <ProfileValue
+                     icon={icons.checkIn}
+                     label="Hotel"
+                     value="Diar lemdina"
+                 />
+                 <View
+                     style={{
+                         height: 2,
+                         backgroundColor: COLORS.lightGray1,
+                     }}
+                 />
+                 <ProfileValue
+                     icon={icons.home}
+                     label="Room number"
+                     value="1496"
+                 />
+                 <View
+                     style={{
+                         height: 2,
+                         backgroundColor: COLORS.lightGray1,
+                     }}
+                 />
+                 <ProfileValue
+                     icon={icons.email}
+                     label="Room shared with"
+                     value="Nessrine Aloulou && Yosr ben yahia"
+                 />
+
+
+             </View>
+         )
+     }
+
+
     return (
         <View
             style={{
@@ -26,7 +204,7 @@ const UserProfile = ({navigation}) => {
                     color={COLORS.gray}
                     onPress={navigation.goBack}
                     style={{
-                        borderColor: COLORS.lightGray1,
+                        borderColor: COLORS.darkGray,
                         borderWidth: 1,
                         borderRadius: 10,
                         width: 50,
@@ -46,7 +224,7 @@ const UserProfile = ({navigation}) => {
 
 
                     }}
-                >My Account</Text>
+                >Profile content</Text>
                 <TouchableOpacity
                     style = {{
                         alignItems: 'center',
@@ -66,121 +244,31 @@ const UserProfile = ({navigation}) => {
                 </TouchableOpacity>
 
             </View>
-            <View
-                style={{
-
-                    backgroundColor:COLORS.white2,
-                    marginTop: SIZES.padding,
-                    paddingVertical: SIZES.padding,
-                    borderRadius : SIZES.radius,
-                    borderWidth: 2,
-                    borderColor: COLORS.lightGray2,
-                    marginHorizontal: 20,
-                    minHeight:300
-
-
+            <ScrollView
+                contentContainerStyle={{
+                    paddingHorizontal: SIZES.padding,
+                    paddingBottom: 150
                 }}
-            >
-            <Text style={style.userDetail}>Full Name</Text>
-                <View
-                    style={{
-                        height: 2,
-                        marginVertical: SIZES.radius,
-                        backgroundColor: COLORS.lightGray1,
-                        width: 300,
-                        marginLeft:20
-                    }}
-                />
-                <Text style={style.userDetail}>User Id</Text>
-                <View
-                    style={{
-                        height: 2,
-                        marginVertical: SIZES.radius,
-                        backgroundColor: COLORS.lightGray1,
-                        width: 300,
-                        marginLeft:20
-                    }}
-                />
-                <Text style={style.userDetail}>Student Branch</Text>
-                <View
-                    style={{
-                        height: 2,
-                        marginVertical: SIZES.radius,
-                        backgroundColor: COLORS.lightGray1,
-                        width: 300,
-                        marginLeft:20
-                    }}
-                />
-                <Text style={style.userDetail}>Email</Text>
-                <View
-                    style={{
-                        height: 2,
-                        marginVertical: SIZES.radius,
-                        backgroundColor: COLORS.lightGray1,
-                        width: 300,
-                        marginLeft:20
-                    }}
-                />
-                <Text style={style.userDetail}>Occupation</Text>
+                >
+            {renderProfileCard()}
+                {/*profile section*/}
+                {renderProfileSection1()}
+                {renderProfileSection2()}
 
+            </ScrollView>
         </View>
-            <View
-                style={{
 
-                    backgroundColor:COLORS.white2,
-                    marginTop: SIZES.padding,
-                    paddingVertical: SIZES.padding,
-                    borderRadius : SIZES.radius,
-                    borderWidth: 2,
-                    borderColor: COLORS.lightGray2,
-                    marginHorizontal: 20,
-                    minHeight: 260
-
-
-                }}
-            >
-                <Text style={style.userDetail}>CIN </Text>
-                <View
-                    style={{
-                        height: 2,
-                        marginVertical: SIZES.radius,
-                        backgroundColor: COLORS.lightGray1,
-                        width: 300,
-                        marginLeft:20
-                    }}
-                />
-                <Text style={style.userDetail}>Phone Number</Text>
-                <View
-                    style={{
-                        height: 2,
-                        marginVertical: SIZES.radius,
-                        backgroundColor: COLORS.lightGray1,
-                        width: 300,
-                        marginLeft:20
-                    }}
-                />
-                <Text style={style.userDetail}>Hotel && Room </Text>
-                <View
-                    style={{
-                        height: 2,
-                        marginVertical: SIZES.radius,
-                        backgroundColor: COLORS.lightGray1,
-                        width: 300,
-                        marginLeft:20
-                    }}
-                />
-                <Text style={style.userDetail}>Room shared with </Text>
-
-            </View>
-        </View>
     )
 }
 const style = StyleSheet.create({
 
-    userDetail: {
-        flex: 0.3,
-        backgroundColor: COLORS.white2,
-        paddingHorizontal: 20,
+    profileSectionContainer: {
+        marginTop: SIZES.padding,
+        borderWidth: 1,
+        borderRadius: SIZES.radius,
+        borderColor: COLORS.gray2,
+        /*backgroundColor: COLORS.white2,*/
+        paddingHorizontal: SIZES.padding,
         color: COLORS.gray,
         fontSize: 15,
         fontWeight:'bold',

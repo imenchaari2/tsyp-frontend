@@ -6,7 +6,7 @@ import {
   StatusBar,
   View,
   Image,
-  StyleSheet,
+  StyleSheet, ScrollView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {COLORS} from "../../../constants";
@@ -16,14 +16,13 @@ const DetailsScreen = ({navigation, route}) => {
   const workshop = route.params;
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
-      <StatusBar backgroundColor={COLORS.light} />
+      <StatusBar backgroundColor={COLORS.black} />
       <View style={{height: 400, backgroundColor: COLORS.light}}>
         <ImageBackground
           resizeMode="contain"
           source={workshop?.image}
           style={{
             height: 280,
-            top: 20,
           }}>
           {/* Render  Header */}
           <View style={style.header}>
@@ -67,8 +66,8 @@ const DetailsScreen = ({navigation, route}) => {
       </View>
 
       {/* Comment container */}
+
       <View style={{marginTop: 80, justifyContent: 'space-between', flex: 1}}>
-        <View>
           {/* Render user image , name and date */}
           <View style={{flexDirection: 'row', paddingHorizontal: 20}}>
             <Image
@@ -86,6 +85,7 @@ const DetailsScreen = ({navigation, route}) => {
                   fontSize: 11,
                   fontWeight: 'bold',
                   marginTop: 2,
+                  paddingBottom:10
                 }}>
                 grade
 
@@ -93,10 +93,22 @@ const DetailsScreen = ({navigation, route}) => {
             </View>
             <Text style={{color: COLORS.grey, fontSize: 12}}>Duration </Text>
           </View>
+        <ScrollView>
+
           <Text style={style.comment}>
             Description of the workshop and what participant should get to work properly
+            Description of the workshop and what participant should get to work properly
+            Description of the workshop and what participant should get to work properly
+            Description of the workshop and what participant should get to work properly
+            Description of the workshop and what participant should get to work properly
+            Description of the workshop and what participant should get to work properly
+            Description of the workshop and what participant should get to work properly
+            Description of the workshop and what participant should get to work properly
+            Description of the workshop and what participant should get to work properly
           </Text>
-        </View>
+
+
+      </ScrollView>
 
         {/* Render footer */}
         <View style={style.footer}>
@@ -117,7 +129,9 @@ const DetailsScreen = ({navigation, route}) => {
             />
 
         </View>
+
       </View>
+
     </SafeAreaView>
   );
 };
@@ -127,7 +141,6 @@ const style = StyleSheet.create({
     height: 120,
     backgroundColor: COLORS.white,
     marginHorizontal: 20,
-    flex: 1,
     bottom: -60,
     borderRadius: 18,
     elevation: 10,
@@ -150,18 +163,8 @@ const style = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
   },
-  iconCon: {
-    backgroundColor: COLORS.primary,
-    width: 50,
-    height: 50,
-    borderRadius: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 15,
-  },
   btn: {
     backgroundColor: COLORS.primary,
-    flex: 1,
     height: 50,
     borderRadius: 12,
     justifyContent: 'center',

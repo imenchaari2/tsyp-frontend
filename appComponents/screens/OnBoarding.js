@@ -22,10 +22,10 @@ const OnBoarding = ({ navigation }) => {
                 <ImageBackground
                     source={images.logo}
                     style={{
-                        flex: 3,
+                        width:'100%',
+                        height:250,
                         justifyContent: 'flex-end',
                         backgroundColor: COLORS.black,
-                        marginTop: 60
                     }}
                     resizeMode="contain"
                 >
@@ -43,38 +43,25 @@ const OnBoarding = ({ navigation }) => {
 
                         }}
                     >
-
-
                     </LinearGradient>
                 </ImageBackground>
+
                 <View
 
-                    style={{
-                        flex: 1,
-                        justifyContent: 'center'
-                    }}
+
                 >
                     <Text
                         style={{
-                            width: "70%",
+                            textAlign: 'center',
                             color: COLORS.doree,
-                            lineHeight: 20,
-                            margin:70,
-                            marginTop: 90,
+                            marginTop:20,
+                            fontWeight:'bold',
+
                             ...FONTS.h3
                         }}
                     >
                         Welcome to TSYP Edition 9
                     </Text>
-
-
-                </View>
-                <View
-                    style={{
-                        flex: 1.5,
-                        justifyContent: 'center'
-                    }}
-                >
 
 
                 </View>
@@ -92,8 +79,6 @@ const OnBoarding = ({ navigation }) => {
             >
                 <Text
                     style={{
-
-                        width: "90%",
                         color: COLORS.gold
                     }}
                 >

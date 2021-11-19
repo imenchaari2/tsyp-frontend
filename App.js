@@ -12,14 +12,16 @@ import {
     ForgotPassword,
     SignIn,
     SignUp,
-    Speakers, SpeakersDetailsScreen,
+    Speakers, SpeakersDetailsScreen, ProfileContent,
     UserProfile
 } from "./appComponents/screens";
-
+import {Provider} from "react-redux";
+import store from "./appComponents/redux/store";
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
+      <Provider store={store}>
       <NavigationContainer>
           <Stack.Navigator
               screenOptions={{
@@ -45,13 +47,14 @@ const App = () => {
               <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
               <Stack.Screen name="Authentification" component={Authentification} />
               <Stack.Screen name="speakerDetailsScreen" component={SpeakersDetailsScreen} />
+              <Stack.Screen name="ProfileContent" component={ProfileContent} />
 
 
 
           </Stack.Navigator>
       </NavigationContainer>
+      </Provider>
 
   )
 }
-
 export default App;

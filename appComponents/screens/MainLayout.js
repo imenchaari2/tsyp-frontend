@@ -92,7 +92,8 @@ const CustomTabBar = (props) => {
                         left: 0,
                         right: 0,
                         height: 30,
-                        backgroundColor: COLORS.black
+                        backgroundColor: COLORS.black,
+
                     }}
                 />
                 <BottomTabBar {...props.props} />
@@ -118,9 +119,9 @@ const MainLayout = ({navigation,drawerAnimationStyle}) => {
         {/*Header*/}
         <Header
             containerStyle={{
-                height: 50,
+                height: 70,
                 paddingHorizontal: SIZES.padding,
-                marginTop: 20,
+                paddingTop:20,
                 alignItems: 'center'
             }}
             leftComponent={
@@ -131,7 +132,7 @@ const MainLayout = ({navigation,drawerAnimationStyle}) => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         borderWidth: 1,
-                        borderColor: COLORS.gray,
+                        borderColor: COLORS.darkGray,
                         borderRadius: SIZES.radius,
                         marginBottom:10,
                     }}
@@ -193,10 +194,14 @@ const MainLayout = ({navigation,drawerAnimationStyle}) => {
                     left:0,
                     right:0,
                     height: 100,
-                }
-            }}
-            tabBarOptions={{
-                showLabel: false,
+                },
+            "tabBarShowLabel": false,
+                "tabBarStyle":[
+                    {
+                        "display":"flex"
+                    },
+                    null
+                ]
             }}
             tabBar={(props) => (
                 <CustomTabBar

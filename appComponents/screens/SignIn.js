@@ -7,6 +7,7 @@ import {AuthenLayout} from "../authentification";
 import {COLORS, FONTS, icons, images, SIZES} from "../../constants";
 import validation from "../../utils/validation";
 import {CustomButton, CustomSwitch, FormInput, TextButton} from "../../utils";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 
 const SignIn= ({navigation}) => {
@@ -25,11 +26,23 @@ const SignIn= ({navigation}) => {
         <View
             style={{
                 flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
+                /*alignItems: 'center',
+                justifyContent: 'center',*/
+                backgroundColor: COLORS.white
 
             }}
-        >
+        ><Icon
+            name="arrow-back"
+            size={30}
+            color={COLORS.black}
+            onPress={navigation.goBack}
+            style={{
+                paddingTop: 20,
+                paddingHorizontal: 20,
+                position:"relative",
+                left:10
+            }}
+        />
             <AuthenLayout title ="Let's Sign you In"
                           subtitle=" Welcome back you have been missed"
             >

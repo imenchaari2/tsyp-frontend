@@ -48,7 +48,7 @@ const Speakers = ({navigation}) => {
                     color={COLORS.gray}
                     onPress={navigation.goBack}
                     style={{
-                        borderColor: COLORS.lightGray1,
+                        borderColor: COLORS.darkGray,
                         borderWidth: 1,
                         borderRadius: 10,
                         width: 50,
@@ -65,7 +65,6 @@ const Speakers = ({navigation}) => {
                         fontSize: 18,
                         fontWeight: 'bold',
                         marginTop: 10,
-
                     }}
                 >Speakers</Text>
 
@@ -108,14 +107,14 @@ const style = StyleSheet.create({
         backgroundColor: COLORS.white,
     },
     userDetail: {
-        flex: 2,
         backgroundColor: COLORS.lightGray2,
-        paddingHorizontal: 20,
+        paddingHorizontal: 22,
         color: COLORS.darkGray2,
         borderRadius:15,
-        marginHorizontal: 20,
-        fontSize: 12,
-        paddingTop: 9
+        marginHorizontal: 10,
+        textAlign: 'auto',
+        fontSize: 12.5,
+        paddingVertical: 10,
     },
     iconContainer: {
         height: 60,

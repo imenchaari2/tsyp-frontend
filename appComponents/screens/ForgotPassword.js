@@ -7,6 +7,7 @@ import {AuthenLayout} from "../authentification";
 import {COLORS, icons, SIZES} from "../../constants";
 import validation from "../../utils/validation";
 import {CustomButton, FormInput} from "../../utils";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 
 const ForgotPassword= ({navigation}) => {
@@ -17,6 +18,26 @@ const ForgotPassword= ({navigation}) => {
     }
 
     return (
+        <View
+            style={{
+                flex: 1,
+                /*alignItems: 'center',
+                justifyContent: 'center',*/
+                backgroundColor: COLORS.white
+
+            }}
+        ><Icon
+            name="arrow-back"
+            size={30}
+            color={COLORS.black}
+            onPress={navigation.goBack}
+            style={{
+                paddingTop: 20,
+                paddingHorizontal: 20,
+                position:"relative",
+                left:10
+            }}
+        />
         <AuthenLayout
         title="Password Recovery"
         subtitle="Please enter your email address to recover your password"
@@ -73,6 +94,7 @@ const ForgotPassword= ({navigation}) => {
 
             />
         </AuthenLayout>
+        </View>
     )
 }
 

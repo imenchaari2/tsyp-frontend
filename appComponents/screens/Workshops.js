@@ -98,7 +98,7 @@ const HomeScreen = ({navigation,drawerAnimationStyle}) => {
                     color={COLORS.gray}
                     onPress={navigation.goBack}
                     style={{
-                        borderColor: COLORS.lightGray1,
+                        borderColor: COLORS.darkGray,
                         borderWidth: 1,
                         borderRadius: 10,
                         width: 50,

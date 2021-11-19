@@ -7,7 +7,8 @@ const search = require("../assets/icons/search.png")
 const filter = require("../assets/icons/filter.png")
 const down_arrow = require("../assets/icons/down_arrow.png")
 const favourite = require("../assets/icons/favourite.png")
-
+const email = require("../assets/icons/email.png")
+const phone = require("../assets/icons/phone.png")
 const love = require("../assets/icons/love.png")
 const home = require("../assets/icons/home.png")
 const location = require("../assets/icons/location.png")
@@ -37,7 +38,8 @@ const cancel = require("../assets/icons/cancel.png")
 
 
 export default {
-
+email,
+    phone,
     cancel,
     eye,
     eyeClose,

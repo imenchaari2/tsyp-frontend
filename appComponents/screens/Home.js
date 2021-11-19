@@ -1,35 +1,3 @@
-/*
-import React from 'react';
-import {
-    View,
-    Text,
-    TouchableOpacity
-} from 'react-native';
-import {COLORS} from "../../constants";
-
-const Home = ({ navigation }) => {
-    return (
-        <View
-            style={{
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: COLORS.white
-            }}
-        >
-            <Text>Home</Text>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Home")}
-            >
-                <Text>Navigate to Home</Text>
-            </TouchableOpacity>
-        </View>
-    )
-}
-
-export default Home;
-
-*/
 import React from 'react';
 import {
     SafeAreaView,

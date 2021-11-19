@@ -7,6 +7,7 @@ import {AuthenLayout} from "../authentification";
 import {COLORS, FONTS, icons, SIZES} from "../../constants";
 import validation from "../../utils/validation";
 import {CustomButton, FormInput} from "../../utils";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 
 const SignUp= ({navigation}) => {
@@ -25,14 +26,27 @@ const SignUp= ({navigation}) => {
         <View
             style={{
                 flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
+                /*alignItems: 'center',
+                justifyContent: 'center',*/
+                backgroundColor: COLORS.white
 
             }}
         >
+            <Icon
+                name="arrow-back"
+                size={30}
+                color={COLORS.black}
+                onPress={navigation.goBack}
+                style={{
+                    paddingTop: 20,
+                    paddingHorizontal: 20,
+                    position:"relative",
+                    left:10
+                }}
+            />
         <AuthenLayout
         title="  Getting started  "
-        subtitle="   Please create an account to continue   "
+        subtitle="Please create an account to continue"
         titleContainerStyle={{
             marginTop: SIZES.radius
         }}

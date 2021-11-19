@@ -18,7 +18,9 @@ import ForgotPassword from "./ForgotPassword";
 import Authentification from "./Authentification";
 import plandetails from "./details/PlanDetails";
 import SpeakersDetailsScreen from "./details/speakersDetailsScreen";
+import ProfileContent from "./ProfileContent";
 export {
+    ProfileContent,
     SpeakersDetailsScreen,
     plandetails,
     Authentification,

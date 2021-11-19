@@ -5,11 +5,13 @@ import {
     StatusBar,
     StyleSheet,
     View,
-    Text, TouchableOpacity, Linking,
+    Text, TouchableOpacity, Linking, ScrollView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {COLORS} from "../../../constants";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import {CustomButton} from "../../../utils";
+import ExpoMailComposer from "expo-mail-composer/src/ExpoMailComposer";
 
 
 const DetailsScreen = ({navigation, route}) => {
@@ -58,12 +60,14 @@ const DetailsScreen = ({navigation, route}) => {
                 <Text style={{marginTop: 20, fontWeight: 'bold', fontSize: 20}}>
                     About the speaker
                 </Text>
+                <ScrollView>
                 <Text style={{marginTop: 20, lineHeight: 22}}>{place.details}</Text>
+                </ScrollView>
             </View>
             <View style={style.footer}>
-                <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+                <View style={{ flexDirection: 'row', alignItems: 'center'}}>
 
-                    <View style={{flexDirection: 'row', marginLeft:70}}>
+                    <View style={{ marginLeft:70}}>
                     <View style={style.iconContainer}>
                         <FontAwesome5 name="facebook-square" color={COLORS.blue} size={40}
                                       onPress={()=>Linking.openURL(place.facebook)}/>
@@ -85,11 +89,22 @@ const DetailsScreen = ({navigation, route}) => {
                     </View>
                 </View>
                 <View style={style.bookNowBtn}>
-                    <TouchableOpacity>
-                        <Text
-                        style={{color: COLORS.gold, fontSize: 16, fontWeight: 'bold'}}>
-                            Contact</Text>
-                    </TouchableOpacity>
+                    <CustomButton
+                        buttonText="Contact"
+
+                        buttonContainerStyle={{
+                            color: COLORS.gold, fontSize: 30, fontWeight: 'bold'
+                        }}
+                        colors={[]}
+                        onPress={() => {
+                            ExpoMailComposer.composeAsync({
+                                recipients:
+                                    ['lfavre3@gmail.com'],
+                                subject: '',
+                                body: '',
+                            }).then(r => console.log(r));
+                        }}
+                    />
                 </View>
             </View>
         </SafeAreaView>
@@ -118,10 +133,9 @@ const style = StyleSheet.create({
         alignItems: 'center',
     },
     detailsContainer: {
-        top: -30,
+        top: -40,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
-        paddingVertical: 40,
         paddingHorizontal: 20,
         backgroundColor: COLORS.white,
         flex: 0.3,
@@ -142,7 +156,7 @@ const style = StyleSheet.create({
     },
     footer: {
         flexDirection: 'row',
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORS.doree1,
         height: 70,
         justifyContent: 'space-between',
         alignItems: 'center',

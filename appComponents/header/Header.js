@@ -1,14 +1,15 @@
 import React from "react";
 import {
     View,
-    Text
+    Text, ImageBackground
 } from 'react-native';
-import {FONTS} from "../../constants";
+import {COLORS, FONTS, images} from "../../constants";
 const Header = ({containerStyle, title, leftComponent, rightComponent})=>{
     return(
         <View
             style = {{
                 flexDirection: 'row',
+                /*backgroundColor:COLORS.black,*/
                 ...containerStyle
             }}
         >

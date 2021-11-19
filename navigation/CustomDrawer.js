@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text,Image,TouchableOpacity} from "react-native";
+import {View, Text, Image, TouchableOpacity, ScrollView} from "react-native";
 import {DrawerContentScrollView,createDrawerNavigator} from "@react-navigation/drawer";
 import {images, COLORS, SIZES, FONTS,constants} from "../constants";
 import {Feedback, MainLayout} from "../appComponents/screens";
@@ -130,6 +130,7 @@ const CustomDrawerContent = ({navigation}) =>{
 
                 </TouchableOpacity>
                 {/*drawer Items*/}
+                <ScrollView>
                 <View
                     style={{
                         flex: 1,
@@ -218,13 +219,6 @@ const CustomDrawerContent = ({navigation}) =>{
                             navigation.navigate("checkIn")
                         }}
                     />
-                    <View
-                        style={{
-                            height: 1,
-                            marginVertical: SIZES.radius,
-                            backgroundColor: COLORS.doree
-                        }}
-                    />
                     <CustomDrawerItem
                         label="Feedback"
                         icon={icons.star}
@@ -232,9 +226,14 @@ const CustomDrawerContent = ({navigation}) =>{
                             navigation.navigate("Feedback")
                         }}
                     />
+                    <View
+                        style={{
+                            height: 1,
+                            marginVertical: SIZES.radius,
+                            backgroundColor: COLORS.doree
+                        }}
+                    />
 
-
-                </View>
                 {/*logout*/}
                 <View
                     style={{
@@ -249,6 +248,9 @@ const CustomDrawerContent = ({navigation}) =>{
                         }}
                     />
                 </View>
+
+                </View>
+                </ScrollView>
 
             </View>
 

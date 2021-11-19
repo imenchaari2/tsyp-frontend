@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import {COLORS} from "../../constants";
 
 export default function Scan() {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
-    const [text, setText] = useState('Not yet scanned')
+    const [text, setText] = useState('Not scanned yet')
 
     const askForCameraPermission = () => {
         (async () => {
@@ -22,7 +23,11 @@ export default function Scan() {
     // What happens when we scan the bar code
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        setText(data)
+        if (data === 'exp://192.168.1.6:19000'){
+            setText('Allowed to get in ✅' )}
+        else{
+            setText('Not allowed to get in ! 🚫')
+        }
         console.log('Type: ' + type + '\nData: ' + data)
     };
 
@@ -47,11 +52,11 @@ export default function Scan() {
             <View style={styles.barcodebox}>
                 <BarCodeScanner
                     onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-                    style={{ height: 400, width: 400 }} />
+                    style={{ height: 500, width: 500 }} />
             </View>
-            <Text style={styles.maintext}>{text}</Text>
+            <Text style={text ==='Not allowed to get in ! 🚫' ?styles.maintextNot : text ==='Not scanned yet' ? styles.maintext : styles.maintextyes}>{text}</Text>
 
-            {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color='tomato' />}
+            {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color= {COLORS.gold} />}
         </View>
     );
 }
@@ -64,17 +69,30 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     maintext: {
-        fontSize: 16,
+        fontSize: 20,
         margin: 20,
+        color: COLORS.black,
+        fontWeight: 'bold'
+    },
+    maintextyes: {
+        fontSize: 20,
+        margin: 20,
+        color: COLORS.green,
+        fontWeight: 'bold'
+    },
+    maintextNot: {
+        fontSize: 20,
+        margin: 20,
+        color: COLORS.red,
+        fontWeight: 'bold'
     },
     barcodebox: {
         alignItems: 'center',
         justifyContent: 'center',
-        height: 300,
-        width: 300,
+        height: 400,
+        width: 320,
         overflow: 'hidden',
         borderRadius: 30,
-        backgroundColor: 'tomato'
     }
 });
 
