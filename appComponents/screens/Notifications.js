@@ -9,6 +9,8 @@ import {CustomSwitch} from "../../utils";
 import notificationList from "./details/notificationList";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {useSelector} from "react-redux";
+import { useAppDispatch } from '../redux/store';
+import { pushAllprofile } from '../redux/profile/profileSlice';
 const style = StyleSheet.create({
 
     userDetail: {
@@ -104,8 +106,9 @@ export default function App() {
     const [notification, setNotification] = useState(false);
     const notificationListener = useRef();
     const responseListener = useRef();
-    const count = useSelector((state) => state.user)
-    console.log(count,"count")
+    const notificationValue = useSelector((state) => state.profileSlice.profile?.notification)
+    const dispatch =useAppDispatch()
+ 
     useEffect(() => {
         registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
 
@@ -161,9 +164,11 @@ export default function App() {
                             </Text>
                         </View>
                         <CustomSwitchNotification
-                            value={saveMe}
+                            value={notificationValue||saveMe}
                             onchange={async (value) => {
+
                                 setSaveMe(value);
+                                dispatch(pushAllprofile({notification:value}))
                                 if (saveMe=== true) {
                                     await schedulePushNotification();
                                 }}}

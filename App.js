@@ -16,12 +16,18 @@ import {
     UserProfile
 } from "./appComponents/screens";
 import {Provider} from "react-redux";
-import store from "./appComponents/redux/store";
+import { PersistGate } from "redux-persist/integration/react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { persistor, Store } from './appComponents/redux/store';
+
+
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
-      <Provider store={store}>
+    <SafeAreaProvider>
+   <Provider store={Store}>
+        <PersistGate persistor={persistor}>
       <NavigationContainer>
           <Stack.Navigator
               screenOptions={{
@@ -53,7 +59,9 @@ const App = () => {
 
           </Stack.Navigator>
       </NavigationContainer>
+      </PersistGate>
       </Provider>
+    </SafeAreaProvider>
 
   )
 }
