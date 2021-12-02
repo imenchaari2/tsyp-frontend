@@ -199,13 +199,6 @@ const CustomDrawerContent = ({navigation}) =>{
                         }}
                     />
                     <CustomDrawerItem
-                        label={constants.screens.news}
-                        icon={icons.news}
-                        onPress={()=> {
-                            navigation.navigate("news")
-                        }}
-                    />
-                    <CustomDrawerItem
                         label={constants.screens.trackingMap}
                         icon={icons.trackingMap}
                         onPress={()=> {

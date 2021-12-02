@@ -99,7 +99,7 @@ const DetailsScreen = ({navigation, route}) => {
                         onPress={() => {
                             ExpoMailComposer.composeAsync({
                                 recipients:
-                                    ['lfavre3@gmail.com'],
+                                    [place.email],
                                 subject: '',
                                 body: '',
                             }).then(r => console.log(r));

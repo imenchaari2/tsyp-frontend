@@ -2,7 +2,6 @@ import OnBoarding from "./OnBoarding";
 import MainLayout from "./MainLayout"
 import Home from "./Home";
 import Notifications from "./Notifications";
-import News from "./News";
 import QrCodeScanner from "./QrCodeScanner";
 import Speakers from "./Speakers";
 import TsypPlan from "./Tsyp-Plan";
@@ -31,7 +30,6 @@ export {
     MainLayout,
     Home,
     Notifications,
-    News,
     TsypPlan,
     Speakers,
     Workshops,

@@ -6,6 +6,7 @@ import {
 import speakerDetails from "./details/speakerDetails";
 import {COLORS} from "../../constants";
 import Icon from "react-native-vector-icons/MaterialIcons";
+
 const {width} = Dimensions.get('screen');
 
 const Speakers = ({navigation}) => {
@@ -53,14 +54,14 @@ const Speakers = ({navigation}) => {
                         borderRadius: 10,
                         width: 50,
                         height: 47,
-                        padding : 5
+                        padding: 5
                     }}
 
                 />
                 <Text
                     style={{
                         textAlign: 'center',
-                        flex:1,
+                        flex: 1,
                         color: COLORS.gold,
                         fontSize: 18,
                         fontWeight: 'bold',
@@ -70,31 +71,32 @@ const Speakers = ({navigation}) => {
 
 
             </View>
-            <Text style={style.userDetail}>Get the chance to know more about your favourite speaker and contact him for more details 😊</Text>
+            <Text style={style.userDetail}>Get the chance to know more about your favourite speaker and contact him for
+                more details 😊</Text>
 
             <ScrollView showsVerticalScrollIndicator={false}>
 
-        <Text style={style.sectionTitle}>Speakers of Workshops</Text>
-    <View>
-        <FlatList
-            contentContainerStyle={{paddingLeft: 20}}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={speakerDetails}
-            renderItem={({item}) => <Card place={item} />}
-        />
-    </View>
-        <Text style={style.sectionTitle}>Speakers of ceremonies</Text>
-        <View>
-            <FlatList
-                contentContainerStyle={{paddingLeft: 20}}
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                data={speakerDetails}
-                renderItem={({item}) => <Card place={item} />}
-            />
-        </View>
-        </ScrollView>
+                <Text style={style.sectionTitle}>Speakers of Workshops</Text>
+                <View>
+                    <FlatList
+                        contentContainerStyle={{paddingLeft: 20}}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        data={speakerDetails}
+                        renderItem={({item}) => <Card place={item}/>}
+                    />
+                </View>
+                <Text style={style.sectionTitle}>Speakers of ceremonies</Text>
+                <View>
+                    <FlatList
+                        contentContainerStyle={{paddingLeft: 20}}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        data={speakerDetails}
+                        renderItem={({item}) => <Card place={item}/>}
+                    />
+                </View>
+            </ScrollView>
         </SafeAreaView>
     )
 }
@@ -110,7 +112,7 @@ const style = StyleSheet.create({
         backgroundColor: COLORS.lightGray2,
         paddingHorizontal: 22,
         color: COLORS.darkGray2,
-        borderRadius:15,
+        borderRadius: 15,
         marginHorizontal: 10,
         textAlign: 'auto',
         fontSize: 12.5,
