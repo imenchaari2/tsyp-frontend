@@ -9,7 +9,7 @@ import {
   StyleSheet, ScrollView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {COLORS} from "../../../constants";
+import {COLORS, images} from "../../../constants";
 import {CustomButton} from "../../../utils";
 
 const DetailsScreen = ({navigation, route}) => {
@@ -19,8 +19,9 @@ const DetailsScreen = ({navigation, route}) => {
       <StatusBar backgroundColor={COLORS.black} />
       <View style={{height: 400, backgroundColor: COLORS.light}}>
         <ImageBackground
-          resizeMode="contain"
-          source={workshop?.image}
+          resizeMode="cover"
+          /*source={workshop?.image}*/
+            source={images.ilyes}
           style={{
             height: 280,
           }}>
@@ -71,7 +72,7 @@ const DetailsScreen = ({navigation, route}) => {
           {/* Render user image , name and date */}
           <View style={{flexDirection: 'row', paddingHorizontal: 20}}>
             <Image
-              source={require('../../../assets/images/profile.png')}
+              source={require('../../../assets/images/ilyes.jpg')}
               style={{height: 40, width: 40, borderRadius: 20}}
             />
             <View style={{flex: 1, paddingLeft: 10}}>

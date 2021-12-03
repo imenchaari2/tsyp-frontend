@@ -123,18 +123,7 @@ const HomeScreen = ({navigation,drawerAnimationStyle}) => {
             </View>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={style.mainContainer}>
-                    {/* Render the search inputs and icons */}
-                    <View style={style.searchInputContainer}>
-                        <Icon name="magnify" size={24} color={COLORS.gray} />
-                        <TextInput
-                            placeholderTextColor={COLORS.grey}
-                            placeholder="Search workshops"
-                            style={{flex: 1}}
-                        />
-                        <Icon name="sort-ascending" size={24} color={COLORS.gray} />
-                    </View>
-
-                    {/* Render all the categories */}
+                                      {/* Render all the categories */}
                     <View
                         style={{
                             flexDirection: 'row',
@@ -211,18 +200,6 @@ const style = StyleSheet.create({
         padding: 20,
         justifyContent: 'space-between',
         backgroundColor: COLORS.white
-    },
-
-    searchInputContainer: {
-        height: 50,
-        backgroundColor: COLORS.white,
-        borderRadius: 15,
-        borderColor: COLORS.gray,
-        borderWidth:0.5,
-        paddingHorizontal: 20,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
     },
     categoryBtn: {
         height: 100,

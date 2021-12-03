@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import {
     View,
     Text,
@@ -9,8 +9,33 @@ import {
 import {LinearGradient} from 'expo-linear-gradient';
 import { images,COLORS,SIZES,FONTS} from "../../constants";
 import {CustomButton} from "../../utils"
+import {useAppDispatch} from "../redux/store";
+import {useNavigation} from "@react-navigation/native";
+import * as Notifications from "expo-notifications";
+import {addToNotificationList} from "../redux/profile/profileSlice";
 
 const OnBoarding = ({ navigation }) => {
+    const notificationListener = useRef();
+    const responseListener = useRef();
+
+
+
+    useEffect(() => {
+
+        notificationListener.current = Notifications.addNotificationResponseReceivedListener(value => {
+
+            console.log(value);
+            const url = value?.notification?.request?.content?.data?.data?.screen;
+            console.log(url);
+            url&&navigation.navigate(url);
+
+        });
+        return () => {
+            Notifications.removeNotificationSubscription(notificationListener.current);
+
+        };
+    }, []);
+
     function renderHeader() {
         return (
             <View

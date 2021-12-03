@@ -78,16 +78,22 @@ const Speakers = ({navigation}) => {
 
                 <Text style={style.sectionTitle}>Speakers of Workshops</Text>
                 <View>
-                    <FlatList
+                   {/* <FlatList
                         contentContainerStyle={{paddingLeft: 20}}
                         horizontal
                         showsHorizontalScrollIndicator={false}
                         data={speakerDetails}
                         renderItem={({item}) => <Card place={item}/>}
-                    />
+                    />*/}
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                        {speakerDetails.map((item,index)=>{
+                            return(<Card place={item} key={index}/>)
+                        })}
+                    </ScrollView>
+
                 </View>
                 <Text style={style.sectionTitle}>Speakers of ceremonies</Text>
-                <View>
+              {/*  <View>
                     <FlatList
                         contentContainerStyle={{paddingLeft: 20}}
                         horizontal
@@ -95,7 +101,7 @@ const Speakers = ({navigation}) => {
                         data={speakerDetails}
                         renderItem={({item}) => <Card place={item}/>}
                     />
-                </View>
+                </View>*/}
             </ScrollView>
         </SafeAreaView>
     )
