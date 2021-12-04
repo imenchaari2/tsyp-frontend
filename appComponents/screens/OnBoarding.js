@@ -102,13 +102,13 @@ const OnBoarding = ({ navigation }) => {
                 paddingHorizontal: SIZES.padding
             }}
             >
-                <Text
+                {/* <Text
                     style={{
                         color: COLORS.gold
                     }}
                 >
                     collaboration
-                </Text>
+                </Text> */}
                 <View
                     style={{
                         flex:1,
@@ -127,7 +127,7 @@ const OnBoarding = ({ navigation }) => {
                         colors={[COLORS.doree1, COLORS.gold]}
                         onPress={() => navigation.navigate("SignIn")}
                     />
-                    <CustomButton
+                    {/* <CustomButton
                         buttonText="SignUp"
                         buttonContainerStyle={{
                             marginTop:SIZES.radius,
@@ -138,7 +138,7 @@ const OnBoarding = ({ navigation }) => {
                         }}
                         colors={[]}
                         onPress={() => navigation.navigate("Home")}
-                    />
+                    /> */}
                 </View>
 
 

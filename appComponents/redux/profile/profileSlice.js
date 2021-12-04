@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   profile: {
     notification : false,
-    notificationList: []
+    notificationList: [],
+    user:null
   },
 
 };
@@ -17,9 +18,17 @@ const profileSlice = createSlice({
     addToNotificationList(state,action) {
       state.profile.notificationList.push(action);
     },
+    login(state,action) {
+      state.profile.user = action;
+      
+    },
+    logout(state) {
+      state.profile.user = null;
+    }
+
 
   },
 });
 
-export const { addToNotificationList,setNotificationState } = profileSlice.actions;
+export const { addToNotificationList,setNotificationState,login,logout } = profileSlice.actions;
 export default profileSlice.reducer;

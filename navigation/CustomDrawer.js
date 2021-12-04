@@ -12,6 +12,8 @@ import Speakers from "../appComponents/screens/Speakers";
 import News from "../appComponents/screens/News";
 import QrCodeScanner from "../appComponents/screens/QrCodeScanner";
 import Animated from "react-native-reanimated";
+import { useAppDispatch } from "../appComponents/redux/store";
+import { logout } from "../appComponents/redux/profile/profileSlice";
 const Drawer = createDrawerNavigator()
 
 const CustomDrawerItem = ({label, icon , isFocused,onPress}) =>{
@@ -50,6 +52,7 @@ const CustomDrawerItem = ({label, icon , isFocused,onPress}) =>{
 }
 
 const CustomDrawerContent = ({navigation}) =>{
+    const dispatch  = useAppDispatch()
     return(
         <DrawerContentScrollView
             scrollEnabled = {true}
@@ -237,7 +240,7 @@ const CustomDrawerContent = ({navigation}) =>{
                         label="Logout"
                         icon={icons.logout}
                         onPress={()=> {
-                            navigation.navigate("OnBoarding")
+                          dispatch(logout())
                         }}
                     />
                 </View>
