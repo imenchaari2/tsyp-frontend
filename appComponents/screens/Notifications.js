@@ -104,10 +104,15 @@ export default function App() {
                     <CustomSwitchNotification
                         value={notificationSlice.notification}
                         onchange={async (value) => {
-                            dispatch(setNotificationState())
-                            if (value === true) {
-                                await schedulePushNotification();
+                            try {
+                                dispatch(setNotificationState())
+                                if (value === true) {
+                                    await schedulePushNotification();
+                                }
+                            } catch (error) {
+                                console.log(error);
                             }
+                           
                         }}
                     />
                 </View>
@@ -138,15 +143,20 @@ export default function App() {
 }
 
 async function schedulePushNotification() {
-    notificationList.map(async (item) => (
-        await Notifications.scheduleNotificationAsync({
-            content: {
-                title: item.title,
-                body: item.body,
-                data: {data: item.data},
-            },
-            trigger: item.trigger
-        })));
+    try {
+        
+        notificationList.map(async (item) => (
+            await Notifications.scheduleNotificationAsync({
+                content: {
+                    title: item.title,
+                    body: item.body,
+                    data: {data: item.data},
+                },
+                trigger: item.trigger
+            })));
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 async function registerForPushNotificationsAsync() {

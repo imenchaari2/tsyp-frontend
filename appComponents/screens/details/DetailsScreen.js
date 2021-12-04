@@ -23,7 +23,7 @@ const DetailsScreen = ({navigation, route}) => {
           /*source={workshop?.image}*/
             source={images.ilyes}
           style={{
-            height: 280,
+            height: "100%",
           }}>
           {/* Render  Header */}
           <View style={style.header}>
@@ -141,12 +141,21 @@ const style = StyleSheet.create({
   detailsContainer: {
     height: 120,
     backgroundColor: COLORS.white,
-    marginHorizontal: 20,
-    bottom: -60,
+    marginHorizontal: 10,
+    bottom: 60,
     borderRadius: 18,
     elevation: 10,
     padding: 20,
     justifyContent: 'center',
+    shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 2,
+},
+shadowOpacity: 0.25,
+shadowRadius: 3.84,
+
+elevation: 8,
   },
   comment: {
     marginTop: 10,

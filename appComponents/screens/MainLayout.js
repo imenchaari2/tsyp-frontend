@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, TouchableOpacity,View,StyleSheet} from 'react-native';
+import {Image, Text, TouchableOpacity,View,StyleSheet, Platform} from 'react-native';
 import {COLORS, constants, FONTS, icons, images, SIZES,} from "../../constants";
 import Animated from "react-native-reanimated";
 import {Header} from "../header";
@@ -11,6 +11,7 @@ import { isIphoneX } from 'react-native-iphone-x-helper'
 import Home from "./Home";
 import {QrCodeScanner, TrackingMap, TsypPlan, UserProfile} from "./index";
 import Notifications from "./Notifications";
+import Constants from 'expo-constants'
 
 const Tab = createBottomTabNavigator()
 
@@ -121,7 +122,7 @@ const MainLayout = ({navigation,drawerAnimationStyle}) => {
             containerStyle={{
                 height: 70,
                 paddingHorizontal: SIZES.padding,
-                paddingTop:20,
+                marginTop:  Constants.statusBarHeight,
                 alignItems: 'center'
             }}
             leftComponent={

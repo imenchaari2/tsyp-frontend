@@ -10,8 +10,13 @@ export default function Scan() {
 
     const askForCameraPermission = () => {
         (async () => {
-            const { status } = await BarCodeScanner.requestPermissionsAsync();
-            setHasPermission(status === 'granted');
+            try {
+                
+                const { status } = await BarCodeScanner.requestPermissionsAsync();
+                setHasPermission(status === 'granted');
+            } catch (error) {
+                console.log(error);
+            }
         })()
     }
 
