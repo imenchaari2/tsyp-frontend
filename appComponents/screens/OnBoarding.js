@@ -1,40 +1,15 @@
-import React, {useEffect, useRef} from "react";
-import {
-    View,
-    Text,
-    TouchableOpacity,
-    ImageBackground,
-    StatusBar
-} from 'react-native';
-import {LinearGradient} from 'expo-linear-gradient';
-import { images,COLORS,SIZES,FONTS} from "../../constants";
-import {CustomButton} from "../../utils"
-import {useAppDispatch} from "../redux/store";
-import {useNavigation} from "@react-navigation/native";
+import { LinearGradient } from 'expo-linear-gradient';
 import * as Notifications from "expo-notifications";
-import {addToNotificationList} from "../redux/profile/profileSlice";
+import React, { useEffect, useRef } from "react";
+import {
+    ImageBackground,
+    StatusBar, Text, View
+} from 'react-native';
+import { COLORS, FONTS, images, SIZES } from "../../constants";
+import { CustomButton } from "../../utils";
 
 const OnBoarding = ({ navigation }) => {
-    const notificationListener = useRef();
-    const responseListener = useRef();
-
-
-
-    useEffect(() => {
-
-        notificationListener.current = Notifications.addNotificationResponseReceivedListener(value => {
-
-            console.log(value);
-            const url = value?.notification?.request?.content?.data?.data?.screen;
-            console.log(url);
-            url&&navigation.navigate(url);
-
-        });
-        return () => {
-            Notifications.removeNotificationSubscription(notificationListener.current);
-
-        };
-    }, []);
+   
 
     function renderHeader() {
         return (

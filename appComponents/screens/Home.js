@@ -1,22 +1,34 @@
-import React from 'react';
+import * as Notifications from "expo-notifications";
+import React, { useEffect, useRef } from 'react';
 import {
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-    StyleSheet,
-    View,
-    Text,
-    TextInput,
-    ImageBackground,
-    FlatList,
-    Dimensions,
-    TouchableOpacity,
+    Dimensions, ImageBackground, SafeAreaView, StyleSheet,
+    View
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import {COLORS, images} from "../../constants";
-import speakerDetails from "./details/speakerDetails";
+import { COLORS, images } from "../../constants";
+
 const {width} = Dimensions.get('screen');
 const HomeScreen = ({navigation}) => {
+    const notificationListener = useRef();
+    const responseListener = useRef();
+
+
+
+    useEffect(() => {
+
+        notificationListener.current = Notifications.addNotificationResponseReceivedListener(value => {
+
+            console.log(value);
+            const url = value?.notification?.request?.content?.data?.data?.screen;
+            console.log(url);
+            url&&navigation.navigate(url);
+
+        });
+        return () => {
+            Notifications.removeNotificationSubscription(notificationListener.current);
+
+        };
+    }, []);
+
 
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
