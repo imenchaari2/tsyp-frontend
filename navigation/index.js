@@ -9,13 +9,15 @@ import {
 } from "../appComponents/screens";
 import OnBoarding from "../appComponents/screens/OnBoarding";
 import CustomDrawer from "../navigation/CustomDrawer";
-
+import { NavigationContainer } from '@react-navigation/native';
 const Stack = createStackNavigator();
 
 const Navigator = () => {
-  const user = useSelector((state) => state.profileSlice.profile.user);
+  const user = useSelector((state) => state?.profileSlice?.profile?.token);
+  console.log(user);
   if (user) {
     return (
+      <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
@@ -36,9 +38,12 @@ const Navigator = () => {
         />
         <Stack.Screen name="ProfileContent" component={ProfileContent} />
       </Stack.Navigator>
+      </NavigationContainer>
+  
     );
   } else {
     return (
+      <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
@@ -49,6 +54,7 @@ const Navigator = () => {
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="SignIn" component={SignIn} />
       </Stack.Navigator>
+      </NavigationContainer>
     );
   }
 };
