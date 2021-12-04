@@ -152,9 +152,32 @@ const SignIn = ({ navigation }) => {
             }}
             onPress={() => {
               //request to server auth get response push it in redux
+//post request auth using fetch
+fetch('http://51.38.248.170/tsyp/api/login_check', {
 
-              dispatch(login({ email, password }));
-            }}
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        username: email,
+        password: password,
+    })
+
+}).then((response) => response.json())
+    .then((responseJson) => {
+        console.log(responseJson);
+        dispatch(login(responseJson));
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+          
+
+            
+           //   dispatch(login({ email, password }));
+}}
             colors={
               isEnableSignIn()
                 ? [COLORS.doree, COLORS.doree1]

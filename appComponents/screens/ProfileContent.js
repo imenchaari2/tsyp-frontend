@@ -31,7 +31,8 @@ const ProfileContent= ({navigation}) =>{
         <View
             style={{
                 flex: 1,
-                backgroundColor: COLORS.white
+                backgroundColor: COLORS.white,
+                marginTop:-30
 
             }}
         >

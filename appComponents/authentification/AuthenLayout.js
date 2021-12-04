@@ -14,7 +14,7 @@ const AuthenLayout= ({title, subtitle,titleContainerStyle, children}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 paddingVertical: SIZES.padding,
-                backgroundColor: COLORS.white
+                backgroundColor: COLORS.white,
 
             }}
         >
