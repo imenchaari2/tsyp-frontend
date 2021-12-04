@@ -3,10 +3,12 @@ import {
     View,
     Text
 } from 'react-native';
+import Layout from '../../utils/Layout';
 
 
 const News = () => {
     return (
+        <Layout>
         <View
             style={{
                 flex: 1,
@@ -17,6 +19,7 @@ const News = () => {
         >
             <Text> News </Text>
         </View>
+        </Layout>
     )
 }
 
