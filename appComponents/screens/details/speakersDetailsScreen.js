@@ -37,22 +37,7 @@ const DetailsScreen = ({navigation, route}) => {
                     left:0}}>
 
                 </View>*/}
-                    <View style={{
-                        position: "absolute", marginBottom: 48,
-                        padding: 16,
-                        bottom: 0,
 
-
-                        zIndex: 5,
-                        left: 0
-                    }}>
-                        <Text style={{
-                            color: COLORS.black,
-                            padding: 10,
-                            fontWeight: 'bold',
-                            marginLeft: 20, fontSize: 20
-                        }}>{place.name}</Text>
-                    </View>
                 </View>
                 <View style={[style.detailsContainer, {
                     shadowColor: "#000",
@@ -85,7 +70,7 @@ const DetailsScreen = ({navigation, route}) => {
                     </View>
                     <ScrollView style={{height:"100%"}} showsVerticalScrollIndicator={false}>
                         <Text style={{marginTop: 20, fontWeight: 'bold', fontSize: 20}}>
-                            About the speaker
+                            {place.name}
                         </Text>
 
                         <Text style={{marginTop: 20, lineHeight: 22,}}>{place.details}</Text>

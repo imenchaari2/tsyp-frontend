@@ -196,7 +196,11 @@ const UserProfile = ({navigation}) => {
 
             }}
         >
-            <View style={style.header}>
+            <View style={{flexDirection: 'row',
+                padding: 20,
+                marginTop: 20,
+                justifyContent: 'space-between',
+                backgroundColor: COLORS.white}}>
 
                 <Icon
                     name="arrow-left"
@@ -276,6 +280,7 @@ const style = StyleSheet.create({
     header: {
         flexDirection: 'row',
         padding: 20,
+        marginTop: 20,
         justifyContent: 'space-between',
         backgroundColor: COLORS.white
     }

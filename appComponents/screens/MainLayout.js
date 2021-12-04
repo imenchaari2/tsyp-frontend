@@ -122,7 +122,7 @@ const MainLayout = ({navigation,drawerAnimationStyle}) => {
             containerStyle={{
                 height: 70,
                 paddingHorizontal: SIZES.padding,
-                marginTop:  Constants.statusBarHeight,
+                marginTop: Platform.OS === 'ios' ? Constants.statusBarHeight:35,
                 alignItems: 'center'
             }}
             leftComponent={

@@ -144,7 +144,6 @@ const style = StyleSheet.create({
     marginHorizontal: 10,
     bottom: 60,
     borderRadius: 18,
-    elevation: 10,
     padding: 20,
     justifyContent: 'center',
     shadowColor: "#000",

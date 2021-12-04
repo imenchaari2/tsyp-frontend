@@ -60,7 +60,7 @@ const DetailsScreen = ({navigation, route}) => {
                 </View>
                 <ScrollView>
                 <Text style={{marginTop: 20, fontWeight: 'bold', fontSize: 20}}>
-                    About the speaker
+                    {place.name}
                 </Text>
 
                 <Text style={{marginTop: 20, lineHeight: 22}}>{place.details}</Text>

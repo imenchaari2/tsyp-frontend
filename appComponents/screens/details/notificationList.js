@@ -32,9 +32,8 @@ const notificationList = [
     },   {
         title: "taw' ",
         body: 'notification body',
-        trigger: new Date('December 04, 2021 15:16:00'),
-        data:{screen:"Feedback"},
-        image: require('../../../assets/images/coronaReminder.png'),
+        trigger: new Date('December 04, 2021 20:42:00'),
+        data:{screen:"Feedback",image: require('../../../assets/images/coronaReminder.png')},
 
     },
     {
@@ -43,9 +42,11 @@ const notificationList = [
         trigger: new Date('December 04, 2021 14:29:00')
     },
     {
-        title: "'November 16, 2021 17:20:00'",
+        title: "corona reminder",
         body: 'notification body',
-        trigger: new Date('December 03, 2021 23:16:40')
+        trigger: new Date('December 04, 2021 20:36:00'),
+        data:{image: require('../../../assets/images/coronaReminder.png')},
+
     }
 ];
 

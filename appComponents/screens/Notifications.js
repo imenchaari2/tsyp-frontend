@@ -63,7 +63,7 @@ Notifications.setNotificationHandler({
 export default function App() {
     const dispatch = useAppDispatch()
     const notificationSlice = useSelector((state) => state.profileSlice.profile)
-    console.log(notificationSlice)
+    console.log(notificationSlice,"notifsLice")
 
 
     return (
@@ -112,7 +112,7 @@ export default function App() {
                             } catch (error) {
                                 console.log(error);
                             }
-                           
+
                         }}
                     />
                 </View>
@@ -122,16 +122,16 @@ export default function App() {
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
                 {notificationSlice.notificationList.map((item, index) => (
                     <View key={index} style={style.notificationDetail}>
-                        <View style={style.HeaderLeftImageView}>
+                        {/*<View style={style.HeaderLeftImageView}>
                             <Image
                                 style={style.HeaderLeftImage}
-                                source={item?.payload?.request?.content?.data?.data?.image}
+                                source={images.logo}
                             />
-                        </View>
+                        </View>*/}
                         <View style={{flexDirection: 'row', marginLeft: 10}}>
                             <View>
-                                <Text>title :{item?.payload?.request?.content?.title}</Text>
-                                <Text>body: {item?.payload?.request?.content?.body}</Text>
+                                <Text>title :{item?.notification?.payload?.request?.content?.title}</Text>
+                                <Text>body: {item?.notification?.payload?.request?.content?.body}</Text>
                             </View>
                         </View>
                     </View>
@@ -144,7 +144,7 @@ export default function App() {
 
 async function schedulePushNotification() {
     try {
-        
+
         notificationList.map(async (item) => (
             await Notifications.scheduleNotificationAsync({
                 content: {
