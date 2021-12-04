@@ -125,7 +125,7 @@ export default function App() {
                         <View style={style.HeaderLeftImageView}>
                             <Image
                                 style={style.HeaderLeftImage}
-                                source={images.profile}
+                                source={item?.payload?.request?.content?.data?.data?.image}
                             />
                         </View>
                         <View style={{flexDirection: 'row', marginLeft: 10}}>
