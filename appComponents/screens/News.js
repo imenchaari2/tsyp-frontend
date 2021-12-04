@@ -8,7 +8,7 @@ import Layout from '../../utils/Layout';
 
 const News = () => {
     return (
-        <Layout>
+        <Layout  comp={()=>{return(<Text>hello</Text>)}}>
         <View
             style={{
                 flex: 1,
