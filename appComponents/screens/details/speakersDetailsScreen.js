@@ -18,8 +18,8 @@ const DetailsScreen = ({navigation, route}) => {
     const place = route.params;
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
-            <View flex={1} style={{backgroundColor: "red",position:"relative"}}>
-                <View style={{height:400}}>
+            <View  style={{position:"relative",flex:1}}>
+                <View  style={{flex:3}}>
 
 
                     <Image source={place.image}
@@ -39,17 +39,17 @@ const DetailsScreen = ({navigation, route}) => {
                 </View>*/}
 
                 </View>
-                <View style={[style.detailsContainer, {
-                    shadowColor: "#000",
-                    shadowOffset: {
-                        width: 4,
-                        height: 12,
+                <View style={[style.detailsContainer, {flex:3,
+                    // shadowColor: "#000",
+                    // shadowOffset: {
+                    //     width: 4,
+                    //     height: 12,
 
-                    },
-                    shadowOpacity: 0.58,
-                    shadowRadius: 16.00,
+                    // },
+                    // shadowOpacity: 0.58,
+                    // shadowRadius: 16.00,
 
-                    elevation: 24,
+                    // elevation: 24,
 
                 }]}>
                     <View style={style.iconContainer}>
@@ -69,13 +69,18 @@ const DetailsScreen = ({navigation, route}) => {
                         </Text>
                     </View>
                     <ScrollView style={{height:"100%"}} showsVerticalScrollIndicator={false}>
-                        <Text style={{marginTop: 20, fontWeight: 'bold', fontSize: 20}}>
+                        <View style={{padding:16}}>
+                        <Text style={{marginTop: 8, fontWeight: 'bold', fontSize: 20}}>
                             {place.name}
                         </Text>
 
                         <Text style={{marginTop: 20, lineHeight: 22,}}>{place.details}</Text>
+                        </View>
                     </ScrollView>
-                    <View style={[style.footer,{backgroundColor: "yellow",zIndex:55522,flex:1}]}>
+                   
+
+                </View>
+                <View style={[style.footer,{backgroundColor: "yellow",zIndex:55522,flex:0.5}]}>
                         <View style={{ flexDirection: 'row', alignItems: 'center'}}>
 
                             <View style={{ marginLeft:70}}>
@@ -119,8 +124,6 @@ const DetailsScreen = ({navigation, route}) => {
                         </View>
                     </View>
 
-                </View>
-
 
             </View>
 
@@ -150,10 +153,10 @@ const style = StyleSheet.create({
         alignItems: 'center',
     },
     detailsContainer: {
-        top: -40,
+        //top: -40,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
-        paddingHorizontal: 20,
+        //paddingHorizontal: 20,
         backgroundColor: COLORS.white,
         // flex: 0.6,
     },
@@ -168,7 +171,7 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '100%',
-        position: 'absolute',
+      //  position: 'absolute',
         bottom: 30,
     },
     footer: {
