@@ -1,7 +1,9 @@
 
 const logo = require("../assets/images/cropped-TSYP-SiteWebT.png")
 const logo1 = require("../assets/images/logo1.png")
+const logoTsyp = require("../assets/images/logoTsyp.png")
 const nasyp = require("../assets/images/nasyp.png")
+const sponsors = require("../assets/images/Gold_Sponsor_oval_large.png")
 const profile = require("../assets/images/cropped-TSYP-SiteWebT.png")
 const user = require("../assets/images/user.png")
 const tsyp = require("../assets/images/tsyp.jpg")
@@ -18,11 +20,19 @@ const gel = require("../assets/images/gel.png")
 const qrCode = require("../assets/images/qrcode.png")
 const rate = require("../assets/images/rate.png")
 const hotel = require("../assets/images/hotel.png")
+const press = require("../assets/images/ieeePress.png")
+const polina = require("../assets/images/polina.png")
+const primatec = require("../assets/images/primatec.png")
 const profileupdate = require("../assets/images/userProfile.png")
 const firstday = require("../assets/images/54053865-19-décembre-vecteur-plat-calendrier-icône-quotidienne-date-et-heure-jour-mois-vacances-.jpg")
 
 export default {
     logo1,
+    press,
+    polina,
+    primatec,
+    sponsors,
+    logoTsyp,
     photo,
     rate,
     hotel,

@@ -39,8 +39,8 @@ const ProfileValue =({icon, label , value })=>{
                 {label &&
                 <Text
                     style={{
-                        color: COLORS.gray,
-                        ...FONTS.body3
+                        color: COLORS.darkGray,
+                        ...FONTS.body4
                     }}
                 >
                     {label}
@@ -48,9 +48,7 @@ const ProfileValue =({icon, label , value })=>{
                 }
                 <Text
                     style={{
-                        ...FONTS.h3,
-                        fontWeight:'bold'
-                    }}
+                        ...FONTS.h4,}}
                 >
                     {value}
                 </Text>
