@@ -63,7 +63,7 @@ useEffect(() => {
   }
 }, [user]);
 
-  if (!user) {
+  if (user) {
     return (
       <NavigationContainer>
         <Stack.Navigator
