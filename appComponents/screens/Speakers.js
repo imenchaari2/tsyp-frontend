@@ -3,7 +3,8 @@ import {
     View,
     Text, FlatList, TouchableOpacity, ImageBackground, SafeAreaView, ScrollView, StyleSheet, Dimensions
 } from 'react-native';
-import speakerDetails from "./details/speakerDetails";
+import {speakerDetails} from "./details/speakerDetails";
+import {ceremoniesSpeakers} from "./details/speakerDetails";
 import {COLORS} from "../../constants";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Layout from "../../utils/Layout";
@@ -105,7 +106,7 @@ const Speakers = ({navigation}) => {
                     />
                 </View>*/}
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                    {speakerDetails.map((item,index)=>{
+                    {ceremoniesSpeakers.map((item,index)=>{
                         return(<Card place={item} key={index}/>)
                     })}
                 </ScrollView>

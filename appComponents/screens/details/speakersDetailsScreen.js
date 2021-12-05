@@ -12,14 +12,15 @@ import {COLORS} from "../../../constants";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import {CustomButton} from "../../../utils";
 import ExpoMailComposer from "expo-mail-composer/src/ExpoMailComposer";
+import Constants from "expo-constants";
 
 
 const DetailsScreen = ({navigation, route}) => {
     const place = route.params;
     return (
-        <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
-            <View flex={1} style={{backgroundColor: "red",position:"relative"}}>
-                <View style={{height:400}}>
+        <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white, marginTop: Constants.statusBarHeight}}>
+            <View  style={{position:"relative",flex:1}}>
+                <View  style={{flex:4}}>
 
 
                     <Image source={place.image}
@@ -39,23 +40,22 @@ const DetailsScreen = ({navigation, route}) => {
                 </View>*/}
 
                 </View>
-                <View style={[style.detailsContainer, {
-                    shadowColor: "#000",
-                    shadowOffset: {
-                        width: 4,
-                        height: 12,
+                <View style={[style.detailsContainer, {flex:3,
+                    // shadowColor: "#000",
+                    // shadowOffset: {
+                    //     width: 4,
+                    //     height: 12,
 
-                    },
-                    shadowOpacity: 0.58,
-                    shadowRadius: 16.00,
+                    // },
+                    // shadowOpacity: 0.58,
+                    // shadowRadius: 16.00,
 
-                    elevation: 24,
-
+                    // elevation: 24,
                 }]}>
                     <View style={style.iconContainer}>
                         <Icon name="favorite" color={COLORS.red} size={30}/>
                     </View>
-                    <View style={{flexDirection: 'row', padding: 8}}>
+                    <View style={{flexDirection: 'row', padding: 16}}>
                         <Icon name="place" size={28} color={COLORS.gold}/>
                         <Text
                             style={{
@@ -69,13 +69,18 @@ const DetailsScreen = ({navigation, route}) => {
                         </Text>
                     </View>
                     <ScrollView style={{height:"100%"}} showsVerticalScrollIndicator={false}>
-                        <Text style={{marginTop: 20, fontWeight: 'bold', fontSize: 20}}>
+                        <View style={{padding:16}}>
+                        <Text style={{marginTop: -10, fontWeight: 'bold', fontSize: 20}}>
                             {place.name}
                         </Text>
 
                         <Text style={{marginTop: 20, lineHeight: 22,}}>{place.details}</Text>
+                        </View>
                     </ScrollView>
-                    <View style={[style.footer,{backgroundColor: "yellow",zIndex:55522,flex:1}]}>
+
+
+                </View>
+                <View style={[style.footer,{backgroundColor: COLORS.doree,padding:10,zIndex:55522,flex:0.5}]}>
                         <View style={{ flexDirection: 'row', alignItems: 'center'}}>
 
                             <View style={{ marginLeft:70}}>
@@ -119,8 +124,6 @@ const DetailsScreen = ({navigation, route}) => {
                         </View>
                     </View>
 
-                </View>
-
 
             </View>
 
@@ -153,7 +156,7 @@ const style = StyleSheet.create({
         top: -40,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
-        paddingHorizontal: 20,
+        //paddingHorizontal: 20,
         backgroundColor: COLORS.white,
         // flex: 0.6,
     },
@@ -168,8 +171,8 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '100%',
-        position: 'absolute',
-        bottom: 30,
+      //  position: 'absolute',
+        bottom: 20,
     },
     footer: {
         flexDirection: 'row',
