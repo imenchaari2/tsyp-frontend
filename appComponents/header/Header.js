@@ -9,9 +9,6 @@ const Header = ({containerStyle, title, leftComponent, rightComponent})=>{
         <View
             style = {{
                 flexDirection: 'row',
-/*
-                backgroundColor:COLORS.black,
-*/
                 ...containerStyle
             }}
         >

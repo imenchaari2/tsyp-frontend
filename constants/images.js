@@ -1,5 +1,6 @@
 
 const logo = require("../assets/images/cropped-TSYP-SiteWebT.png")
+const logo1 = require("../assets/images/logo1.png")
 const nasyp = require("../assets/images/nasyp.png")
 const profile = require("../assets/images/cropped-TSYP-SiteWebT.png")
 const user = require("../assets/images/user.png")
@@ -21,6 +22,7 @@ const profileupdate = require("../assets/images/userProfile.png")
 const firstday = require("../assets/images/54053865-19-décembre-vecteur-plat-calendrier-icône-quotidienne-date-et-heure-jour-mois-vacances-.jpg")
 
 export default {
+    logo1,
     photo,
     rate,
     hotel,
