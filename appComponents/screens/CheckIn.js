@@ -10,53 +10,42 @@ import {CustomButton, FormInput} from "../../utils";
 import DatePicker from 'react-native-datepicker';
 import moment from "moment";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import Layout from "../../utils/Layout";
 
 
 
 const checkIn= ({navigation}) => {
     const [emailError, setEmailError] = React.useState("")
     const [email, setEmail] = React.useState("")
-    const [setFirstName] = React.useState("")
-    const [setLastName] = React.useState("")
-    const [setPhone] = React.useState("")
-    const [setCin] = React.useState("")
-    const [setRoomSharing] = React.useState("")
+    const [FirstName,setFirstName] = React.useState("")
+    const [LastName,setLastName] = React.useState("")
+    const [Phone,setPhone] = React.useState("")
+    const [Cin,setCin] = React.useState("")
+    const [RoomSharing,setRoomSharing] = React.useState("")
     const [state, setState] = React.useState(new Date())
     const [number, onChangeNumber] = React.useState(null);
 
     return (
-
+        <Layout>
         <View
             style={{
                 flex: 1,
-                /*alignItems: 'center',
-                justifyContent: 'center',*/
-                backgroundColor: COLORS.white
-
+                alignItems: 'center',
+                justifyContent: 'center',
             }}
         >
-            <Icon
-                name="arrow-back"
-                size={30}
-                color={COLORS.black}
-                onPress={navigation.goBack}
-                style={{
-                    paddingTop: 20,
-                    paddingHorizontal: 20,
-                    position:"relative",
-                    left:10
-                }}
-            />
+
             <AuthenLayout
                 title="Check In"
                 subtitle="Please fill in the form with your data"
                 titleContainerStyle={{
-                    marginTop: 10
+                    marginTop: 10,
+
                 }}
             >
 
 
-                <ScrollView>
+                <ScrollView showsVerticalScrollIndicator={false}>
                 <View
                     style={{
                         marginTop: SIZES.padding,
@@ -122,15 +111,7 @@ const checkIn= ({navigation}) => {
                         onchange={(value) =>{
                             setCin(value)
                         }}
-                        appendComponent={
-                            <TextInput
-                                style={{borderColor:COLORS.transparent }}
-                                onChangeText={onChangeNumber}
-                                value={number}
-                                placeholder="      "
-                                keyboardType="numeric"
-                            />
-                        }
+                        keyboardType="numeric"
                     />
                     </View>
 
@@ -170,7 +151,7 @@ const checkIn= ({navigation}) => {
                             setLastName(value)
                         }}
                     appendComponent={
-                        <View >
+                        <View style={{alignSelf:'center',marginLeft:-12}}>
                         <DatePicker
                             showIcon={true}
                             androidMode="spinner"
@@ -180,11 +161,9 @@ const checkIn= ({navigation}) => {
                             placeholder="DD/MM/YYYY"
                             format="DD-MM-YYYY"
                             minDate={moment().format('DD-MM-YYYY')}
-                            confirmBtnText="Chọn"
-                            cancelBtnText="Hủy"
                             customStyles={{
                                 dateInput: {
-                                    backgroundColor: COLORS.lightGray2,
+                                    backgroundColor: COLORS.light,
                                     borderColor: COLORS.transparent
 
                                 },
@@ -199,27 +178,26 @@ const checkIn= ({navigation}) => {
                         label="Check out date"
                         containerStyle={{
                             marginTop: SIZES.radius,
-                            width:'49%'
+                            width:'49%',
+
                         }}
                         onchange={(value) =>{
                             setLastName(value)
                         }}
                         appendComponent={
-                            <View >
+                            <View style={{alignSelf:'center',marginLeft:-12}}>
                                 <DatePicker
                                     showIcon={true}
                                     androidMode="spinner"
-                                    style={{ paddingVertical:8,}}
+                                    style={{ paddingVertical:8}}
                                     date={state}
                                     mode="date"
                                     placeholder="DD/MM/YYYY"
                                     format="DD-MM-YYYY"
                                     minDate={moment().format('DD-MM-YYYY')}
-                                    confirmBtnText="Chọn"
-                                    cancelBtnText="Hủy"
                                     customStyles={{
                                         dateInput: {
-                                            backgroundColor: COLORS.lightGray2,
+                                            backgroundColor: COLORS.light,
                                             borderColor: COLORS.transparent,
 
                                         },
@@ -254,9 +232,11 @@ const checkIn= ({navigation}) => {
                     />
                 </View>
                 </ScrollView>
+
             </AuthenLayout>
 
         </View>
+        </Layout>
 
     )
 }

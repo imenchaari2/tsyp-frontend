@@ -21,11 +21,14 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import {persistor, Store, useAppDispatch} from './appComponents/redux/store';
 
 import NavigatorContainer from './navigation';
+import {StatusBar} from "expo-status-bar";
+import {COLORS} from "./constants";
 const App = () => {
   return (
     <SafeAreaProvider>
    <Provider store={Store}>
         <PersistGate persistor={persistor}>
+            <StatusBar  style={"dark"} />
             <NavigatorContainer/>
       </PersistGate>
       </Provider>

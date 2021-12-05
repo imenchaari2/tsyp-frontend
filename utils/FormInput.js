@@ -16,7 +16,8 @@ const FormInput= ({
     keyboardType = "defaut",
     autoCompleteType ="off",
     autocapitalize ="none",
-    errorMsg =""
+    errorMsg ="",
+    ...other
 }) =>{
     return(
         <View
@@ -32,7 +33,8 @@ const FormInput= ({
             >
                 <Text
                     style={{
-                        color: COLORS.gray,
+                        color: COLORS.black,
+
                         ...FONTS.body4
                     }}
                 >
@@ -54,7 +56,9 @@ const FormInput= ({
                     paddingHorizontal: SIZES.padding,
                     marginTop: SIZES.base,
                     borderRadius: SIZES.radius,
-                    backgroundColor: COLORS.lightGray2
+borderColor:COLORS.brown1,
+                    backgroundColor:COLORS.light,
+                    borderWidth:0.7
                 }} >
                 {prependComponent}
                 <TextInput
@@ -69,6 +73,7 @@ const FormInput= ({
                     autoCompleteType={autoCompleteType}
                     autoCapitalize={autocapitalize}
                     onChangeText={(text)=> onchange(text)}
+                    {...other}
                />
                 {appendComponent}
 

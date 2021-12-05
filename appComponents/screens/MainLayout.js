@@ -1,13 +1,13 @@
 import React from 'react';
-import {Image, Text, TouchableOpacity,View,StyleSheet, Platform} from 'react-native';
+import {Image, Text, TouchableOpacity, View, StyleSheet, Platform} from 'react-native';
 import {COLORS, constants, FONTS, icons, images, SIZES,} from "../../constants";
 import Animated from "react-native-reanimated";
 import {Header} from "../header";
-import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
+import {createBottomTabNavigator, BottomTabBar} from "@react-navigation/bottom-tabs"
 import Svg, {
     Path
 } from 'react-native-svg'
-import { isIphoneX } from 'react-native-iphone-x-helper'
+import {isIphoneX} from 'react-native-iphone-x-helper'
 import Home from "./Home";
 import {QrCodeScanner, TrackingMap, TsypPlan, UserProfile} from "./index";
 import Notifications from "./Notifications";
@@ -15,7 +15,7 @@ import Constants from 'expo-constants'
 
 const Tab = createBottomTabNavigator()
 
-const TabBarCustomButton = ({ accessibilityLabel, accessibilityState, children, onPress }) => {
+const TabBarCustomButton = ({accessibilityLabel, accessibilityState, children, onPress}) => {
 
     const isSelected = accessibilityState.selected;
 
@@ -23,7 +23,7 @@ const TabBarCustomButton = ({ accessibilityLabel, accessibilityState, children, 
     if (isSelected) {
         return (
 
-            <Animated.View style={{ flex: 1, alignItems: 'center' }}>
+            <Animated.View style={{flex: 1, alignItems: 'center'}}>
                 <Animated.View
                     style={{
                         flexDirection: 'row',
@@ -107,226 +107,226 @@ const CustomTabBar = (props) => {
     }
 }
 
-const MainLayout = ({navigation,drawerAnimationStyle}) => {
+const MainLayout = ({navigation, drawerAnimationStyle}) => {
 
-    return(
-    <Animated.View
-        style={{
-            flex: 1,
-            backgroundColor: COLORS.white,
-            ...drawerAnimationStyle
-        }}
-    >
-        {/*Header*/}
-        <Header
-            containerStyle={{
-                height: 70,
-                paddingHorizontal: SIZES.padding,
-                marginTop: Platform.OS === 'ios' ? Constants.statusBarHeight:35,
-                alignItems: 'center'
-            }}
-            leftComponent={
-                <TouchableOpacity
-                    style = {{
-                        width: 40,
-                        height: 40,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        borderWidth: 1,
-                        borderColor: COLORS.darkGray,
-                        borderRadius: SIZES.radius,
-                        marginBottom:10,
-                    }}
-                    onPress={() => navigation.openDrawer()}
-                >
-                    <Image
-                        source={icons.menu}
-                        style = {{
-                            tintColor: COLORS.gray
-                        }}
-                    />
-                </TouchableOpacity>
-            }
-            rightComponent={
-                <TouchableOpacity
-                    style = {{
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        borderRadius: SIZES.radius,
-                        marginBottom:10,
-                    }}
-                >
-                    <Image
-                        source ={images.profile}
-                        style={{
-                            width: 49,
-                            height: 50,
-                            borderRadius: SIZES.radius
-                        }}
-
-                    />
-                </TouchableOpacity>
-            }
-
-
-        />
-        {/*content*/}
-        <View
+    return (
+        <Animated.View
             style={{
-                flex: 1
+                flex: 1,
+                backgroundColor: COLORS.white,
+                ...drawerAnimationStyle
             }}
-
->
-        <Tab.Navigator
-            screenOptions={{
-                headerShown: false,
-
-                style: {
-                    elevation: 10,
-                    flex:2,
-                    flexDirection: 'row',
-                    paddingHorizontal: SIZES.radius,
-                    paddingBottom: 10,
-                    borderTopLeftRadius: 200,
-                    borderTopRightRadius: 200,
-                    backgroundColor: COLORS.black,
-                    position: 'absolute',
-                    top: 20,
-                    left:0,
-                    right:0,
-                    height: 100,
-                },
-            "tabBarShowLabel": false,
-                "tabBarStyle":[
-                    {
-                        "display":"flex"
-                    },
-                    null
-                ]
-            }}
-            tabBar={(props) => (
-                <CustomTabBar
-                    props={props}
-                />
-            )}
         >
-
-            <Tab.Screen
-                name="home"
-                component={Home}
-                options={{
-                    tabBarIcon: ({ focused }) => (
-                        <Image
-                            source={icons.home}
-                            resizeMode="contain"
-                            style={{
-                                width: 30,
-                                height: 60,
-                                tintColor: focused ? COLORS.black : COLORS.gold
-                            }}
-                        />
-                    ),
-                    tabBarButton: (props) => (
-                        <TabBarCustomButton
-                            {...props}
-                        />
-                    )
+            {/*Header*/}
+            <Header
+                containerStyle={{
+                    height: 70,
+                    paddingHorizontal: SIZES.padding,
+                    marginTop: Platform.OS === 'ios' ? Constants.statusBarHeight : Constants.statusBarHeight,
+                    alignItems: 'center',
                 }}
-            />
-
-            <Tab.Screen
-                name="TsypPlan"
-                component={TsypPlan}
-                options={{
-                    tabBarIcon: ({ focused }) => (
+                leftComponent={
+                    <TouchableOpacity
+                        style={{
+                            width: 40,
+                            height: 40,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            borderWidth: 1,
+                            borderColor: COLORS.darkGray,
+                            borderRadius: SIZES.radius,
+                            marginBottom: 10,
+                        }}
+                        onPress={() => navigation.openDrawer()}
+                    >
                         <Image
-                            source={icons.tsypPlan}
-                            resizeMode="contain"
+                            source={icons.menu}
                             style={{
-                                width: 39,
-                                height: 40,
-                                tintColor: focused ? COLORS.black : COLORS.gold
+                                tintColor: COLORS.gray
                             }}
                         />
-                    ),
-                    tabBarButton: (props) => (
-                        <TabBarCustomButton
-                            {...props}
-                        />
-                    )
-                }}
-            />
-            <Tab.Screen
-                name="TrackingMap"
-                component={TrackingMap}
-                options={{
-                    tabBarIcon: ({ focused }) => (
+                    </TouchableOpacity>
+                }
+                rightComponent={
+                    <TouchableOpacity
+                        style={{
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            borderRadius: SIZES.radius,
+                            marginBottom: 10,
+                        }}
+                    >
                         <Image
-                            source={icons.trackingMap}
-                            resizeMode="contain"
+                            source={images.profile}
                             style={{
-                                width: 30,
-                                height: 60,
-                                tintColor: focused ? COLORS.black : COLORS.gold
+                                width: 49,
+                                height: 50,
+                                borderRadius: SIZES.radius
                             }}
-                        />
-                    ),
-                    tabBarButton: (props) => (
-                        <TabBarCustomButton
-                            {...props}
-                        />
-                    )
-                }}
-            />
-            <Tab.Screen
-                name="QrCode"
-                component={QrCodeScanner}
-                options={{
-                    tabBarIcon: ({ focused }) => (
-                        <Image
-                            source={icons.qrcode}
-                            resizeMode="contain"
-                            style={{
-                                width: 30,
-                                height:50,
-                                tintColor: focused ? COLORS.black : COLORS.gold
-                            }}
-                        />
-                    ),
-                    tabBarButton: (props) => (
-                        <TabBarCustomButton
-                            {...props}
 
                         />
-                    )
-                }}
-            />
-            <Tab.Screen
-                name="Notification"
-                component={Notifications}
-                options={{
-                    tabBarIcon: ({ focused }) => (
-                        <Image
-                            source={icons.notification}
-                            resizeMode="contain"
-                            style={{
-                                width: 35,
-                                height: 35,
-                                tintColor: focused ? COLORS.black : COLORS.gold
-                            }}
-                        />
-                    ),
-                    tabBarButton: (props) => (
-                        <TabBarCustomButton
-                            {...props}
-                        />
-                    )
-                }}
-            />
+                    </TouchableOpacity>
+                }
 
-        </Tab.Navigator>
-        </View>
-    </Animated.View>
+
+            />
+            {/*content*/}
+            <View
+                style={{
+                    flex: 1
+                }}
+
+            >
+                <Tab.Navigator
+                    screenOptions={{
+                        headerShown: false,
+
+                        style: {
+                            elevation: 10,
+                            flex: 2,
+                            flexDirection: 'row',
+                            paddingHorizontal: SIZES.radius,
+                            paddingBottom: 10,
+                            borderTopLeftRadius: 200,
+                            borderTopRightRadius: 200,
+                            backgroundColor: COLORS.black,
+                            position: 'absolute',
+                            top: 20,
+                            left: 0,
+                            right: 0,
+                            height: 100,
+                        },
+                        "tabBarShowLabel": false,
+                        "tabBarStyle": [
+                            {
+                                "display": "flex"
+                            },
+                            null
+                        ]
+                    }}
+                    tabBar={(props) => (
+                        <CustomTabBar
+                            props={props}
+                        />
+                    )}
+                >
+
+                    <Tab.Screen
+                        name="home"
+                        component={Home}
+                        options={{
+                            tabBarIcon: ({focused}) => (
+                                <Image
+                                    source={icons.home}
+                                    resizeMode="contain"
+                                    style={{
+                                        width: 25,
+                                        height: 40,
+                                        tintColor: focused ? COLORS.black : COLORS.gold
+                                    }}
+                                />
+                            ),
+                            tabBarButton: (props) => (
+                                <TabBarCustomButton
+                                    {...props}
+                                />
+                            )
+                        }}
+                    />
+
+                    <Tab.Screen
+                        name="TsypPlan"
+                        component={TsypPlan}
+                        options={{
+                            tabBarIcon: ({focused}) => (
+                                <Image
+                                    source={icons.tsypPlan}
+                                    resizeMode="contain"
+                                    style={{
+                                        width: 39,
+                                        height: 40,
+                                        tintColor: focused ? COLORS.black : COLORS.gold
+                                    }}
+                                />
+                            ),
+                            tabBarButton: (props) => (
+                                <TabBarCustomButton
+                                    {...props}
+                                />
+                            )
+                        }}
+                    />
+                    <Tab.Screen
+                        name="TrackingMap"
+                        component={TrackingMap}
+                        options={{
+                            tabBarIcon: ({focused}) => (
+                                <Image
+                                    source={icons.trackingMap}
+                                    resizeMode="contain"
+                                    style={{
+                                        width: 25,
+                                        height: 40,
+                                        tintColor: focused ? COLORS.black : COLORS.gold
+                                    }}
+                                />
+                            ),
+                            tabBarButton: (props) => (
+                                <TabBarCustomButton
+                                    {...props}
+                                />
+                            )
+                        }}
+                    />
+                    <Tab.Screen
+                        name="QrCode"
+                        component={QrCodeScanner}
+                        options={{
+                            tabBarIcon: ({focused}) => (
+                                <Image
+                                    source={icons.qrcode}
+                                    resizeMode="contain"
+                                    style={{
+                                        width: 25,
+                                        height: 40,
+                                        tintColor: focused ? COLORS.black : COLORS.gold
+                                    }}
+                                />
+                            ),
+                            tabBarButton: (props) => (
+                                <TabBarCustomButton
+                                    {...props}
+
+                                />
+                            )
+                        }}
+                    />
+                    <Tab.Screen
+                        name="Notification"
+                        component={Notifications}
+                        options={{
+                            tabBarIcon: ({focused}) => (
+                                <Image
+                                    source={icons.notification}
+                                    resizeMode="contain"
+                                    style={{
+                                        width: 25,
+                                        height: 40,
+                                        tintColor: focused ? COLORS.black : COLORS.gold
+                                    }}
+                                />
+                            ),
+                            tabBarButton: (props) => (
+                                <TabBarCustomButton
+                                    {...props}
+                                />
+                            )
+                        }}
+                    />
+
+                </Tab.Navigator>
+            </View>
+        </Animated.View>
 
     )
 }

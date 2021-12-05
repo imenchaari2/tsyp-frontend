@@ -23,8 +23,8 @@ const Card = ({day, navigation}) => {
                         source={icons.session1}
                         resizeMode="contain"
                         style={{
-                            width: 39,
-                            height: 40,
+                            width: 35,
+                            height: 35,
                             tintColor: selectedDayIndex
                                 ? COLORS.black
                                 : COLORS.gold,

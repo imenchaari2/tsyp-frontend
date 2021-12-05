@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import {COLORS} from "../../constants";
+import Layout from "../../utils/Layout";
 
 export default function Scan() {
     const [hasPermission, setHasPermission] = useState(null);
@@ -11,7 +12,7 @@ export default function Scan() {
     const askForCameraPermission = () => {
         (async () => {
             try {
-                
+
                 const { status } = await BarCodeScanner.requestPermissionsAsync();
                 setHasPermission(status === 'granted');
             } catch (error) {
@@ -63,33 +64,34 @@ export default function Scan() {
 
             {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color= {COLORS.gold} />}
         </View>
+
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor:COLORS.white3,
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
     },
     maintext: {
-        fontSize: 20,
+        fontSize: 18,
         margin: 20,
         color: COLORS.black,
-        fontWeight: 'bold'
+        fontWeight: '600'
     },
     maintextyes: {
-        fontSize: 20,
+        fontSize: 18,
         margin: 20,
         color: COLORS.green,
-        fontWeight: 'bold'
+        fontWeight: '600'
     },
     maintextNot: {
-        fontSize: 20,
+        fontSize: 18,
         margin: 20,
         color: COLORS.red,
-        fontWeight: 'bold'
+        fontWeight: '600'
     },
     barcodebox: {
         alignItems: 'center',

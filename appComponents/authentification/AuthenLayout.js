@@ -14,7 +14,6 @@ const AuthenLayout= ({title, subtitle,titleContainerStyle, children}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 paddingVertical: SIZES.padding,
-                backgroundColor: COLORS.white,
 
             }}
         >
@@ -50,7 +49,8 @@ const AuthenLayout= ({title, subtitle,titleContainerStyle, children}) => {
                     <Text
                         style={{
                             textAlign: 'center',
-                            ...FONTS.h2
+                            ...FONTS.h2,
+                            fontWeight:"600"
                         }}
                     >
                         {title}

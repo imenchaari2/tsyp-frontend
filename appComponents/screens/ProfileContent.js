@@ -10,44 +10,32 @@ import DatePicker from 'react-native-datepicker';
 import moment from "moment";
 import {AuthenLayout} from "../authentification";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import Layout from "../../utils/Layout";
 
 
 
 const ProfileContent= ({navigation}) =>{
     const [emailError, setEmailError] = React.useState("")
     const [email, setEmail] = React.useState("")
-    const [setOccupation] = React.useState("")
-    const [setFullName] = React.useState("")
-    const [setStudentBranch] = React.useState("")
-    const [setPhone] = React.useState("")
-    const [setId] = React.useState("")
-    const [setRoom] = React.useState("")
-    const [setHotel] = React.useState("")
-    const [setRoomSharing] = React.useState("")
+    const [Occupation,setOccupation] = React.useState("")
+    const [FullName,setFullName] = React.useState("")
+    const [StudentBranch,setStudentBranch] = React.useState("")
+    const [Phone,setPhone] = React.useState("")
+    const [Id,setId] = React.useState("")
+    const [Room,setRoom] = React.useState("")
+    const [Hotel,setHotel] = React.useState("")
+    const [RoomSharing,setRoomSharing] = React.useState("")
     const [number, onChangeNumber] = React.useState(null);
 
     return (
-
         <View
             style={{
                 flex: 1,
-                backgroundColor: COLORS.white,
-                marginTop:-30
-
+                alignItems: 'center',
+                justifyContent: 'center',
             }}
         >
-            <Icon
-                name="arrow-back"
-                size={30}
-                color={COLORS.black}
-                onPress={navigation.goBack}
-                style={{
-                    paddingTop: 20,
-                    paddingHorizontal: 20,
-                    position:"relative",
-                    left:10
-                }}
-            />
+            <Layout>
             <AuthenLayout
                 title="Profile Content"
                 subtitle="Please fill in the form with your data"
@@ -56,7 +44,7 @@ const ProfileContent= ({navigation}) =>{
                 }}
             >
 
-                <ScrollView>
+                <ScrollView showsVerticalScrollIndicator={false}>
                 <View
                     style={{
                         marginTop: SIZES.padding,
@@ -131,16 +119,7 @@ const ProfileContent= ({navigation}) =>{
                         onchange={(value) =>{
                             setId(value)
                         }}
-                        appendComponent={
-                            <TextInput
-                                style={{borderColor:COLORS.transparent }}
-                                onChangeText={onChangeNumber}
-                                value={number}
-                                placeholder="            "
-                                keyboardType="numeric"
-
-                            />
-                        }
+                        keyboardType="numeric"
                     />
                     </View>
 
@@ -190,14 +169,7 @@ const ProfileContent= ({navigation}) =>{
                             onchange={(value) =>{
                                 setRoom(value)
                             }}
-                            appendComponent={
-                                <TextInput
-                                    style={{borderColor:COLORS.transparent }}
-                                    onChangeText={onChangeNumber}
-                                    value={number}
-                                    keyboardType="numeric"
-                                />
-                            }
+                            keyboardType="numeric"
                         />
 
                     </View>
@@ -226,8 +198,9 @@ const ProfileContent= ({navigation}) =>{
                 </View>
                 </ScrollView>
             </AuthenLayout>
-
+            </Layout>
         </View>
+
 
     )
 }

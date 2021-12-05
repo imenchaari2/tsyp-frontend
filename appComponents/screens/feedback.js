@@ -6,8 +6,7 @@ import {
 import {COLORS, FONTS, icons, images, SIZES} from "../../constants";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {CustomButton, FormInput} from "../../utils";
-import validation from "../../utils/validation";
-import {setStatusBarBackgroundColor} from "expo-status-bar";
+import Constants from "expo-constants";
 
 
 const Feedback = ({navigation}) => {
@@ -21,21 +20,23 @@ const Feedback = ({navigation}) => {
         <View
             style={{
                 flex: 1,
-                backgroundColor: COLORS.white
+                backgroundColor: COLORS.white,
+                marginTop: Constants.statusBarHeight,
+
             }}
         >
             <View style={style.header}>
 
                 <Icon
                     name="arrow-left"
-                    size={35}
+                    size={30}
                     color={COLORS.gray}
                     onPress={navigation.goBack}
                     style={{
                         borderColor: COLORS.darkGray,
                         borderWidth: 1,
                         borderRadius: 10,
-                        width: 50,
+                        width: 47,
                         height: 47,
                         padding: 5,
 
@@ -120,7 +121,7 @@ const Feedback = ({navigation}) => {
                 }}
                 style={{
                     backgroundColor: COLORS.lightGray2,
-                    flex: 0.3,
+                    flex: 0.5,
                     borderRadius: 20,
                     marginHorizontal: 20,
                     marginTop: 50,

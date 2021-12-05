@@ -5,7 +5,9 @@ import {
 } from 'react-native';
 import speakerDetails from "./details/speakerDetails";
 import {COLORS} from "../../constants";
-import Icon from "react-native-vector-icons/MaterialIcons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Layout from "../../utils/Layout";
+import Constants from "expo-constants";
 
 const {width} = Dimensions.get('screen');
 
@@ -40,19 +42,19 @@ const Speakers = ({navigation}) => {
 
 
     return (
-        <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
+        <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white,paddingTop: Constants.statusBarHeight}}>
             <View style={style.header}>
 
                 <Icon
                     name="arrow-left"
-                    size={35}
+                    size={30}
                     color={COLORS.gray}
                     onPress={navigation.goBack}
                     style={{
                         borderColor: COLORS.darkGray,
                         borderWidth: 1,
                         borderRadius: 10,
-                        width: 50,
+                        width: 47,
                         height: 47,
                         padding: 5
                     }}
@@ -102,6 +104,11 @@ const Speakers = ({navigation}) => {
                         renderItem={({item}) => <Card place={item}/>}
                     />
                 </View>*/}
+                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                    {speakerDetails.map((item,index)=>{
+                        return(<Card place={item} key={index}/>)
+                    })}
+                </ScrollView>
             </ScrollView>
         </SafeAreaView>
     )
@@ -115,14 +122,15 @@ const style = StyleSheet.create({
         backgroundColor: COLORS.white,
     },
     userDetail: {
-        backgroundColor: COLORS.lightGray2,
+        backgroundColor: COLORS.white2,
         paddingHorizontal: 22,
-        color: COLORS.darkGray2,
+        color: COLORS.blue1,
         borderRadius: 15,
         marginHorizontal: 10,
         textAlign: 'auto',
-        fontSize: 12.5,
+        fontSize: 12.7,
         paddingVertical: 10,
+        elevation:8
     },
     iconContainer: {
         height: 60,
@@ -135,8 +143,9 @@ const style = StyleSheet.create({
     sectionTitle: {
         marginHorizontal: 20,
         marginVertical: 20,
-        fontWeight: 'bold',
-        fontSize: 20,
+        fontWeight: '700',
+        fontSize: 18,
+        color: COLORS.brown
     },
     cardImage: {
         height: 220,
@@ -145,6 +154,7 @@ const style = StyleSheet.create({
         padding: 10,
         overflow: 'hidden',
         borderRadius: 10,
+        elevation: 20
     },
     rmCardImage: {
         width: width - 40,

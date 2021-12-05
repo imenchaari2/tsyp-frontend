@@ -1,11 +1,24 @@
-import { View } from "react-native";
+import {Image, ImageBackground, View} from "react-native";
 import React from "react";
-const Layout = ({ children,img,bool=false,comp }) => {
-  return <View >
-     { img&&<Image source={img} style={{width:100,height:100}}/>}
-     { bool&&<Text>hello</Text>}
-     { comp&&comp()}
-      {children}</View>;
+import Constants from 'expo-constants'
+import {images} from "../constants";
+
+const Layout = ({children,noMargin=false}) => {
+    return (
+        <View style={{flex: 1, marginTop:!noMargin? Constants.statusBarHeight:0}}>
+            <ImageBackground
+                source={images.backblanc}
+                style={{
+                    flex: 1,
+                    justifyContent: 'center'
+                }}
+            >
+                {children}
+            </ImageBackground>
+
+
+        </View>
+    )
 };
 
 export default Layout;

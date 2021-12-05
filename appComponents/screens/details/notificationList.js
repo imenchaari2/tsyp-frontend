@@ -1,58 +1,68 @@
 const notificationList = [
-    {
-        title: "'December 03, 2021 18:29:00' ",
-        body: 'notification body',
-        trigger: new Date('December 03, 2021 23:10:30'),
-        data:{id:1},
+  {
+    title: "Covid-19 Reminder !",
+    body: "please wear your mask and keep a distance",
+    trigger: new Date("December 05, 2021 18:08:00"),
+    data: {
+      image: "coronaReminder",
+      id: 1,
     },
-    {
-        title: "'December 03, 2021 18:37:00' ",
-        body: 'notification body',
-        trigger: new Date('December 03, 2021 23:10:40'),
-        data:{id:2},
-    },
-    {
-        title: "'December 03, 2021 18:37:00' ",
-        body: 'notification body',
-        trigger: new Date('December 03, 2021 19:01:40'),
-        data:{id:3},
-    },
-    {
-        title: "taw' ",
-        body: 'notification body',
-        trigger: new Date('December 04, 2021 15:18:00'),
-        data:{screen:"Feedback",id:4,
-        image: `../../../assets/images/coronaReminder.png`,},
-       
-
-    },
-    {
-        title: "taw' ",
-        body: 'notification body',
-        trigger: new Date('December 04, 2021 15:23:00'),
-        data:{screen:"Feedback",image: require('../../../assets/images/coronaReminder.png'),id:5},
-
-
-    },   {
-        title: "taw' ",
-        body: 'notification body',
-        trigger: new Date('December 04, 2021 15:16:00'),
-        data:{screen:"Feedback",image: require('../../../assets/images/coronaReminder.png'),id:6},
-        image: require('../../../assets/images/coronaReminder.png'),
-
-    },
-    {
-        title: "'November 19, 2021 13:19:00' ",
-        body: 'notification body',
-        trigger: new Date('December 04, 2021 14:29:00'),
-        data:{id:7},
-    },
-    {
-        title: "'November 16, 2021 17:20:00'",
-        body: 'notification body',
-        trigger: new Date('December 03, 2021 23:16:40'),
-        data:{id:8},
+  },
+  {
+    title: "Covid-19 Reminder ! ",
+    body: "Be safe and use hand sanitizer please",
+    trigger: new Date("December 05, 2021 18:08:10"),
+    data: {
+      image: "gel",
+      id: 2,
     }
+  },
+  {
+    title: "Workshop Session 1  ",
+    body: "After 15 min session 1 will start \n in room 1",
+    trigger: new Date("December 05, 2021 18:08:10"),
+    data: {
+      image: "workshop",
+      id: 3,
+    }
+  },
+  {
+    title: "Photo corner ",
+    body: "Dear attendee choose your photo \ncorner and get instantly wonderful pictures",
+    trigger: new Date("December 05, 2021 18:08:10"),
+    data: {
+      image: "photo",
+      id: 4,
+    }
+  },
+  {
+    title: "Rate us ",
+    body: "Please rate the event ! we will appreciate it",
+    trigger: new Date("December 05, 2021 18:08:10"),
+    data: {
+      screen: "Feedback",
+      image: "rate",
+      id: 5,
+    }
+  },
+  {
+    title: "Hippy evening ",
+    body: "Get ready , the fun will begin shortly",
+    trigger: new Date("December 05, 2021 18:08:10"),
+    data: {
+      image: "hippy",
+      id: 6,
+    }
+  },
+  {
+    title: "Hollywwod evening",
+    body: "Get ready and luxurious , the fun will begin ",
+    trigger: new Date("December 05, 2021 18:08:10"),
+    data: {
+      image: "hollywood",
+      id: 7,
+    }
+  }
 ];
 
 export default notificationList;

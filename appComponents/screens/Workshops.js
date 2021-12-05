@@ -15,6 +15,7 @@ import {
 import {COLORS, icons, images, SIZES} from "../../constants";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import workshopsInfos from "./details/workshopsInfos";
+import Layout from "../../utils/Layout";
 const {height} = Dimensions.get('window');
 const workshopsCategories = [
     {name: 'SESSION 1'},
@@ -88,20 +89,20 @@ const HomeScreen = ({navigation,drawerAnimationStyle}) => {
     }, []);
 
     return (
-        <SafeAreaView style={{flex: 1, color: COLORS.white}}>
-                {/*Header*/}
-            <View style={style.header}>
+        <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
+            <Layout>
+                <View style={style.header}>
 
                 <Icon
                     name="arrow-left"
-                    size={35}
+                    size={30}
                     color={COLORS.gray}
                     onPress={navigation.goBack}
                     style={{
                         borderColor: COLORS.darkGray,
                         borderWidth: 1,
                         borderRadius: 10,
-                        width: 50,
+                        width: 47,
                         height: 47,
                         padding : 5
                     }}
@@ -121,7 +122,7 @@ const HomeScreen = ({navigation,drawerAnimationStyle}) => {
 
 
             </View>
-            <ScrollView showsVerticalScrollIndicator={false}>
+            <ScrollView showsVerticalScrollIndicator={false} alwaysBounceVertical={false}>
                 <View style={style.mainContainer}>
                                       {/* Render all the categories */}
                     <View
@@ -181,7 +182,7 @@ const HomeScreen = ({navigation,drawerAnimationStyle}) => {
                     </View>
                 </View>
             </ScrollView>
-
+            </Layout>
         </SafeAreaView>
     );
 };
@@ -196,10 +197,11 @@ const style = StyleSheet.create({
         minHeight: height,
     },
     header: {
+        paddingVertical: 20,
+        paddingHorizontal: 20,
         flexDirection: 'row',
-        padding: 20,
         justifyContent: 'space-between',
-        backgroundColor: COLORS.white
+        backgroundColor: COLORS.white,
     },
     categoryBtn: {
         height: 100,
