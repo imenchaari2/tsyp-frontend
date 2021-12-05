@@ -12,6 +12,7 @@ import {
 import { useSelector } from "react-redux";
 import { COLORS } from "../../constants";
 import icons from "../../constants/icons";
+import { clearNotificationList } from "../redux/notification/notificationSlice";
 import { setNotificationState } from "../redux/profile/profileSlice";
 import { useAppDispatch } from "../redux/store";
 import notificationList from "./details/notificationList";
@@ -110,10 +111,8 @@ export default function App() {
             value={notificationSlice.notification}
             onchange={async (value) => {
               try {
-                dispatch(setNotificationState());
-                if (value === true) {
-                  await schedulePushNotification();
-                }
+                dispatch(clearNotificationList());
+              
               } catch (error) {
                 console.log(error);
               }
@@ -144,23 +143,6 @@ export default function App() {
   );
 }
 
-async function schedulePushNotification() {
-  try {
-    notificationList.map(
-      async (item) =>
-        await Notifications.scheduleNotificationAsync({
-          content: {
-            title: item.title,
-            body: item.body,
-            data: { data: item.data },
-          },
-          trigger: item.trigger,
-        })
-    );
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 const style = StyleSheet.create({
   userDetail: {
