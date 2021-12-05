@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
   notification: {
@@ -21,8 +21,7 @@ const notificationSlice = createSlice({
       state.notification.notificationList = action.payload;
     },
     clearNotificationList(state) {
-      const date = new Date();
-      state.notification.clearDate = date;
+      state.notification.clearDate = new Date();
       state.notification.notificationList = [];
     },
     updateNotificationRecieved(state){

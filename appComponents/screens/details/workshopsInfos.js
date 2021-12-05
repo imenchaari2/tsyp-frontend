@@ -12,10 +12,13 @@ const workshopsInfos = [
       },
       {
         id: '2',
+        image:"",
         domain: 'domain',
         speaker: 'speaker',
         participants: 'nember of participants ',
         location:' room',
+        duration:"",
+        description:""
 
       },
       {

@@ -36,7 +36,7 @@ const ProfileContent= ({navigation}) =>{
             }}
         >
             <Layout>
-            <AuthenLayout
+            <Aut.henLayout
                 title="Profile Content"
                 subtitle="Please fill in the form with your data"
                 titleContainerStyle={{
@@ -197,7 +197,7 @@ const ProfileContent= ({navigation}) =>{
                     />
                 </View>
                 </ScrollView>
-            </AuthenLayout>
+            </Aut.henLayout>
             </Layout>
         </View>
 
