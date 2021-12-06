@@ -3,11 +3,13 @@ import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import {COLORS} from "../../constants";
 import Layout from "../../utils/Layout";
+import { useSelector } from 'react-redux';
 
 export default function Scan() {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
     const [text, setText] = useState('Not scanned yet')
+    const userToken= useSelector(state => state.profileSlice.profile.token);
 
     const askForCameraPermission = () => {
         (async () => {
@@ -27,14 +29,34 @@ export default function Scan() {
     }, []);
 
     // What happens when we scan the bar code
-    const handleBarCodeScanned = ({ type, data }) => {
-        setScanned(true);
-        if (data === 'exp://192.168.1.6:19000'){
+    const handleBarCodeScanned =async ({ type, data }) => {
+        console.log(data,"data");
+        await fetch(data, { 
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + userToken
+                },
+                })
+            .then(response => response.json())
+            .then(responseJson => {
+                console.log(responseJson,"responseJson");
+                if (responseJson.Response === 'Success'){
             setText('Allowed to get in ✅' )}
         else{
             setText('Not allowed to get in ! 🚫')
         }
-        console.log('Type: ' + type + '\nData: ' + data)
+            })
+
+
+        // setScanned(true);
+        // if (data === 'exp://192.168.1.6:19000'){
+        //     setText('Allowed to get in ✅' )}
+        // else{
+        //     setText('Not allowed to get in ! 🚫')
+        // }
+        // console.log('Type: ' + type + '\nData: ' + data)
     };
 
     // Check permissions and return the screens

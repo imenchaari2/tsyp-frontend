@@ -63,6 +63,7 @@ useEffect(() => {
   }
 }, [user]);
 
+
   if (user) {
     return (
       <NavigationContainer>
