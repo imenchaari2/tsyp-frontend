@@ -30,7 +30,7 @@ export default function Scan() {
 
     // What happens when we scan the bar code
     const handleBarCodeScanned =async ({ type, data }) => {
-        console.log(data,"data");
+     
         await fetch(data, { 
             method: 'GET',
             headers: {

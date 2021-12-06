@@ -45,7 +45,7 @@ const DetailsScreen = ({navigation, route}) => {
                     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                         <Text
                             style={{fontSize: 20, color: COLORS.gray, fontWeight: 'bold'}}>
-                            {workshop.domain}
+                            {workshop?.domain?.name}
                         </Text>
                     </View>
 
