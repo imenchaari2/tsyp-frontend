@@ -3,7 +3,6 @@ import {
     Text,
     ImageBackground,
     SafeAreaView,
-    StatusBar,
     View,
     Image,
     StyleSheet, ScrollView,
@@ -45,7 +44,7 @@ const DetailsScreen = ({navigation, route}) => {
                     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                         <Text
                             style={{fontSize: 20, color: COLORS.gray, fontWeight: 'bold'}}>
-                            {workshop.domain}
+                            {workshop?.domain?.name}
                         </Text>
                     </View>
 
@@ -56,7 +55,7 @@ const DetailsScreen = ({navigation, route}) => {
                             marginTop: 5,
                         }}>
 
-                        <Text style={{fontSize: 13, color: COLORS.gray}}>{workshop.participants}</Text>
+                        <Text style={{fontSize: 13, color: COLORS.gray}}>{workshop.numberOfParticipants}</Text>
                     </View>
 
                     {/* Render location and icon */}
@@ -81,7 +80,7 @@ const DetailsScreen = ({navigation, route}) => {
                     <View style={{flex: 1, paddingLeft: 10}}>
                         <Text
                             style={{color: COLORS.gray, fontSize: 12, fontWeight: 'bold'}}>
-                            Speaker
+                            {workshop?.speaker?.firstName }
                         </Text>
                         <Text
                             style={{
@@ -91,24 +90,16 @@ const DetailsScreen = ({navigation, route}) => {
                                 marginTop: 2,
                                 paddingBottom: 10
                             }}>
-                            grade
+                            {workshop?.speaker?.lastName }
 
                         </Text>
                     </View>
-                    <Text style={{color: COLORS.grey, fontSize: 12}}>Duration </Text>
+                    <Text style={{color: COLORS.gold, fontSize: 12, fontWeight:'bold'}}>Duration : {workshop?.duration } </Text>
                 </View>
                 <ScrollView>
 
                     <Text style={style.comment}>
-                        Description of the workshop and what participant should get to work properly
-                        Description of the workshop and what participant should get to work properly
-                        Description of the workshop and what participant should get to work properly
-                        Description of the workshop and what participant should get to work properly
-                        Description of the workshop and what participant should get to work properly
-                        Description of the workshop and what participant should get to work properly
-                        Description of the workshop and what participant should get to work properly
-                        Description of the workshop and what participant should get to work properly
-                        Description of the workshop and what participant should get to work properly
+                        {workshop?.description }
                     </Text>
 
 

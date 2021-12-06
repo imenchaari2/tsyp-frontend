@@ -6,8 +6,6 @@ import {
 import {COLORS, FONTS, icons, SIZES} from "../../constants";
 import validation from "../../utils/validation";
 import {CustomButton, FormInput} from "../../utils";
-import DatePicker from 'react-native-datepicker';
-import moment from "moment";
 import {AuthenLayout} from "../authentification";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import Layout from "../../utils/Layout";
@@ -36,7 +34,7 @@ const ProfileContent= ({navigation}) =>{
             }}
         >
             <Layout>
-            <Aut.henLayout
+            <AuthenLayout
                 title="Profile Content"
                 subtitle="Please fill in the form with your data"
                 titleContainerStyle={{
@@ -197,7 +195,7 @@ const ProfileContent= ({navigation}) =>{
                     />
                 </View>
                 </ScrollView>
-            </Aut.henLayout>
+            </AuthenLayout>
             </Layout>
         </View>
 
