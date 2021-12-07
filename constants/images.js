@@ -24,7 +24,7 @@ const press = require("../assets/images/ieeePress.png")
 const polina = require("../assets/images/polina.png")
 const primatec = require("../assets/images/primatec.png")
 const profileupdate = require("../assets/images/userProfile.png")
-const firstday = require("../assets/images/54053865-19-décembre-vecteur-plat-calendrier-icône-quotidienne-date-et-heure-jour-mois-vacances-.jpg")
+const firstday = require("../assets/images/2nd.jpg")
 
 export default {
     logo1,

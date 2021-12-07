@@ -16,6 +16,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Layout from "../../utils/Layout";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import {Platform} from "expo-modules-core";
 const { height } = Dimensions.get("window");
 const workshopsCategories = [
   { name: "SESSION 1" },
@@ -238,7 +239,7 @@ const style = StyleSheet.create({
     minHeight: height,
   },
   header: {
-    paddingVertical: 20,
+    paddingVertical: Platform.OS==='ios'? 0 :  20,
     paddingHorizontal: 20,
     flexDirection: "row",
     justifyContent: "space-between",
