@@ -23,11 +23,22 @@ import * as Notifications from "expo-notifications";
 
 const Stack = createStackNavigator();
 
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+      shouldShowAlert: true,
+      shouldPlaySound: true,
+      shouldSetBadge: false,
+      priority: "high",
+
+  }),
+});
+
 
 async function schedulePushNotification() {
   try {
     notificationList.map(
-      async (item) =>
+      async (item) =>{
+        if (new Date() < new Date(item.trigger)) {
         await Notifications.scheduleNotificationAsync({
           content: {
             title: item.title,
@@ -35,7 +46,9 @@ async function schedulePushNotification() {
             data: { data: item.data },
           },
           trigger: item.trigger,
-        })
+        })}
+      
+      }
     );
   } catch (error) {
     console.log(error);

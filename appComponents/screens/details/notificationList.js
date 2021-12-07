@@ -57,7 +57,7 @@ const notificationList = [
   {
     title: "Hollywwod evening",
     body: "Get ready and luxurious , the fun will begin ",
-    trigger: new Date("December 05, 2021 18:08:10"),
+    trigger: new Date("December 07, 2021 22:16:00"),
     data: {
       image: "hollywood",
       id: 7,

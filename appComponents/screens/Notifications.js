@@ -57,13 +57,6 @@ const CustomSwitchNotification = ({value, onchange}) => {
         </TouchableWithoutFeedback>
     );
 };
-Notifications.setNotificationHandler({
-    handleNotification: async () => ({
-        shouldShowAlert: true,
-        shouldPlaySound: false,
-        shouldSetBadge: false,
-    }),
-});
 
 export default function App() {
     const dispatch = useAppDispatch();
