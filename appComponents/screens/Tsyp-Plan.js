@@ -6,6 +6,7 @@ import {
 import {COLORS, FONTS, icons, images, SIZES} from "../../constants";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import plandetails from "./details/PlanDetails";
+import Layout from "../../utils/Layout";
 const Plandetails = [
     {name: '19 DECEMBER ', image:require('../../assets/images/54053865-19-décembre-vecteur-plat-calendrier-icône-quotidienne-date-et-heure-jour-mois-vacances-.jpg'),},
     {name: '20 DECEMBER ', image:require('../../assets/images/2nd.jpg')},
@@ -16,6 +17,7 @@ const Card = ({day, navigation}) => {
 
 
     return (
+
         <View style={{flexDirection: 'row'}}>
 
                 <View style={style.cardDetailsContainer}>
@@ -76,6 +78,7 @@ const TsypPlan = ({navigation}) => {
         fliterDay(0);
     }, []);
     return (
+        <Layout noMargin>
         <SafeAreaView style={{flex: 1, color: COLORS.red , marginBottom: 118}}>
         <View
             style={{
@@ -126,16 +129,13 @@ const TsypPlan = ({navigation}) => {
                         </View>
 
                     </TouchableOpacity>
-{/*
-                    <Text style={style.categoryBtnName}>{item.name}</Text>
-*/}
                 </View>
             ))}
 
         </View>
 
             <View style={{marginTop: 20}}>
-                <FlatList
+                <FlatList showsVerticalScrollIndicator={false}
                     data={filteredHours}
                     renderItem={({item}) => (
                         <Card day={item} navigation={navigation} />
@@ -143,6 +143,7 @@ const TsypPlan = ({navigation}) => {
                 />
             </View>
         </SafeAreaView>
+        </Layout>
     )
 }
 const style = StyleSheet.create({

@@ -114,7 +114,7 @@ export default function App() {
 
                 </TouchableOpacity>
             </View>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
 
 
                 <View style={{alignItems: "center", justifyContent: "center", height: "100%"}}>

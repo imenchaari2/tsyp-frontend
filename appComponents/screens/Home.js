@@ -49,7 +49,7 @@ const HomeScreen = ({navigation}) => {
             <ScrollView>
                 <View style={{height: "100%"}}>
 
-                    <View style={{flexDirection: 'row', backgroundColor: COLORS.light, elevation: 4}}>
+                    <View style={{flexDirection: 'row', backgroundColor: COLORS.light, elevation: 1.5}}>
                         <View style={{width: "25%"}}>
                             <Image
                                 source={images.logo1}

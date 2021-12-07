@@ -30,8 +30,8 @@ export default function Scan() {
 
     // What happens when we scan the bar code
     const handleBarCodeScanned =async ({ type, data }) => {
-     
-        await fetch(data, { 
+
+        await fetch(data, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -76,6 +76,7 @@ export default function Scan() {
 
     // Return the View
     return (
+        <Layout noMargin>
         <View style={styles.container}>
             <View style={styles.barcodebox}>
                 <BarCodeScanner
@@ -86,6 +87,7 @@ export default function Scan() {
 
             {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color= {COLORS.gold} />}
         </View>
+        </Layout>
 
     );
 }

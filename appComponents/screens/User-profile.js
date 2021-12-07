@@ -248,7 +248,7 @@ const UserProfile = ({navigation}) => {
                 </TouchableOpacity>
 
             </View>
-            <ScrollView
+            <ScrollView  showsVerticalScrollIndicator={false}
                 contentContainerStyle={{
                     paddingHorizontal: SIZES.padding,
                     paddingBottom: 150
