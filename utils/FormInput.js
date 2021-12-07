@@ -17,6 +17,7 @@ const FormInput= ({
     autoCompleteType ="off",
     autocapitalize ="none",
     errorMsg ="",
+    value,
     ...other
 }) =>{
     return(
@@ -66,6 +67,7 @@ borderColor:COLORS.brown1,
                         flex:1,
                         ...inputStyle
                     }}
+                    value={value}
                     placeholder={placeholder}
                     placeholderTextColor={COLORS.gray}
                     secureTextEntry={secureTextEntry}
