@@ -70,9 +70,9 @@ const Authentification= ({navigation}) => {
                     color: COLORS.black,
                     ...FONTS.h3
                 }}
-                onCodeFilled={(code)=>{
-                    console.log(code)
-                }}
+                // onCodeFilled={(code)=>{
+                //     console.log(code)
+                // }}
             />
             <View
                 style={{

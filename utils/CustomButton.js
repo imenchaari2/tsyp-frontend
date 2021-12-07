@@ -22,7 +22,7 @@ const CustomButton=({ buttonText, disabled, buttonContainerStyle , colors , onPr
                         textAlign: 'center',
                         color: COLORS.black,
                         ...FONTS.h3,
-                        fontWeight:'bold'
+                        fontWeight:'600'
                     }
                     }
                 >

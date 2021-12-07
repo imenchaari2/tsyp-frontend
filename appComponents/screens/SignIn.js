@@ -7,29 +7,37 @@ import {CustomButton, CustomSwitch, FormInput, TextButton} from "../../utils";
 import {useAppDispatch} from "../redux/store";
 import {login} from "../redux/profile/profileSlice";
 import Layout from "../../utils/Layout";
+import {
+    forgetCredentials,
+    rememberCredentials,
+} from "../redux/credentials/credentialsSlice";
+import {useSelector} from "react-redux";
 
 const SignIn = ({navigation}) => {
-    const [email, setEmail] = React.useState("");
-    const [password, setPassword] = React.useState("");
+    const credentials = useSelector((state) => state.credentialSlice);
+    const [email, setEmail] = React.useState(credentials.email);
+    const [password, setPassword] = React.useState(credentials.password);
     const [emailError, setEmailError] = React.useState("");
     const [passwordError, setPasswordError] = React.useState("");
     const [showPass, setShowPass] = React.useState(false);
-    const [saveMe, setSaveMe] = React.useState(false);
+    const [saveMe, setSaveMe] = React.useState(credentials.remember);
     const dispatch = useAppDispatch();
 
     function isEnableSignIn() {
         return email !== "" && password !== "" && emailError === "";
     }
 
+    console.log(credentials, "credentials");
     return (
-        <Layout>
+
             <View
                 style={{
-                    flex: 1,
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    height: "100%",
+                    alignItems: "center",
+                    justifyContent: "center",
                 }}
             >
+                <Layout>
                 <AuthenLayout
                     title="Let's Sign you In"
                     subtitle=" Welcome back you have been missed"
@@ -45,6 +53,7 @@ const SignIn = ({navigation}) => {
                             label="Email"
                             keyboardType="email-address"
                             autoCompleteType="email"
+                            value={email}
                             onchange={(value) => {
                                 validation.validateEmail(value, setEmailError);
                                 setEmail(value);
@@ -78,6 +87,7 @@ const SignIn = ({navigation}) => {
                         />
                         <FormInput
                             label="Password"
+                            value={password}
                             secureTextEntry={!showPass}
                             autoCompleteType="password"
                             containerStyle={{
@@ -138,37 +148,39 @@ const SignIn = ({navigation}) => {
                                 borderWidth: 1,
                                 borderRadius: 20,
                             }}
-                            onPress={() => {
-                                //request to server auth get response push it in redux
-//post request auth using fetch
-                                fetch('http://51.38.248.170/tsyp/api/login_check', {
+                            onPress={async () => {
+                                if (saveMe) {
+                                    dispatch(rememberCredentials({email, password, remember: saveMe}));
+                                }
+                                if (!saveMe) {
+                                    dispatch(rememberCredentials({email: "", password: "", remember: saveMe}));
+                                }
 
-                                    method: 'POST',
+                                //request to server auth get response push it in redux
+                                //post request auth using fetch
+                                await fetch("http://51.38.248.170/tsyp/api/login_check", {
+                                    method: "POST",
                                     headers: {
-                                        'Accept': 'application/json',
-                                        'Content-Type': 'application/json',
+                                        Accept: "application/json",
+                                        "Content-Type": "application/json",
                                     },
                                     body: JSON.stringify({
                                         username: email,
                                         password: password,
-                                    })
-
-                                }).then((response) => response.json())
+                                    }),
+                                })
+                                    .then((response) => response.json())
                                     .then((responseJson) => {
-                                        console.log(responseJson);
+                                        // console.log(responseJson);
                                         dispatch(login(responseJson));
                                     })
                                     .catch((error) => {
                                         console.error(error);
                                     });
 
-
                                 //   dispatch(login({ email, password }));
                             }}
-                            colors={
-                                [COLORS.doree, COLORS.doree1]
-
-                            }
+                            colors={[COLORS.doree, COLORS.doree1]}
                         />
                         {/*{sign up}*/}
                         {/* <View
@@ -196,8 +208,9 @@ const SignIn = ({navigation}) => {
           </View> */}
                     </View>
                 </AuthenLayout>
+                </Layout>
             </View>
-        </Layout>
+
     );
 };
 

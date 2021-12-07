@@ -54,7 +54,9 @@ const Navigator = () => {
   });
   useEffect(() => {
     if (newNotifList.length > 0) {
+      newNotifList.reverse();
       dispatch(addToNotificationList(newNotifList));
+
     }
   }, [notification.notificationRecieved]);
 useEffect(() => {

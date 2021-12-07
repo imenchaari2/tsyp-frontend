@@ -68,7 +68,7 @@ Notifications.setNotificationHandler({
 export default function App() {
     const dispatch = useAppDispatch();
     const notificationSlice = useSelector((state) => state.notificationSlice.notification);
-    console.log(notificationSlice);
+    // console.log(notificationSlice);
 
     return (
         <Layout noMargin>

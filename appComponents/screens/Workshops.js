@@ -16,7 +16,8 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Layout from "../../utils/Layout";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import {Platform} from "expo-modules-core";
+import Constants from "expo-constants";
+import LayoutHeader from "../../utils/LayoutHeader";
 const { height } = Dimensions.get("window");
 const workshopsCategories = [
   { name: "SESSION 1" },
@@ -99,7 +100,10 @@ const HomeScreen = ({ navigation, drawerAnimationStyle }) => {
           Authorization: "Bearer " + userToken,
         },
       }).then((res) => res.json()).then((res) => {
-        setWorkshopss(res);
+        if (res&&res.length>0) {
+
+          setWorkshopss(res);
+        }
         });
 
     } catch (error) {
@@ -128,38 +132,21 @@ const HomeScreen = ({ navigation, drawerAnimationStyle }) => {
   React.useEffect(() => {
     fliterWorkshop(0);
   }, [workshopss]);
-  console.log(workshopss,"workshopss");
+
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
-      <Layout>
-        <View style={style.header}>
-          <Icon
-            name="arrow-left"
-            size={30}
-            color={COLORS.gray}
+      <View
+          style={{
+            height: '100%',
+            backgroundColor: COLORS.white
+          }}
+      >
+        <Layout >
+
+        <LayoutHeader
+            icon={icons.workshop}
+            title="Workshops"
             onPress={navigation.goBack}
-            style={{
-              borderColor: COLORS.darkGray,
-              borderWidth: 1,
-              borderRadius: 10,
-              width: 47,
-              height: 47,
-              padding: 5,
-            }}
-          />
-          <Text
-            style={{
-              textAlign: "center",
-              flex: 1,
-              color: COLORS.gold,
-              fontSize: 18,
-              fontWeight: "bold",
-              marginTop: 10,
-            }}
-          >
-            Workshops
-          </Text>
-        </View>
+        />
         <ScrollView
           showsVerticalScrollIndicator={false}
           alwaysBounceVertical={false}
@@ -226,20 +213,20 @@ const HomeScreen = ({ navigation, drawerAnimationStyle }) => {
           </View>
         </ScrollView>
       </Layout>
-    </SafeAreaView>
+      </View>
+
   );
 };
 
 const style = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: COLORS.white2,
     paddingHorizontal: 20,
     paddingVertical: 20,
     minHeight: height,
   },
   header: {
-    paddingVertical: Platform.OS==='ios'? 0 :  20,
+    paddingVertical: 20,
     paddingHorizontal: 20,
     flexDirection: "row",
     justifyContent: "space-between",

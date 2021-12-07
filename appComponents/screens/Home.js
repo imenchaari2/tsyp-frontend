@@ -24,9 +24,9 @@ const HomeScreen = ({navigation}) => {
         notificationListener.current =
             Notifications.addNotificationResponseReceivedListener((value) => {
                 //dispatch(updateNotificationRecieved());
-                console.log(value);
+                // console.log(value);
                 const url = value?.notification?.request?.content?.data?.data?.screen;
-                console.log(url);
+                // console.log(url);
                 url && navigation.navigate(url);
             });
         responseListener.current =

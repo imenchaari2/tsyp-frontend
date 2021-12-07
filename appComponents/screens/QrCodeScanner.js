@@ -41,7 +41,7 @@ export default function Scan() {
                 })
             .then(response => response.json())
             .then(responseJson => {
-                console.log(responseJson,"responseJson");
+                // console.log(responseJson,"responseJson");
                 if (responseJson.Response === 'Success'){
             setText('Allowed to get in ✅' )}
         else{

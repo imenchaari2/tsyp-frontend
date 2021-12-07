@@ -38,7 +38,7 @@ const ProfileContent= ({navigation}) =>{
                 title="Profile Content"
                 subtitle="Please fill in the form with your data"
                 titleContainerStyle={{
-                    marginTop: SIZES.radius
+                    marginTop: 5
                 }}
             >
 

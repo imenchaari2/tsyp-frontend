@@ -7,6 +7,8 @@ import {COLORS, FONTS, icons, images, SIZES} from "../../constants";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {CustomButton, FormInput} from "../../utils";
 import Constants from "expo-constants";
+import Layout from "../../utils/Layout";
+import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
 
 
 const Feedback = ({navigation}) => {
@@ -17,11 +19,11 @@ const Feedback = ({navigation}) => {
     const [feedback, setFeedback] = React.useState("")
 
     return (
+        <Layout noMargin>
         <View
             style={{
-                flex: 1,
-                backgroundColor: COLORS.white,
-                marginTop: Constants.statusBarHeight,
+
+                height:'100%'
 
             }}
         >
@@ -36,9 +38,9 @@ const Feedback = ({navigation}) => {
                         borderColor: COLORS.darkGray,
                         borderWidth: 1,
                         borderRadius: 10,
-                        width: 47,
-                        height: 47,
-                        padding: 5,
+                        width: 40,
+                        height: 40,
+                        padding:4
 
                     }}
 
@@ -66,10 +68,10 @@ const Feedback = ({navigation}) => {
                     <Image
                         source={icons.star}
                         style={{
-                            width: 49,
-                            height: 50,
-                            tintColor: COLORS.darkGray,
-
+                            width: 40,
+                            height: 35,
+                            borderRadius: SIZES.radius,
+                            tintColor: COLORS.darkGray
                         }}
 
                     />
@@ -114,28 +116,31 @@ const Feedback = ({navigation}) => {
                                 <Text style={{color: COLORS.red1}}>I just LOVE it 💞</Text>}
             </Text>
 
-
+            <KeyboardAwareScrollView
+                onKeyboardDismissMode="on-Drag"
+              >
             <TextInput
                 onchange={(value) => {
                     setFeedback(value)
                 }}
                 style={{
-                    backgroundColor: COLORS.lightGray2,
-                    flex: 0.5,
                     borderRadius: 20,
+                    height:100,
                     marginHorizontal: 20,
                     marginTop: 50,
                     paddingHorizontal: 20,
+                    borderWidth:1,
+                    borderColor:COLORS.doree
                 }}
 
                 placeholder="Leave your comments here .."
 
             />
+            </KeyboardAwareScrollView>
             <CustomButton
                 buttonText="Send your feedback"
 
                 buttonContainerStyle={{
-                    marginTop: 30,
                     marginHorizontal: 20,
                     paddingVertical: 15,
                     borderColor: COLORS.doree,
@@ -148,30 +153,36 @@ const Feedback = ({navigation}) => {
 
             />
         </View>
+        </Layout>
     )
 }
 const style = StyleSheet.create({
 
     userDetail: {
-        backgroundColor: COLORS.lightGray2,
+        marginTop:20,
+        backgroundColor: COLORS.white3,
         paddingHorizontal: 15,
         color: COLORS.darkGray,
         fontSize: 15,
         borderRadius: 20,
+        borderColor: COLORS.doree1,
+        borderWidth: 1,
         paddingVertical: 20,
         textAlign: 'center',
         marginHorizontal: 20
     },
     header: {
         flexDirection: 'row',
-        padding: 20,
+        paddingTop:40 ,
+        paddingHorizontal:20,
+        padding:15,
         justifyContent: 'space-between',
         backgroundColor: COLORS.white,
 
     },
     cardDetailsContainer: {
         height: 180,
-        backgroundColor: COLORS.white,
+        backgroundColor: COLORS.white3,
         marginTop: 30,
         paddingHorizontal: 30,
         marginHorizontal: 20,
@@ -179,16 +190,16 @@ const style = StyleSheet.create({
         marginBottom: 5,
         paddingTop: 30,
         borderRadius: 20,
-        borderColor: COLORS.lightGray1,
+        borderColor: COLORS.gold,
         borderWidth: 0.9,
         color: COLORS.darkGray,
         fontSize: 15,
-        textAlign: 'center'
+        textAlign: 'center',
     },
     customRatingBar: {
         justifyContent: 'center',
         flexDirection: 'row',
-        marginTop: -70,
+        marginTop: -75,
 
 
     },
