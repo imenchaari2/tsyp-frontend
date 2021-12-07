@@ -16,7 +16,6 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Layout from "../../utils/Layout";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import {Platform} from "expo-modules-core";
 const { height } = Dimensions.get("window");
 const workshopsCategories = [
   { name: "SESSION 1" },
@@ -99,7 +98,10 @@ const HomeScreen = ({ navigation, drawerAnimationStyle }) => {
           Authorization: "Bearer " + userToken,
         },
       }).then((res) => res.json()).then((res) => {
-        setWorkshopss(res);
+        if (res&&res.length>0) {
+          
+          setWorkshopss(res);
+        }
         });
 
     } catch (error) {
@@ -128,7 +130,7 @@ const HomeScreen = ({ navigation, drawerAnimationStyle }) => {
   React.useEffect(() => {
     fliterWorkshop(0);
   }, [workshopss]);
-  console.log(workshopss,"workshopss");
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <Layout>
@@ -239,7 +241,7 @@ const style = StyleSheet.create({
     minHeight: height,
   },
   header: {
-    paddingVertical: Platform.OS==='ios'? 0 :  20,
+    paddingVertical: 20,
     paddingHorizontal: 20,
     flexDirection: "row",
     justifyContent: "space-between",
