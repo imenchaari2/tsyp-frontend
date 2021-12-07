@@ -155,7 +155,7 @@ const SignIn = ({navigation}) => {
 
                                 }).then((response) => response.json())
                                     .then((responseJson) => {
-                                        console.log(responseJson);
+                                        // console.log(responseJson);
                                         dispatch(login(responseJson));
                                     })
                                     .catch((error) => {

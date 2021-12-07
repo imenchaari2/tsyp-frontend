@@ -98,7 +98,10 @@ const HomeScreen = ({ navigation, drawerAnimationStyle }) => {
           Authorization: "Bearer " + userToken,
         },
       }).then((res) => res.json()).then((res) => {
-        setWorkshopss(res);
+        if (res&&res.length>0) {
+          
+          setWorkshopss(res);
+        }
         });
 
     } catch (error) {
@@ -127,7 +130,7 @@ const HomeScreen = ({ navigation, drawerAnimationStyle }) => {
   React.useEffect(() => {
     fliterWorkshop(0);
   }, [workshopss]);
-  console.log(workshopss,"workshopss");
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <Layout>
