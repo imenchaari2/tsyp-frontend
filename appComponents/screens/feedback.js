@@ -132,14 +132,12 @@ const Feedback = ({navigation}) => {
                     borderWidth:1,
                     borderColor:COLORS.doree
                 }}
-
                 placeholder="Leave your comments here .."
 
             />
             </KeyboardAwareScrollView>
             <CustomButton
                 buttonText="Send your feedback"
-
                 buttonContainerStyle={{
                     marginHorizontal: 20,
                     paddingVertical: 15,

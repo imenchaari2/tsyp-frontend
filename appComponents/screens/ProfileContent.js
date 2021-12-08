@@ -93,18 +93,15 @@ const ProfileContent= ({navigation}) =>{
                             justifyContent:'center'
 
                         }}
+                        style={{borderColor:COLORS.transparent }}
+                        onChangeText={onChangeNumber }
+                        value={number}
+                        placeholder="(+216)      "
+                        keyboardType="numeric"
                         onchange={(value) =>{
                             setPhone(value)
                         }}
-                        appendComponent={
-                            <TextInput
-                                style={{borderColor:COLORS.transparent }}
-                                onChangeText={onChangeNumber }
-                                value={number}
-                                placeholder="(+216)      "
-                                keyboardType="numeric"
-                            />
-                        }
+
                     />
                     <FormInput
                         label="ID number"
