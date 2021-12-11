@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 
 const UserProfile = ({navigation}) => {
   const user = useSelector((state) => state.profileSlice.profile.user);
+  console.log(user);
 
     function renderProfileCard() {
         return (
@@ -107,7 +108,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                  icon={icons.profile}
                  label="Full Name"
-                 value={user.fullName}
+                 value={user?.fullName}
                  />
                  <View
                      style={{
@@ -118,7 +119,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.email}
                      label="Email"
-                     value={user.email}
+                     value={user?.email}
                  />
                  <View
                      style={{
@@ -129,7 +130,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.phone}
                      label="Phone number"
-                     value= {user.phone}
+                     value= {user?.phone}
                  />
                  <View
                      style={{
@@ -140,7 +141,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.email}
                      label="User Id"
-                     value={user.idMember}
+                     value={user?.idMember}
                  />
                  <View
                      style={{
@@ -151,7 +152,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.email}
                      label="Student Branch"
-                     value={user.studentBranch}
+                     value={user?.studentBranch}
                  />
                  <View
                      style={{
@@ -162,7 +163,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.email}
                      label="Occupation"
-                     value={user.occupation}
+                     value={user?.occupation}
                  />
 
              </View>
@@ -177,7 +178,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.checkIn}
                      label="Hotel"
-                     value={user.hotel}
+                     value={user?.hotel}
                  />
                  <View
                      style={{
@@ -188,7 +189,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.home}
                      label="Room number"
-                     value={user.room}
+                     value={user?.room}
                  />
                  <View
                      style={{
@@ -199,7 +200,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.email}
                      label="Room shared with"
-                     value={user.roomSharing}
+                     value={user?.roomSharing}
                  />
 
 
@@ -219,7 +220,7 @@ const UserProfile = ({navigation}) => {
                 <LayoutHeader
                     icon={images.user}
                     title="Profile Content"
-                    onPress={navigation.goBack}
+                    onPress={()=>navigation.navigate("Home")}
                 />
                 <ScrollView showsVerticalScrollIndicator={false}
                             contentContainerStyle={{

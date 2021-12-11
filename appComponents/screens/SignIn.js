@@ -149,6 +149,7 @@ const SignIn = ({navigation}) => {
                                 borderRadius: 20,
                             }}
                             onPress={async () => {
+                                dispatch(saveUserInfo({email}))
                                 if (saveMe) {
                                     dispatch(rememberCredentials({email, password, remember: saveMe}));
                                 }

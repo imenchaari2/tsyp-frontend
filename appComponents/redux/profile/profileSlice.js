@@ -4,6 +4,7 @@ const initialState = {
   profile: {
     user: null,
     token: null,
+    flowCompleted:false
   },
 };
 const profileSlice = createSlice({
@@ -21,6 +22,7 @@ const profileSlice = createSlice({
       state.profile =  {
         user: null,
         token: null,
+        flowCompleted:false
       };
     },
     saveUserInfo(state, action) {
@@ -30,14 +32,14 @@ const profileSlice = createSlice({
         ...action.payload
 
       };
-      
-    
-
-    },
+      },
+      setflowCompleted(state) {
+        state.profile.flowCompleted = true;
+      }
   },
 });
 
-export const { login, logout,saveUserInfo } = profileSlice.actions;
+export const { login, logout,saveUserInfo,setflowCompleted } = profileSlice.actions;
 export default profileSlice.reducer;
 
 //function that remove element from object
