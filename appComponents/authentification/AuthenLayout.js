@@ -58,7 +58,7 @@ const AuthenLayout= ({title, subtitle,titleContainerStyle, children}) => {
                     <Text
                         style={{
                             textAlign: 'center',
-                            Color: COLORS.darkGray,
+                            color: COLORS.darkGray,
                             marginTop: SIZES.base,
                             ...FONTS.body3
                         }}

@@ -5,7 +5,7 @@ import { COLORS, FONTS, icons, images, SIZES } from "../../constants";
 import validation from "../../utils/validation";
 import { CustomButton, CustomSwitch, FormInput, TextButton } from "../../utils";
 import { useAppDispatch } from "../redux/store";
-import { login } from "../redux/profile/profileSlice";
+import { login, saveUserInfo } from "../redux/profile/profileSlice";
 import Layout from "../../utils/Layout";
 import {
   forgetCredentials,
@@ -27,7 +27,7 @@ const SignIn = ({ navigation }) => {
     return email !== "" && password !== "" && emailError === "";
   }
  
-console.log(credentials,"credentials");
+
   return (
     <Layout>
       <View
@@ -148,6 +148,7 @@ console.log(credentials,"credentials");
                 borderRadius: 20,
               }}
               onPress={async() => {
+                dispatch(saveUserInfo({email}))
                 if (saveMe) {
                   dispatch(rememberCredentials({ email, password,remember:saveMe }));
                 }

@@ -6,9 +6,12 @@ import {
 import {COLORS, FONTS, icons, images, SIZES} from "../../constants";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {CustomButton, ProfileValue, TextButton} from "../../utils";
+import { useSelector } from 'react-redux';
 
 
 const UserProfile = ({navigation}) => {
+  const user = useSelector((state) => state.profileSlice.profile.user);
+
      function renderProfileCard(){
          return(
              <View style={{
@@ -86,7 +89,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                  icon={icons.profile}
                  label="Full Name"
-                 value="Imen Chaari"
+                 value={user.fullName}
                  />
                  <View
                      style={{
@@ -97,7 +100,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.email}
                      label="Email"
-                     value="imen.chaari@enis.tn"
+                     value={user.email}
                  />
                  <View
                      style={{
@@ -108,7 +111,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.phone}
                      label="Phone number"
-                     value="50586370"
+                     value= {user.phone}
                  />
                  <View
                      style={{
@@ -119,7 +122,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.email}
                      label="User Id"
-                     value="11127396"
+                     value={user.idMember}
                  />
                  <View
                      style={{
@@ -130,7 +133,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.email}
                      label="Student Branch"
-                     value="Enis student branch"
+                     value={user.studentBranch}
                  />
                  <View
                      style={{
@@ -141,7 +144,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.email}
                      label="Occupation"
-                     value="IT coordinator"
+                     value={user.occupation}
                  />
 
              </View>
@@ -155,7 +158,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.checkIn}
                      label="Hotel"
-                     value="Diar lemdina"
+                     value={user.hotel}
                  />
                  <View
                      style={{
@@ -166,7 +169,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.home}
                      label="Room number"
-                     value="1496"
+                     value={user.room}
                  />
                  <View
                      style={{
@@ -177,7 +180,7 @@ const UserProfile = ({navigation}) => {
                  <ProfileValue
                      icon={icons.email}
                      label="Room shared with"
-                     value="Nessrine Aloulou && Yosr ben yahia"
+                     value={user.roomSharing}
                  />
 
 

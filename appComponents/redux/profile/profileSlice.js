@@ -13,7 +13,7 @@ const profileSlice = createSlice({
     login(state, action) {
       state.profile = {
         token: action.payload.token,
-        user: { ...removeElement(action.payload,"token" )},
+        user: { ...state.profile.user,...removeElement(action.payload,"token" )},
       };
       
     },
@@ -23,10 +23,21 @@ const profileSlice = createSlice({
         token: null,
       };
     },
+    saveUserInfo(state, action) {
+     // console.log(action.payload);
+      state.profile.user ={
+        ...state.profile.user,
+        ...action.payload
+
+      };
+      
+    
+
+    },
   },
 });
 
-export const { login, logout } = profileSlice.actions;
+export const { login, logout,saveUserInfo } = profileSlice.actions;
 export default profileSlice.reducer;
 
 //function that remove element from object

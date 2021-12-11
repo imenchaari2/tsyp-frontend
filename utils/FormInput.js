@@ -18,6 +18,7 @@ const FormInput= ({
     autocapitalize ="none",
     errorMsg ="",
     value,
+    editable,
     ...other
 }) =>{
     return(
@@ -63,6 +64,7 @@ borderColor:COLORS.brown1,
                 }} >
                 {prependComponent}
                 <TextInput
+                editable={editable}
                     style={{
                         flex:1,
                         ...inputStyle

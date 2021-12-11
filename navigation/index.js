@@ -57,7 +57,9 @@ async function schedulePushNotification() {
 
 const Navigator = () => {
   const dispatch = useAppDispatch();
-  const user = useSelector((state) => state?.profileSlice?.profile?.token);
+  const user = useSelector((state) => state.profileSlice.profile.user);
+
+  const userToken = useSelector((state) => state?.profileSlice?.profile?.token);
   const notification = useSelector((state) => state?.notificationSlice?.notification);
   const newNotifList = notificationList.filter((item) => {
     if (new Date() > new Date(item.trigger)&&  new Date(item.trigger)>new Date( notification.clearDate)) {
@@ -71,20 +73,21 @@ const Navigator = () => {
     }
   }, [notification.notificationRecieved]);
 useEffect(() => {
-  if (user) {
+  if (userToken) {
     schedulePushNotification();
   }
-}, [user]);
+}, [userToken]);
 
 
-  if (user) {
+  if (userToken) {
     return (
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
           }}
-          // initialRouteName={"Home"}
+          // initialRouteName={"checkIn"}
+          initialRouteName="Speakers"
         >
           <Stack.Screen name="Home" component={CustomDrawer} />
 
@@ -102,7 +105,9 @@ useEffect(() => {
         </Stack.Navigator>
       </NavigationContainer>
     );
-  } else {
+  }
+  
+  else {
     return (
       <NavigationContainer>
         <Stack.Navigator
