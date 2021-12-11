@@ -43,9 +43,9 @@ const SignIn = ({navigation}) => {
                 <Layout>
                     <View
                         style={{
-
                             marginTop:40
-                        }}>
+                        }}
+                    >
 
                     </View>
                 <AuthenLayout
@@ -159,6 +159,7 @@ const SignIn = ({navigation}) => {
                                 borderRadius: 20,
                             }}
                             onPress={async () => {
+                                dispatch(saveUserInfo({email}))
                                 if (saveMe) {
                                     dispatch(rememberCredentials({email, password, remember: saveMe}));
                                 }

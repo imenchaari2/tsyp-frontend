@@ -62,7 +62,16 @@ const notificationList = [
       image: "hollywood",
       id: 7,
     }
-  }
+  },
+  {
+    title: "Covid-19 Reminder ! ",
+    body: "Be safe and use hand sanitizer please",
+    trigger: new Date("December 12, 2021 12:57:00"),
+    data: {
+      image: "gel",
+      id: 2,
+    }
+  },
 ];
 
 export default notificationList;
