@@ -237,7 +237,7 @@ const checkIn= ({navigation}) => {
                     onPress={()=>{
                         
                             dispatch(saveUserInfo(email,FirstName,LastName,Phone,Cin,checkinDate,checkoutDate,RoomSharing))
-                            navigation.navigate('Home')
+                            navigation.navigate('user')
                         
                     }}
                         buttonText="Save your informations"

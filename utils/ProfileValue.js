@@ -16,7 +16,7 @@ const ProfileValue =({icon, label , value })=>{
                     height:40,
                     alignItems: 'center',
                     borderRadius: 20,
-                    backgroundColor: COLORS.lightGray2
+                    backgroundColor: COLORS.light
                 }}
             >
                 <Image
@@ -24,9 +24,10 @@ const ProfileValue =({icon, label , value })=>{
                     resizeMode="contain"
                     style={{
                         paddingTop:35,
-                        width:30,
-                        height:30,
-                        tintColor: COLORS.gold
+                        width:25,
+                        height:25,
+                        tintColor: COLORS.gold,
+
                     }}
                 />
             </View>

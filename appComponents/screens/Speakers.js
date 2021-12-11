@@ -1,14 +1,15 @@
 import React from 'react';
 import {
     View,
-    Text, FlatList, TouchableOpacity, ImageBackground, SafeAreaView, ScrollView, StyleSheet, Dimensions
+    Text, FlatList, TouchableOpacity, ImageBackground, SafeAreaView, ScrollView, StyleSheet, Dimensions, Image
 } from 'react-native';
 import {speakerDetails} from "./details/speakerDetails";
 import {ceremoniesSpeakers} from "./details/speakerDetails";
-import {COLORS} from "../../constants";
+import {COLORS, icons, images, SIZES} from "../../constants";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Layout from "../../utils/Layout";
 import Constants from "expo-constants";
+import LayoutHeader from "../../utils/LayoutHeader";
 
 const {width} = Dimensions.get('screen');
 
@@ -43,37 +44,18 @@ const Speakers = ({navigation}) => {
 
 
     return (
-        <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white,paddingTop: Constants.statusBarHeight}}>
-            <View style={style.header}>
-
-                <Icon
-                    name="arrow-left"
-                    size={30}
-                    color={COLORS.gray}
-                    onPress={navigation.goBack}
-                    style={{
-                        borderColor: COLORS.darkGray,
-                        borderWidth: 1,
-                        borderRadius: 10,
-                        width: 47,
-                        height: 47,
-                        padding: 5
-                    }}
-
-                />
-                <Text
-                    style={{
-                        textAlign: 'center',
-                        flex: 1,
-                        color: COLORS.gold,
-                        fontSize: 18,
-                        fontWeight: 'bold',
-                        marginTop: 10,
-                    }}
-                >Speakers</Text>
-
-
-            </View>
+        <View
+            style={{
+                height: '100%',
+                backgroundColor: COLORS.white
+            }}
+        >
+            <Layout >
+            <LayoutHeader
+                icon={icons.speaker}
+                title="Speakers"
+                onPress={navigation.goBack}
+           />
             <Text style={style.userDetail}>Get the chance to know more about your favourite speaker and contact him for
                 more details 😊</Text>
 
@@ -111,25 +93,22 @@ const Speakers = ({navigation}) => {
                     })}
                 </ScrollView>
             </ScrollView>
-        </SafeAreaView>
+        </Layout>
+        </View>
+
     )
 }
 const style = StyleSheet.create({
-    header: {
-        paddingVertical: 20,
-        paddingHorizontal: 20,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        backgroundColor: COLORS.white,
-    },
+
     userDetail: {
         backgroundColor: COLORS.white2,
         paddingHorizontal: 22,
         color: COLORS.blue1,
         borderRadius: 15,
         marginHorizontal: 10,
+        marginTop:20,
         textAlign: 'auto',
-        fontSize: 12.7,
+        fontSize: 13,
         paddingVertical: 10,
         elevation:8
     },
@@ -150,12 +129,13 @@ const style = StyleSheet.create({
     },
     cardImage: {
         height: 220,
-        width: width / 2,
-        marginRight: 20,
+        width: width / 2.2,
+        marginRight: 4,
         padding: 10,
         overflow: 'hidden',
         borderRadius: 10,
-        elevation: 20
+        elevation: 20,
+        marginLeft:10
     },
     rmCardImage: {
         width: width - 40,

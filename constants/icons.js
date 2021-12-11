@@ -21,7 +21,7 @@ const wallet = require("../assets/icons/wallet.png")
 const help = require("../assets/icons/help.png")
 const news = require("../assets/icons/news.png")
 const qrcode = require("../assets/icons/qrcode.png")
-const trackingMap = require("../assets/icons/trackingMap.png")
+const trackingMap = require("../assets/icons/location.png")
 const speaker = require("../assets/icons/speaker.png")
 const checkIn = require("../assets/icons/chekhIn.png")
 const workshop = require("../assets/icons/workshop.png")
@@ -34,11 +34,18 @@ const eye = require("../assets/icons/eye.png")
 const eyeClose = require("../assets/icons/eye_close.png")
 const fb = require("../assets/icons/fb.png")
 const cancel = require("../assets/icons/cancel.png")
-
+const studentBranch = require("../assets/icons/studentBranch.png")
+const roomShare = require("../assets/icons/roomShare.png")
+const idMember = require("../assets/icons/idMember.png")
+const occupation = require("../assets/icons/occupation.png")
 
 
 export default {
-email,
+    occupation,
+    studentBranch,
+    roomShare,
+    idMember,
+    email,
     phone,
     cancel,
     eye,

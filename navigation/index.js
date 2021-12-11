@@ -69,7 +69,9 @@ const Navigator = () => {
   });
   useEffect(() => {
     if (newNotifList.length > 0) {
+      newNotifList.reverse();
       dispatch(addToNotificationList(newNotifList));
+
     }
   }, [notification.notificationRecieved]);
 useEffect(() => {
@@ -87,7 +89,7 @@ useEffect(() => {
             headerShown: false,
           }}
           // initialRouteName={"checkIn"}
-          initialRouteName="Speakers"
+          initialRouteName="Home"
         >
           <Stack.Screen name="Home" component={CustomDrawer} />
 

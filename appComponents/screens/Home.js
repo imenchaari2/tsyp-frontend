@@ -73,7 +73,7 @@ const HomeScreen = ({navigation}) => {
                         </View>
                     </View>
 
-                    <View style={{
+                    {/*<View style={{
                         marginTop: 10
                     }}>
                         <View style={{backgroundColor: COLORS.blue2, borderRadius: 12, marginHorizontal:10}}>
@@ -104,7 +104,7 @@ const HomeScreen = ({navigation}) => {
                                 />
                             </View>
                         </View>
-                    </View>
+                    </View>*/}
                   {/*  <View style={{
                         marginTop:-45
                     }}>

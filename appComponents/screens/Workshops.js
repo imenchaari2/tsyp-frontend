@@ -16,6 +16,8 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Layout from "../../utils/Layout";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import Constants from "expo-constants";
+import LayoutHeader from "../../utils/LayoutHeader";
 const { height } = Dimensions.get("window");
 const workshopsCategories = [
   { name: "SESSION 1" },
@@ -55,7 +57,7 @@ const Card = ({ workshop, navigation }) => {
                 fontSize: 20,
               }}
             >
-              {workshop?.domain?.name}
+              {workshop?.name}
             </Text>
             <Icon name="gender-male" size={22} color={COLORS.gray} />
           </View>
@@ -88,6 +90,8 @@ const HomeScreen = ({ navigation, drawerAnimationStyle }) => {
   const [selectedCategoryIndex, setSeletedCategoryIndex] = React.useState(0);
   const [filteredWorkshops, setFilteredWorkshops] = React.useState([]);
   const [workshopss, setWorkshopss] = useState([]);
+  const [technicalWorkshopss, setTechnicalWorkshopss] = useState([]);
+  const [nonTechnicalWorkshopss, setNonTechnicalWorkshopss] = useState([]);
   const fetchSessions = async () => {
     try {
       const res = await fetch("http://51.38.248.170/tsyp/api/sessions", {
@@ -99,7 +103,7 @@ const HomeScreen = ({ navigation, drawerAnimationStyle }) => {
         },
       }).then((res) => res.json()).then((res) => {
         if (res&&res.length>0) {
-          
+
           setWorkshopss(res);
         }
         });
@@ -119,49 +123,48 @@ const HomeScreen = ({ navigation, drawerAnimationStyle }) => {
    }, []);
 
 
-  const fliterWorkshop = (index) => {
+  const filterWorkshop = index => {
     const currentWorkshops = workshopss.filter(
       (item) =>
         item?.workshop?.toUpperCase() === workshopsCategories[index].name
     )[0]?.workshops;
     setFilteredWorkshops(currentWorkshops);
+    /*filteredWorkshops.filter(
+        (item)=>
+            item?.
+    )*/
+    /*const technicalWorkshops = filteredWorkshops?.filter(
+        (item) =>
+            item?.workshops[index]?.name === "IOT as a business"
+    )[0]?.workshops;
+    setTechnicalWorkshopss(technicalWorkshops);
+    console.log(technicalWorkshops,"technical")*/
   };
 
+
+
+
+
+
   React.useEffect(() => {
-    fliterWorkshop(0);
+    filterWorkshop(0);
+
   }, [workshopss]);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
-      <Layout>
-        <View style={style.header}>
-          <Icon
-            name="arrow-left"
-            size={30}
-            color={COLORS.gray}
+      <View
+          style={{
+            height: '100%',
+            backgroundColor: COLORS.white
+          }}
+      >
+        <Layout >
+
+        <LayoutHeader
+            icon={icons.workshop}
+            title="Workshops"
             onPress={navigation.goBack}
-            style={{
-              borderColor: COLORS.darkGray,
-              borderWidth: 1,
-              borderRadius: 10,
-              width: 47,
-              height: 47,
-              padding: 5,
-            }}
-          />
-          <Text
-            style={{
-              textAlign: "center",
-              flex: 1,
-              color: COLORS.gold,
-              fontSize: 18,
-              fontWeight: "bold",
-              marginTop: 10,
-            }}
-          >
-            Workshops
-          </Text>
-        </View>
+        />
         <ScrollView
           showsVerticalScrollIndicator={false}
           alwaysBounceVertical={false}
@@ -185,7 +188,8 @@ const HomeScreen = ({ navigation, drawerAnimationStyle }) => {
                   <TouchableOpacity
                     onPress={() => {
                       setSeletedCategoryIndex(index);
-                      fliterWorkshop(index);
+                      filterWorkshop(index);
+                      console.log(filteredWorkshops[1].isTechnical,"session1")
                     }}
                     style={[
                       style.categoryBtn,
@@ -228,14 +232,14 @@ const HomeScreen = ({ navigation, drawerAnimationStyle }) => {
           </View>
         </ScrollView>
       </Layout>
-    </SafeAreaView>
+      </View>
+
   );
 };
 
 const style = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: COLORS.white2,
     paddingHorizontal: 20,
     paddingVertical: 20,
     minHeight: height,

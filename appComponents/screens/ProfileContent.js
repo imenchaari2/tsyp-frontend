@@ -52,12 +52,7 @@ console.log(user,"user");
             marginTop: SIZES.radius,
           }}
         >
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <View
-              style={{
-                marginTop: SIZES.padding,
-              }}
-            >
+            <ScrollView showsVerticalScrollIndicator={false}>
               <FormInput
                 value={fullName}
                 label="Full Name"
@@ -122,13 +117,13 @@ console.log(user,"user");
                   style={{ borderColor: COLORS.transparent }}
                   onChangeText={(value) => {
                       setPhone(value);}}
-                
+
                   placeholder="(+216)      "
                   keyboardType="numeric"
                   onchange={(value) => {
                     setPhone(value);
                   }}
-               
+
                 />
                 <FormInput
                   value={idMember}
@@ -229,8 +224,8 @@ disabled={sendRequest||fullName===""||email===""||phone===""||idMember===""||stu
                             'Authorization': 'Bearer ' + token
                         },
                         body: JSON.stringify({
-                         
-                           
+
+
                             fullName: fullName,
                             phone: phone,
                             idMember: idMember,
@@ -253,11 +248,11 @@ disabled={sendRequest||fullName===""||email===""||phone===""||idMember===""||stu
 
                             }
                         })
-                      
+
                             navigation.goBack();
                         sendRequest(false)
-                            
-                        
+
+
 
                 }}
                 buttonText="Save your informations"
@@ -270,7 +265,7 @@ disabled={sendRequest||fullName===""||email===""||phone===""||idMember===""||stu
                 }}
                 colors={[COLORS.doree, COLORS.doree1]}
               />
-            </View>
+            {/* </View> */}
           </ScrollView>
         </AuthenLayout>
       </Layout>

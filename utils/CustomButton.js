@@ -21,8 +21,8 @@ const CustomButton=({ buttonText, disabled, buttonContainerStyle , colors , onPr
                     style={{
                         textAlign: 'center',
                         color: COLORS.black,
-                        ...FONTS.h3,
-                        fontWeight:'bold'
+                        ...FONTS.h4,
+                        fontWeight:'700'
                     }
                     }
                 >

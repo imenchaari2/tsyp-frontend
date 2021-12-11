@@ -9,7 +9,7 @@ import { COLORS, FONTS, images, SIZES } from "../../constants";
 import { CustomButton } from "../../utils";
 
 const OnBoarding = ({ navigation }) => {
-   
+
 
     function renderHeader() {
         return (
@@ -23,7 +23,7 @@ const OnBoarding = ({ navigation }) => {
                     source={images.logo}
                     style={{
                         width:'100%',
-                        height:250,
+                        height:220,
                         justifyContent: 'flex-end',
                         backgroundColor: COLORS.black,
                     }}
@@ -38,7 +38,7 @@ const OnBoarding = ({ navigation }) => {
                             COLORS.transparent
                         ]}
                         style={{
-                            height: 900,
+                            height: 1200,
                             justifyContent: 'flex-end',
 
                         }}
@@ -92,14 +92,15 @@ const OnBoarding = ({ navigation }) => {
                 >
                     <CustomButton
 
-                        buttonText="Login"
+                        buttonText="Log In"
                         buttonContainerStyle={{
                             paddingVertical:15,
                             borderColor: COLORS.black,
+                            marginHorizontal:10,
                             borderWidth:1,
                             borderRadius: 20
                         }}
-                        colors={[COLORS.doree1, COLORS.gold]}
+                        colors={[COLORS.doree, COLORS.gold]}
                         onPress={() => navigation.navigate("SignIn")}
                     />
                     {/* <CustomButton

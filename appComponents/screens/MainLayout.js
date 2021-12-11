@@ -243,8 +243,8 @@ const MainLayout = ({navigation, drawerAnimationStyle}) => {
                                     source={icons.tsypPlan}
                                     resizeMode="contain"
                                     style={{
-                                        width: 39,
-                                        height: 40,
+                                        width: 25,
+                                        height: 25,
                                         tintColor: focused ? COLORS.black : COLORS.gold
                                     }}
                                 />

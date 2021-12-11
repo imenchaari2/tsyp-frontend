@@ -163,7 +163,7 @@ const CustomDrawerContent = ({ navigation }) => {
             />
             <CustomDrawerItem
               label={constants.screens.tsypPlan}
-              icon={icons.plan}
+              icon={icons.tsypPlan}
               onPress={() => {
                 navigation.navigate("TsypPlan");
               }}
