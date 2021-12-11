@@ -20,7 +20,7 @@ import Layout from "../../utils/Layout";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../redux/store";
 import { saveUserInfo, setflowCompleted } from "../redux/profile/profileSlice";
-
+const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const checkIn = ({ navigation }) => {
   const user = useSelector((state) => state.profileSlice.profile.user);
   const userFlow = useSelector(
@@ -254,13 +254,17 @@ const checkIn = ({ navigation }) => {
 
               <CustomButton
                 //    disabled={email === "" || emailError !== "" || phone === "" || cin === "" || firstName === "" || lastName === "" || checkinDate === "" || checkoutDate === "" || roomSharing === ""}
-                onPress={() => {
+                onPress={async() => {
                   console.log(cin);
 
                   dispatch(saveUserInfo({ email, phone, cin, roomSharing }));
                   dispatch(setflowCompleted())
                   if (userFlow) {
                     navigation.goBack();
+                  }
+                  else {
+                    await delay(1000);
+                    navigation.navigate("Home");
                   }
                 }}
                 buttonText="Save your informations"
