@@ -8,9 +8,9 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import plandetails from "./details/PlanDetails";
 import Layout from "../../utils/Layout";
 const Plandetails = [
-    {name: '19 DECEMBER ', image:require('../../assets/images/54053865-19-décembre-vecteur-plat-calendrier-icône-quotidienne-date-et-heure-jour-mois-vacances-.jpg'),},
     {name: '20 DECEMBER ', image:require('../../assets/images/2nd.jpg')},
-    {name: '21 DECEMBER ',image:require('../../assets/images/3rd.jpg')},
+    {name: '21 DECEMBER ', image:require('../../assets/images/3rd.jpg')},
+    {name: '22 DECEMBER ',image:require('../../assets/images/22dec.jpg')},
 ];
 const Card = ({day, navigation}) => {
     const [selectedDayIndex, setSeletedDayIndex] = React.useState(0);
@@ -79,7 +79,7 @@ const TsypPlan = ({navigation}) => {
     }, []);
     return (
         <Layout noMargin>
-        <SafeAreaView style={{flex: 1, color: COLORS.red , marginBottom: 118}}>
+        <SafeAreaView style={{flex: 1, color: COLORS.gold , marginBottom: 118}}>
         <View
             style={{
                 flexDirection: 'row',

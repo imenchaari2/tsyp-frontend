@@ -6,7 +6,8 @@ import {
 import {COLORS, FONTS, images, SIZES} from "../../constants";
 
 import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
-const AuthenLayout= ({title, subtitle,titleContainerStyle, children}) => {
+
+const AuthenLayout = ({title, subtitle, titleContainerStyle, children}) => {
     return (
         <View
             style={{
@@ -20,7 +21,7 @@ const AuthenLayout= ({title, subtitle,titleContainerStyle, children}) => {
             <KeyboardAwareScrollView
                 onKeyboardDismissMode="on-Drag"
                 contentContainerStyle={{
-                    flex:1,
+                    flex: 1,
                     paddingHorizontal: SIZES.padding
                 }}
             >
@@ -30,14 +31,24 @@ const AuthenLayout= ({title, subtitle,titleContainerStyle, children}) => {
                         alignItems: 'center'
                     }}
                 >
-                <Image
-                    source={images.logo}
-                    resizeMode="contain"
-                    style={{
-                        height: 100,
-                        width: 200
-                    }}
-                />
+                    <View style={{flexDirection:'row'}}>
+                    <Image
+                        source={images.logo}
+                        resizeMode="contain"
+                        style={{
+                            height:100,
+                            width: "30%"
+                        }}
+                    />
+                    <Image
+                        source={images.nasyp}
+                        resizeMode="cover"
+                        style={{
+                            height: 120,
+                            width: '70%'
+                        }}
+                    />
+                    </View>
                 </View>
                 {/*{title }*/}
                 <View
@@ -50,7 +61,7 @@ const AuthenLayout= ({title, subtitle,titleContainerStyle, children}) => {
                         style={{
                             textAlign: 'center',
                             ...FONTS.h2,
-                            fontWeight:"600"
+                            fontWeight: "600"
                         }}
                     >
                         {title}

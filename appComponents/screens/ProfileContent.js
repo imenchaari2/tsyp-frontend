@@ -52,12 +52,7 @@ console.log(user,"user");
             marginTop: SIZES.radius,
           }}
         >
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <View
-              style={{
-                marginTop: SIZES.padding,
-              }}
-            >
+            <ScrollView>
               <FormInput
                 value={fullName}
                 label="Full Name"
@@ -270,7 +265,7 @@ disabled={sendRequest||fullName===""||email===""||phone===""||idMember===""||stu
                 }}
                 colors={[COLORS.doree, COLORS.doree1]}
               />
-            </View>
+            {/* </View> */}
           </ScrollView>
         </AuthenLayout>
       </Layout>

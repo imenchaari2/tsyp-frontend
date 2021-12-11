@@ -4,7 +4,6 @@ const initialState = {
   email: "",
   password: "",
   remember:false
-
 };
 const credentialsSlice = createSlice({
   name: "credentials",
@@ -19,11 +18,7 @@ const credentialsSlice = createSlice({
       state.password = "";
       state.email = "";
     }
-
-
-
   },
 });
-
 export const { rememberCredentials,forgetCredentials } = credentialsSlice.actions;
 export default credentialsSlice.reducer;

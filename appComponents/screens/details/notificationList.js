@@ -20,7 +20,7 @@ const notificationList = [
   {
     title: "Workshop Session 1  ",
     body: "After 15 min session 1 will start \n in room 1",
-    trigger: new Date("December 05, 2021 18:08:10"),
+    trigger: new Date("December 08, 2021 15:29:50"),
     data: {
       image: "workshop",
       id: 3,
@@ -29,7 +29,7 @@ const notificationList = [
   {
     title: "Photo corner ",
     body: "Dear attendee choose your photo \ncorner and get instantly wonderful pictures",
-    trigger: new Date("December 05, 2021 18:08:10"),
+    trigger: new Date("December 08, 2021 15:29:55"),
     data: {
       image: "photo",
       id: 4,
@@ -38,7 +38,7 @@ const notificationList = [
   {
     title: "Rate us ",
     body: "Please rate the event ! we will appreciate it",
-    trigger: new Date("December 05, 2021 18:08:10"),
+    trigger: new Date("December 08, 2021 15:30:00"),
     data: {
       screen: "Feedback",
       image: "rate",
@@ -48,7 +48,7 @@ const notificationList = [
   {
     title: "Hippy evening ",
     body: "Get ready , the fun will begin shortly",
-    trigger: new Date("December 05, 2021 18:08:10"),
+    trigger: new Date("December 08, 2021 15:30:50"),
     data: {
       image: "hippy",
       id: 6,
