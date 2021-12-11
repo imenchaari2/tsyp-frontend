@@ -3235,6 +3235,13 @@ expo-notifications@~0.12.3:
     fs-extra "^9.0.1"
     uuid "^3.4.0"
 
+expo-snackbar@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/expo-snackbar/-/expo-snackbar-1.0.0.tgz#66c794c5b94eb06a87d9f47d6927313d13356442"
+  integrity sha512-3KSg01969Lk71J6SdLE7EUIXu0LmezZQEuHeUzXHHpbrL6X4K8NWRPSU6fegBYZZA+0MES62hyTdqR0U/wM7Vw==
+  dependencies:
+    prop-types "^15.6.0"
+
 expo-status-bar@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/expo-status-bar/-/expo-status-bar-1.0.4.tgz#d8a4c4418b5868c1606969b12bdee85b6fa7d8a4"
@@ -5590,6 +5597,13 @@ react-native-screens@~3.4.0:
   integrity sha512-cg+q9MRnVdeOcJyvJtqffoXLur/C2wHA/7IO2+FAipzTlgHbbM1mTuSM7qG+SeiQjoIs4mHOEf7A0ziPKW04sA==
   dependencies:
     warn-once "^0.1.0"
+
+react-native-snackbar-component@^1.1.12:
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/react-native-snackbar-component/-/react-native-snackbar-component-1.1.12.tgz#9be53ad6f5128dcd9bb72da469c1d5531c52a9b8"
+  integrity sha512-uF9Aw3lWVtFOxrd09YCXteTvIxBZ0IrwEluhhTsmNqWf3fYeJ7LbERVXYw/2p39H9tQUFGkrJcrkvDcQcUa3Pg==
+  dependencies:
+    prop-types "^15.6.0"
 
 react-native-svg@^12.1.1:
   version "12.1.1"

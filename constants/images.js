@@ -22,13 +22,27 @@ const rate = require("../assets/images/rate.png")
 const hotel = require("../assets/images/hotel.png")
 const press = require("../assets/images/ieeePress.png")
 const polina = require("../assets/images/polina.png")
+const IIT = require("../assets/images/IIT.png")
+const logoEnisSb = require("../assets/images/logoEnisSb.png")
+const logoSection = require("../assets/images/logoSection.png")
+const issatso = require("../assets/images/issatso.png")
+const issatsoAllBlanc = require("../assets/images/issatsoAllBlanc.png")
+const issatsoBlanc = require("../assets/images/issatsoBlanc.png")
 const primatec = require("../assets/images/primatec.png")
 const profileupdate = require("../assets/images/userProfile.png")
 const firstday = require("../assets/images/2nd.jpg")
+const trackingMap = require("../assets/images/trackingMap.png")
 
 export default {
+    trackingMap,
+    issatsoBlanc,
+    issatso,
+    issatsoAllBlanc,
     logo1,
     press,
+    logoSection,
+    logoEnisSb,
+    IIT,
     polina,
     primatec,
     sponsors,
@@ -56,8 +70,9 @@ export default {
 
 }
 export const imgref={
+    "tsyp": tsyp,
     "firstday":firstday,
-    "coronaReminder":coronaReminder,
+    "mask":coronaReminder,
     "photo":photo,
     "rate":rate,
     "hotel":hotel,
@@ -66,6 +81,7 @@ export const imgref={
     "hollywood":hollywood,
     "workshop":workshop,
     "gel":gel,
-    "qrCode":qrCode
+    "qrCode":qrCode,
+    "trackingMap":trackingMap
 
 }

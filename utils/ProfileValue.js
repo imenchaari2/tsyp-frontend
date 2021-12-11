@@ -24,9 +24,9 @@ const ProfileValue =({icon, label , value })=>{
                     resizeMode="contain"
                     style={{
                         paddingTop:35,
-                        width:25,
+                        width:30,
                         height:25,
-                        tintColor: COLORS.gold,
+                        tintColor: COLORS.gold1,
 
                     }}
                 />

@@ -1,19 +1,252 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Text,
     ImageBackground,
     SafeAreaView,
     View,
     Image,
-    StyleSheet, ScrollView,
+    StyleSheet, ScrollView, TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {COLORS, images} from "../../../constants";
+import {COLORS, FONTS, images, SIZES} from "../../../constants";
 import {CustomButton} from "../../../utils";
 import Constants from "expo-constants";
+import {saveUserInfo} from "../../redux/profile/profileSlice";
+import {useSelector} from "react-redux";
+import {withDelay} from "react-native-reanimated";
 
 const DetailsScreen = ({navigation, route}) => {
+    const token = useSelector((state) => state.profileSlice.profile.token);
+    const [sessionsId, setSessionsId] = useState([]);
+    const [IsSubscribed, setIsSubscribed] = useState(true);
+    const [IsFull, setIsFull] = useState(false);
+    const [IsAlreadySubscribedPerSession, setIsAlreadySubscribedPerSession] = useState(true);
+
+    const verifyWorkshopSubscription = async () => {
+        try {
+            const res = await fetch("http://51.38.248.170/tsyp/api/verify-workshop/" + workshop.id, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: "Bearer " + token,
+                },
+            })
+                .then((res) => res.json()).then((res) => {
+                    // console.log(responseJson);
+                    if (res.Response === 'Success') {
+                        console.log("Successfully registered");
+                        setIsSubscribed(true);
+
+                    } else {
+                        console.log("Not registred");
+                        setIsSubscribed(false);
+                    }
+                });
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    };
+    const verifyWorkshopFullness = async () => {
+        if (workshop?.numberOfParticipants === workshop?.users.length) {
+            setIsFull(true)
+        } else {
+            setIsFull(false)
+        }
+    };
+    const verifyWorkshopSubscriptionPerSession = async () => {
+        try {
+            const res = await fetch("http://51.38.248.170/tsyp/api/connected-user", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: "Bearer " + token,
+                },
+            })
+                .then((res) => res.json()).then((res) => {
+                    res.workshops.map(item => {
+                        sessionsId.push(item.session.id)
+                    })
+                    console.log(sessionsId)
+
+                    if (sessionsId.includes(workshop.session)) {
+                        console.log("AlreadySubscribedPerSession")
+                        setIsAlreadySubscribedPerSession(true)
+                        console.log(IsAlreadySubscribedPerSession)
+                    } else {
+                        setIsAlreadySubscribedPerSession(false)
+                        console.log("notSubscribedPerSession")
+
+                    }
+
+                });
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    };
+
+
+    useEffect(() => {
+        verifyWorkshopSubscriptionPerSession();
+        verifyWorkshopSubscription();
+        verifyWorkshopFullness();
+
+    }, []);
+
+    function renderSubscribeButton() {
+        return (
+            <CustomButton
+                buttonText="Subscribe "
+                buttonContainerStyle={{
+                    backgroundColor: COLORS.primary,
+                    height: 60,
+                    width: 350,
+                    borderRadius: 12,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+                colors={[COLORS.doree1]}
+                onPress={async () => {
+                    await fetch("http://51.38.248.170/tsyp/api/add-workshop/" + workshop.id, {
+                        method: "GET",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                            Authorization: "Bearer " + token,
+                        },
+                    })
+                        .then((response) => {
+                            return response.json();
+                        })
+                        .then((responseJson) => {
+                            // console.log(responseJson);
+                            if (responseJson.Response === 'Success') {
+                                console.log("Successfully registered");
+
+                            } else {
+                                console.log("Error");
+                            }
+                        });
+                    setIsSubscribed(false);
+                    await withDelay(1000, 0);
+                    navigation.goBack();
+                }}
+
+            />
+        )
+    }
+
+    function renderUnSubscribeButton() {
+        return (
+            <CustomButton
+                buttonText="UnSubscribe "
+                buttonContainerStyle={{
+                    backgroundColor: COLORS.primary,
+                    height: 60,
+                    width: 350,
+                    borderRadius: 12,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+                colors={[COLORS.doree1]}
+                onPress={async () => {
+                    await fetch("http://51.38.248.170/tsyp/api/remove-workshop/" + workshop.id, {
+                        method: "GET",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                            Authorization: "Bearer " + token,
+                        },
+                    })
+                        .then((response) => {
+                            return response.json();
+                        })
+                        .then((responseJson) => {
+                            // console.log(responseJson);
+                            if (responseJson.Response === 'Success') {
+                                console.log("Successfully removed");
+
+                            } else {
+                                console.log("Error");
+                            }
+                        });
+                    setIsSubscribed(true)
+                    await withDelay(1000);
+                    navigation.goBack();
+
+                }}
+
+            />
+        )
+    }
+    function renderFullButton() {
+        return (
+            <CustomButton
+                buttonText="This workshop is Full "
+                buttonContainerStyle={{
+                    backgroundColor: COLORS.primary,
+                    height: 60,
+                    width: 350,
+                    borderRadius: 12,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+                colors={[COLORS.doree1]}
+                onPress={async () => {
+                    await withDelay(1000);
+                    navigation.goBack();
+
+                }}
+
+            />
+        )
+    }
+    function renderAlreadySubscribedPerSessionButton() {
+        return (
+            <CustomButton
+                buttonText="Already Subscribed Per Session "
+                buttonContainerStyle={{
+                    backgroundColor: COLORS.primary,
+                    height: 60,
+                    width: 350,
+                    borderRadius: 12,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+                colors={[COLORS.doree1]}
+                onPress={async () => {
+                    await withDelay(1000);
+                    navigation.goBack();
+
+                }}
+
+            />
+        )
+    }
+
+
     const workshop = route.params;
+
+    function renderButton() {
+        if(IsFull===true && IsSubscribed === false){
+            return renderFullButton();
+        }
+        if( IsSubscribed===false && IsAlreadySubscribedPerSession=== true){
+            return renderAlreadySubscribedPerSessionButton();
+        }
+        if(IsSubscribed===false && IsAlreadySubscribedPerSession=== false){
+            return renderSubscribeButton();
+        }
+        if((IsSubscribed===true && IsFull === true) || (IsSubscribed===true && IsFull === false)){
+            return renderUnSubscribeButton();
+        }
+    }
+
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
             <View style={{
@@ -80,7 +313,7 @@ const DetailsScreen = ({navigation, route}) => {
                     <View style={{flex: 1, paddingLeft: 10}}>
                         <Text
                             style={{color: COLORS.gray, fontSize: 12, fontWeight: 'bold'}}>
-                            {workshop?.speaker?.firstName }
+                            {workshop?.speaker?.firstName}
                         </Text>
                         <Text
                             style={{
@@ -90,16 +323,17 @@ const DetailsScreen = ({navigation, route}) => {
                                 marginTop: 2,
                                 paddingBottom: 10
                             }}>
-                            {workshop?.speaker?.lastName }
+                            {workshop?.speaker?.lastName}
 
                         </Text>
                     </View>
-                    <Text style={{color: COLORS.gold, fontSize: 12, fontWeight:'bold'}}>Duration : {workshop?.duration } </Text>
+                    <Text style={{color: COLORS.gold, fontSize: 12, fontWeight: 'bold'}}>Duration
+                        : {workshop?.duration} </Text>
                 </View>
                 <ScrollView>
 
                     <Text style={style.comment}>
-                        {workshop?.description }
+                        {workshop?.description}
                     </Text>
 
 
@@ -107,21 +341,7 @@ const DetailsScreen = ({navigation, route}) => {
 
                 {/* Render footer */}
                 <View style={style.footer}>
-
-                    <CustomButton
-                        buttonText="Subscribe "
-                        buttonContainerStyle={{
-                            backgroundColor: COLORS.primary,
-                            height: 60,
-                            width: 350,
-                            borderRadius: 12,
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}
-                        colors={[COLORS.doree1]}
-                        /*onPress={() => navigation.goBack()}*/
-
-                    />
+                    {renderButton()}
 
                 </View>
 

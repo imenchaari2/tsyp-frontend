@@ -132,6 +132,7 @@ export default function App() {
                                     <View>
                                         <Text style={{color: COLORS.brown2,fontSize:14,fontWeight:"700"}}>{item?.title}</Text>
                                         <Text style={{color: COLORS.brown,fontSize:12,fontWeight:"500"}}>{item?.body}</Text>
+                                        <Text style={{color: COLORS.gray,fontSize:10,fontWeight:"800", marginTop: 5}}>{item?.time}</Text>
                                     </View>
                                 </View>
                             </View>

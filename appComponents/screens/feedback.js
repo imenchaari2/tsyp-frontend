@@ -9,6 +9,8 @@ import {CustomButton, FormInput} from "../../utils";
 import Constants from "expo-constants";
 import Layout from "../../utils/Layout";
 import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
+import {saveUserInfo} from "../redux/profile/profileSlice";
+import {useSelector} from "react-redux";
 
 
 const Feedback = ({navigation}) => {
@@ -17,6 +19,8 @@ const Feedback = ({navigation}) => {
     const starFilled = icons.starFilled;
     const starCorner = icons.starCorner;
     const [feedback, setFeedback] = React.useState("")
+    const token = useSelector((state) => state.profileSlice.profile.token);
+    const [sendRequest, setSendRequest] = React.useState(false);
 
     return (
         <Layout noMargin>
@@ -76,6 +80,9 @@ const Feedback = ({navigation}) => {
                 </TouchableOpacity>
 
             </View>
+            <KeyboardAwareScrollView
+                onKeyboardDismissMode="on-Drag"
+            >
             <Text style={style.userDetail}> As IEEE Enis Student Branch we had the honor to organize the TSYP 9th
                 Edition and we would love to know ,dear attendee, your feedback about the overall event organisation
             </Text>
@@ -85,6 +92,7 @@ const Feedback = ({navigation}) => {
                     return (
 
                         <TouchableOpacity
+                            value={defaultRating}
                             activeOpacity={0.7}
                             key={item}
                             onPress={() => setDefaultRating((item))}
@@ -114,11 +122,10 @@ const Feedback = ({navigation}) => {
                                 <Text style={{color: COLORS.red1}}>I just LOVE it 💞</Text>}
             </Text>
 
-            <KeyboardAwareScrollView
-                onKeyboardDismissMode="on-Drag"
-              >
+
             <TextInput
-                onchange={(value) => {
+                value={feedback}
+                onChangeText={(value) => {
                     setFeedback(value)
                 }}
                 style={{
@@ -133,29 +140,61 @@ const Feedback = ({navigation}) => {
                 placeholder="Leave your comments here .."
 
             />
+
+
+                <CustomButton
+                    buttonText="Send your feedback"
+                    buttonContainerStyle={{
+                        marginTop:40,
+                        marginHorizontal: 20,
+                        paddingVertical: 15,
+                        borderColor: COLORS.doree,
+                        borderWidth: 1,
+                        borderRadius: 20,
+
+                    }}
+                    colors={[COLORS.doree, COLORS.doree1]}
+                    onPress={async () => {
+                        await fetch("http://51.38.248.170/tsyp/api/send-feedback", {
+                            method: "POST",
+                            headers: {
+                                Accept: "application/json",
+                                "Content-Type": "application/json",
+                                Authorization: "Bearer " + token,
+                            },
+                            body: JSON.stringify({
+                                rate: defaultRating,
+                                feedback: feedback,
+                            }),
+                        })
+                            .then((response) => {
+
+                                console.log(response);
+                                return response.json();
+                            })
+                            .then((responseJson) => {
+                                console.log(responseJson);
+                                if (responseJson.Response === 'Success') {
+                                    console.log("Successfully feedback send");
+                                } else {
+                                    console.log("Error");
+                                }
+                            });
+                        navigation.navigate('Home');
+
+                    }}
+
+                />
             </KeyboardAwareScrollView>
-            <CustomButton
-                buttonText="Send your feedback"
-                buttonContainerStyle={{
-                    marginHorizontal: 20,
-                    paddingVertical: 15,
-                    borderColor: COLORS.doree,
-                    borderWidth: 1,
-                    borderRadius: 20,
-
-                }}
-                colors={[COLORS.doree, COLORS.doree1]}
-                onPress={() => navigation.goBack()}
-
-            />
         </View>
+
         </Layout>
     )
 }
 const style = StyleSheet.create({
 
     userDetail: {
-        marginTop:20,
+        marginTop:40,
         backgroundColor: COLORS.white3,
         paddingHorizontal: 15,
         color: COLORS.darkGray,
@@ -177,7 +216,7 @@ const style = StyleSheet.create({
 
     },
     cardDetailsContainer: {
-        height: 180,
+        height: 200,
         backgroundColor: COLORS.white3,
         marginTop: 30,
         paddingHorizontal: 30,
@@ -195,7 +234,7 @@ const style = StyleSheet.create({
     customRatingBar: {
         justifyContent: 'center',
         flexDirection: 'row',
-        marginTop: -75,
+        marginTop: -70,
 
 
     },

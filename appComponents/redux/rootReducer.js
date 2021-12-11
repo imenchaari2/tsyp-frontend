@@ -12,7 +12,7 @@ const persistConfig = {
   //name of reducer to store
 
   //liste to persist
-  whitelist: ["profileSlice", "notificationSlice","credentialSlice", "dataSlice"],
+  whitelist: ["profileSlice", "notificationSlice", "dataSlice" ,"credentialSlice"],
 };
 const rootReducer = combineReducers({
   profileSlice: profileSlice,

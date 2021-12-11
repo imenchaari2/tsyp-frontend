@@ -38,13 +38,19 @@ const studentBranch = require("../assets/icons/studentBranch.png")
 const roomShare = require("../assets/icons/roomShare.png")
 const idMember = require("../assets/icons/idMember.png")
 const occupation = require("../assets/icons/occupation.png")
+const sesion2 = require("../assets/icons/14h.png")
+const hotel = require("../assets/icons/hotel.png")
+const room = require("../assets/icons/room.png")
 
 
 export default {
     occupation,
     studentBranch,
     roomShare,
+    room,
+    hotel,
     idMember,
+    sesion2,
     email,
     phone,
     cancel,

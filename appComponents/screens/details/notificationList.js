@@ -1,20 +1,68 @@
 const notificationList = [
   {
-    title: "Covid-19 Reminder !",
-    body: "please wear your mask and keep a distance",
-    trigger: new Date("December 05, 2021 18:08:00"),
+    title: "Welcome 💖",
+    body: "Welcome dear attendee, Get ready for the fun !",
+    trigger: new Date("December 18, 2021 10:00:00"),
+    time: "18/12/21 10:00",
     data: {
-      image: "coronaReminder",
-      id: 1,
+      image: "tsyp",
+    },
+  },
+  {
+    title: "Workshop Subscription",
+    body: "Have you subscribed in workshops? if not click me",
+    trigger: new Date("December 18, 2021 12:00:00"),
+    time: "18/12/21 12:00",
+    data: {
+      screen: "workshops",
+      image: "workshop",
+    },
+  },
+  {
+    title: "Check In process",
+    body: "Dear attendee you have to scan check in qr code to get your Hotel bracelet and room card entry",
+    trigger: new Date("December 20, 2021 08:00:00"),
+    time: "20/12/21 07:00",
+    data: {
+      screen: "qrCode",
+      image: "qrCode",
     },
   },
   {
     title: "Covid-19 Reminder ! ",
     body: "Be safe and use hand sanitizer please",
-    trigger: new Date("December 05, 2021 18:08:10"),
+    trigger: new Date("December 20, 2021 09:00:00"),
+    time: "20/12/21 09:00",
     data: {
       image: "gel",
-      id: 2,
+    }
+  },
+  {
+    title: "Hotel Map ",
+    body: "To help you find your way and not getting lost use this map ",
+    trigger: new Date("December 20, 2021 10:00:00"),
+    time: "20/12/21 10:00",
+    data: {
+      screen: "trackingMap",
+      image: "trackingMap",
+    }
+  },
+  {
+    title: "Covid-19 Reminder ! ",
+    body: "Be safe and wear your mask ",
+    trigger: new Date("December 20, 2021 11:00:00"),
+    time: "20/12/21 11:00",
+    data: {
+      image: "mask",
+    }
+  },
+  {
+    title: " ",
+    body: "Be safe and wear your mask ",
+    trigger: new Date("December 20, 2021 11:00:00"),
+    time: "20/12/21 11:00",
+    data: {
+      image: "mask",
     }
   },
   {
@@ -62,7 +110,17 @@ const notificationList = [
       image: "hollywood",
       id: 7,
     }
-  }
+  },
+  {
+    title: "Covid-19 Reminder ! ",
+    body: "Be safe and use hand sanitizer please",
+    trigger: new Date("December 14, 2021 23:04:10"),
+    time: "14/12 23:01",
+    data: {
+      image: "gel",
+      id: 2,
+    }
+  },
 ];
 
 export default notificationList;

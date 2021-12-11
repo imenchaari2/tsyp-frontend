@@ -6,7 +6,7 @@ export const COLORS = {
     doree1: "#eada68",
     doree2: "rgba(250,224,136,0.36)",
     gold: "rgba(236,202,87,0.9)",
-    gold1: "rgba(168,133,45,0.95)",
+    gold1: "rgba(215,175,65,0.95)",
     primary: "#fae98f", //orange
     transparentPrimray: 'rgba(229,162,0,0.62)',
     brown: 'rgba(29,23,5,0.89)',
@@ -18,7 +18,7 @@ export const COLORS = {
     lightOrange: "#FFA133",
     lightOrange2: "#FDDED4",
     lightOrange3: '#FFD9AD',
-    green: "rgba(153,82,51,0.96)",
+    green: "rgba(49,151,66,0.96)",
     red: "#FF1717",
     red1: "rgba(170,19,19,0.81)",
     blue: '#0064C0',
