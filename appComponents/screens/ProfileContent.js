@@ -37,7 +37,7 @@ const ProfileContent = ({navigation}) => {
     const [hotel, setHotel] = React.useState(user?.hotel || "");
     const [sharedWith, setSharedWith] = React.useState(user?.sharedWith || "");
     const [sendRequest, setSendRequest] = React.useState(false);
-    // console.log(user,"user");
+    // //console.log(user,"user");
     return (
         <View
             style={{
@@ -248,15 +248,15 @@ const ProfileContent = ({navigation}) => {
                                                 sharedWith,
                                             })
                                         );
-                                        // console.log(response);
+                                        // //console.log(response);
                                         return response.json();
                                     })
                                     .then((responseJson) => {
-                                        // console.log(responseJson);
+                                        // //console.log(responseJson);
                                         if (responseJson.status === 200) {
-                                            // console.log("Successfully registered");
+                                            // //console.log("Successfully registered");
                                         } else {
-                                            console.log("Error");
+                                            //console.log("Error");
                                         }
                                     });
                                 if (!userFlow) {

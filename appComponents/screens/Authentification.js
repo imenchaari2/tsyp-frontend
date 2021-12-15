@@ -71,7 +71,7 @@ const Authentification= ({navigation}) => {
                     ...FONTS.h3
                 }}
                 // onCodeFilled={(code)=>{
-                //     console.log(code)
+                //     //console.log(code)
                 // }}
             />
             <View

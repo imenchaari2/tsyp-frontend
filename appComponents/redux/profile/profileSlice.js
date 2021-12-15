@@ -26,7 +26,7 @@ const profileSlice = createSlice({
             };
         },
         saveUserInfo(state, action) {
-            // console.log(action.payload);
+            // //console.log(action.payload);
             state.profile.user = {
                 ...state.profile.user,
                 ...action.payload

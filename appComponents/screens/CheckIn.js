@@ -278,15 +278,15 @@ const checkIn = ({navigation}) => {
                                             dispatch(
                                                 dispatch(saveUserInfo({email, phone, firstName, lastName, cin, sharedWith}))
                                             );
-                                            // console.log(response);
+                                            // //console.log(response);
                                             return response.json();
                                         })
                                         .then((responseJson) => {
-                                             console.log(responseJson);
+                                            //  //console.log(responseJson);
                                             if (responseJson.status === 200) {
-                                                 console.log("Successfully registered");
+                                                 //console.log("Successfully registered");
                                             } else {
-                                                console.log("Error");
+                                                //console.log("Error");
                                             }
                                         });
                                     dispatch(setflowCompleted());

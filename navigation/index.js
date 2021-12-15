@@ -84,7 +84,7 @@ const Navigator = () => {
 
   const getUserInfo = async () => {
     try {
-        console.log(userToken,"token");
+        //console.log(userToken,"token");
       setuserInfoRecieved(false);
       const res = await fetch("http://51.38.248.170/tsyp/api/connected-user", {
         method: "GET",
@@ -95,16 +95,16 @@ const Navigator = () => {
         },
       }).then((res) =>
         res.json().then((res) => {
-          console.log("here,res", res);
-          // console.log(res);
+          //console.log("here,res", res);
+          // //console.log(res);
 
           dispatch(saveUserInfo(res || {}));
-          console.log("dispatched");
+          //console.log("dispatched");
           setuserInfoRecieved(true);
         })
       );
     } catch (error) {
-      console.log(error, "error");
+      //console.log(error, "error");
     }
   };
 
@@ -139,7 +139,7 @@ const Navigator = () => {
       user?.sharedWith &&
       user?.sharedWith !== ""
     ) {
-      console.log("user  completed");
+      //console.log("user  completed");
       setUserInfoCompleted(true);
     } else {
       setUserInfoCompleted(false);
@@ -152,7 +152,7 @@ const Navigator = () => {
       user?.lastName &&
       user?.lastName !== ""
     ) {
-      console.log("user cin completed");
+      //console.log("user cin completed");
       setCheckinCompleted(true);
     } else {
       setCheckinCompleted(false);
@@ -179,13 +179,13 @@ const Navigator = () => {
     getUserInfo();
   }, [userToken]);
 
-  console.log(user);
+  //console.log(user);
   if (!userInfoRecieved) {
     return <></>;
   }
   if (userToken) {
     if (!userInfoCompleted && !userFlow) {
-      console.log("user not completed");
+      //console.log("user not completed");
       return (
         <NavigationContainer>
           <Stack.Navigator
@@ -214,7 +214,7 @@ const Navigator = () => {
         </NavigationContainer>
       );
     } else {
-      console.log("user  completed here");
+      //console.log("user  completed here");
       return (
         <NavigationContainer>
           <Stack.Navigator

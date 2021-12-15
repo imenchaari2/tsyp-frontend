@@ -50,7 +50,7 @@ export default function Scan() {
                     setText('Not allowed to get in ! 🚫')
                 }
             })
-        console.log('Type: ' + type + '\nData: ' + data)
+        //console.log('Type: ' + type + '\nData: ' + data)
 
         await fetch(data, {
             method: 'POST',
@@ -74,7 +74,7 @@ export default function Scan() {
         // else{
         //     setText('Not allowed to get in ! 🚫')
         // }
-        // console.log('Type: ' + type + '\nData: ' + data)
+        // //console.log('Type: ' + type + '\nData: ' + data)
     };
 
     // Check permissions and return the screens
