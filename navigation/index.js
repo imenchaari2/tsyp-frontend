@@ -87,15 +87,19 @@ const Navigator = () => {
                 },
             })
                 .then((res) => res.json().then((res) => {
+                    console.log("here,res",res);
+                    // console.log(res);
+                 
                     dispatch(
-                        saveUserInfo({
-                            res
-                        })
+                        saveUserInfo(
+                            res||{},
+                        )
                     );
                     console.log("dispatched")
+                  
                 }));
         } catch (error) {
-            console.log(error);
+            console.log(error,"error");
         }
 
     };
