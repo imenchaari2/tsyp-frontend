@@ -118,7 +118,7 @@ const DetailsScreen = ({navigation, route}) => {
                                             [place.email],
                                         subject: '',
                                         body: '',
-                                    }).then(r => console.log(r));
+                                    }).then(r => //console.log(r));
                                 }}
                             />
                         </View>

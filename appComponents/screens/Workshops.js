@@ -119,7 +119,7 @@ const HomeScreen = ({navigation, drawerAnimationStyle}) => {
 
     useEffect(() => {
         fetchSessions();
-        //console.log(workshopss,"workshopss");
+        ////console.log(workshopss,"workshopss");
 
     }, []);
 
@@ -141,7 +141,7 @@ const HomeScreen = ({navigation, drawerAnimationStyle}) => {
             value?.isTechnical === 'true'
         );
         setTechnicalWorkshopss(techWorkshops);
-        console.log(technicalWorkshopss, "technical ones")
+        //console.log(technicalWorkshopss, "technical ones")
 
     };
 

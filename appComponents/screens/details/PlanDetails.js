@@ -6,6 +6,12 @@ const plandetails = [
     hours: [
       {
         id: 1,
+        hour: "11 AM :  2 PM",
+        activity: "Hotel check-in and IEEE Student Branches booths set-up",
+        location: ""
+      },
+      {
+        id: 1,
         hour: "2:30 PM : 4 PM",
         activity: "Opening ceremony & word from the sponsors",
         location: "conference room"
@@ -114,8 +120,6 @@ const plandetails = [
         activity: "Team building",
         location: "Conference room"
       },
-
-
     ],
   },
   {

@@ -31,9 +31,9 @@ const HomeScreen = ({navigation}) => {
         notificationListener.current =
             Notifications.addNotificationResponseReceivedListener((value) => {
                 //dispatch(updateNotificationRecieved());
-                // console.log(value);
+                // //console.log(value);
                 const url = value?.notification?.request?.content?.data?.data?.screen;
-                // console.log(url);
+                // //console.log(url);
                 url && navigation.navigate(url);
             });
         responseListener.current =
@@ -116,7 +116,7 @@ const HomeScreen = ({navigation}) => {
                     <Text style={style.textStyle}> Our partner</Text>
                     <View style={{flexDirection: 'row', backgroundColor: COLORS.light, elevation: 0.1}}>
 
-                        <View style={{width: "50%", padding: 20,}}>
+                        <View style={{width: "33%", padding: 20,}}>
                             <Image
                                 source={images.press}
                                 style={{
@@ -126,9 +126,9 @@ const HomeScreen = ({navigation}) => {
                                 resizeMode='contain'
                             />
                         </View>
-                        <View style={{width: "50%", padding: 20}}>
+                        <View style={{width: "33%", padding: 20}}>
                             <Image
-                                source={images.logoSection}
+                                source={images.paq}
                                 style={{
                                     width: "100%",
                                     height: 50,
@@ -137,11 +137,23 @@ const HomeScreen = ({navigation}) => {
                                 resizeMode='contain'
                             />
                         </View>
+                        <View style={{width: "33%", padding: 20}}>
+                            <Image
+                                source={images.enis}
+                                style={{
+                                    width: "100%",
+                                    height: 50,
+
+                                }}
+                                resizeMode='contain'
+                            />
+                        </View>
+
                     </View>
                 <Text style={style.textStyle}> This app is made in collaboration with</Text>
                 <View style={{flexDirection: 'row', backgroundColor: COLORS.light, elevation: 0.1}}>
 
-                    <View style={{width: "50%", padding: 20,}}>
+                    <View style={{width: "33%", padding: 20,}}>
                         <Image
                             source={images.issatso}
                             style={{
@@ -151,9 +163,20 @@ const HomeScreen = ({navigation}) => {
                             resizeMode='contain'
                         />
                     </View>
-                    <View style={{width: "50%", padding: 20}}>
+                    <View style={{width: "33%", padding: 20}}>
                         <Image
-                            source={images.logoSection}
+                            source={images.essths}
+                            style={{
+                                width: "100%",
+                                height: 50,
+
+                            }}
+                            resizeMode='contain'
+                        />
+                    </View>
+                    <View style={{width: "33%", padding: 20}}>
+                        <Image
+                            source={images.logoEnisSb}
                             style={{
                                 width: "100%",
                                 height: 50,

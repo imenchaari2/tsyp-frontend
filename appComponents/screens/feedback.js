@@ -169,15 +169,15 @@ const Feedback = ({navigation}) => {
                         })
                             .then((response) => {
 
-                                console.log(response);
+                                //console.log(response);
                                 return response.json();
                             })
                             .then((responseJson) => {
-                                console.log(responseJson);
+                                //console.log(responseJson);
                                 if (responseJson.Response === 'Success') {
-                                    console.log("Successfully feedback send");
+                                    //console.log("Successfully feedback send");
                                 } else {
-                                    console.log("Error");
+                                    //console.log("Error");
                                 }
                             });
                         navigation.navigate('Home');

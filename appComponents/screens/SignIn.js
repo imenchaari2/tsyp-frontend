@@ -28,7 +28,7 @@ const SignIn = ({navigation}) => {
         return email !== "" && password !== "" && emailError === "";
     }
 
-    console.log(credentials, "credentials");
+    //console.log(credentials, "credentials");
     return (
 
             <View
@@ -141,11 +141,11 @@ const SignIn = ({navigation}) => {
                                 value={saveMe}
                                 onchange={(value) => setSaveMe(value)}
                             />
-                            <CustomButton
+                          {/*  <CustomButton
                                 buttonText="Forgot Password ?"
                                 colors={[COLORS.white]}
                                 onPress={() => navigation.navigate("ForgotPassword")}
-                            />
+                            />*/}
                         </View>
                         {/*{sign in}*/}
                         <CustomButton
@@ -182,7 +182,7 @@ const SignIn = ({navigation}) => {
                                 })
                                     .then((response) => response.json())
                                     .then((responseJson) => {
-                                        // console.log(responseJson);
+                                        // //console.log(responseJson);
                                         dispatch(login(responseJson));
                                     })
                                     .catch((error) => {

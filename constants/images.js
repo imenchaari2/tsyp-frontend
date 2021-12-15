@@ -32,8 +32,24 @@ const primatec = require("../assets/images/primatec.png")
 const profileupdate = require("../assets/images/userProfile.png")
 const firstday = require("../assets/images/2nd.jpg")
 const trackingMap = require("../assets/images/trackingMap.png")
+const anis = require("../assets/images/anis-ben-arfi.jpg")
+const khanjan = require("../assets/images/Khanjan.jpg")
+const mezri = require("../assets/images/mezri.jpg")
+const iheb = require("../assets/images/iheb.jpg")
+const ahmed = require("../assets/images/ahmed.jpg")
+const enis = require("../assets/images/enis.png")
+const paq = require("../assets/images/PAQ.png")
+const essths = require("../assets/images/essths.png")
 
 export default {
+    essths,
+    paq,
+    enis,
+    ahmed,
+    iheb,
+    mezri,
+    khanjan,
+    anis,
     trackingMap,
     issatsoBlanc,
     issatso,
