@@ -57,7 +57,7 @@ his ability to bridge the gap between academic research and practical applicatio
     {
         name: 'Anis Ben Arfi',
         location: 'Tunisie',
-        image: require('../../../assets/images/anis.jpg'),
+        image: require('../../../assets/images/anis-ben-arfi.jpg'),
         facebook: "https://www.facebook.com/anisbenarfi",
         instagram: "https://www.instagram.com/anis_ben_arfi/",
         linkedin: "https://www.linkedin.com/in/anisbenarfi",
@@ -87,7 +87,7 @@ He is currently employed by Shell as an asset Integrity Engineer. He has been an
     {
         name: 'Ahmed Lehyani',
         location: 'Tunisie',
-        image: require('../../../assets/images/.jpg'),
+        image: require('../../../assets/images/ahmed.jpg'),
         facebook: "https://www.facebook.com/lehyani.ahmed",
         instagram: "https://www.instagram.com/ahmed.lehyani/",
         linkedin: "https://www.linkedin.com/in/ahmed-lehyani/?originalSubdomain=tn",

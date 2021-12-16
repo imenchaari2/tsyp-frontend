@@ -33,7 +33,7 @@ const DetailsScreen = ({navigation, route}) => {
                 },
             })
                 .then((res) => res.json()).then((res) => {
-                     console.log(responseJson);
+                     console.log(res);
                     if (res.Response === 'Success') {
                         console.log("Successfully registered");
                         setIsSubscribed(true);
@@ -167,7 +167,7 @@ const DetailsScreen = ({navigation, route}) => {
                             return response.json();
                         })
                         .then((responseJson) => {
-                            // console.log(responseJson);
+                             console.log(responseJson);
                             if (responseJson.Response === 'Success') {
                                 console.log("Successfully removed");
 

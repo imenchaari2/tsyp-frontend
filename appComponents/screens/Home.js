@@ -116,7 +116,7 @@ const HomeScreen = ({navigation}) => {
                     <Text style={style.textStyle}> Our partner</Text>
                     <View style={{flexDirection: 'row', backgroundColor: COLORS.light, elevation: 0.1}}>
 
-                        <View style={{width: "33%", padding: 20,}}>
+                        <View style={{width: "28%", padding: 20,}}>
                             <Image
                                 source={images.press}
                                 style={{
@@ -126,7 +126,7 @@ const HomeScreen = ({navigation}) => {
                                 resizeMode='contain'
                             />
                         </View>
-                        <View style={{width: "33%", padding: 20}}>
+                        <View style={{width: "39%", padding: 20}}>
                             <Image
                                 source={images.paq}
                                 style={{
@@ -153,7 +153,7 @@ const HomeScreen = ({navigation}) => {
                 <Text style={style.textStyle}> This app is made in collaboration with</Text>
                 <View style={{flexDirection: 'row', backgroundColor: COLORS.light, elevation: 0.1}}>
 
-                    <View style={{width: "33%", padding: 20,}}>
+                    <View style={{width: "25%", padding: 20,}}>
                         <Image
                             source={images.issatso}
                             style={{
@@ -163,7 +163,7 @@ const HomeScreen = ({navigation}) => {
                             resizeMode='contain'
                         />
                     </View>
-                    <View style={{width: "33%", padding: 20}}>
+                    <View style={{width: "30%", padding: 20}}>
                         <Image
                             source={images.essths}
                             style={{
@@ -174,7 +174,7 @@ const HomeScreen = ({navigation}) => {
                             resizeMode='contain'
                         />
                     </View>
-                    <View style={{width: "33%", padding: 20}}>
+                    <View style={{width: "48%", padding: 20}}>
                         <Image
                             source={images.logoEnisSb}
                             style={{

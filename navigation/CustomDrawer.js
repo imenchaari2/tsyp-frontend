@@ -99,7 +99,7 @@ const CustomDrawerContent = ({ navigation }) => {
             marginTop: SIZES.radius,
             alignItems: "center",
           }}
-          onPress={() => //console.log("Profile")}
+          onPress={() => console.log("Profile")}
         >
           <Image
             source={images.profile}
