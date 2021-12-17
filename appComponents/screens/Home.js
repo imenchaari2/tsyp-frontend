@@ -153,7 +153,7 @@ const HomeScreen = ({navigation}) => {
                 <Text style={style.textStyle}> This app is made in collaboration with</Text>
                 <View style={{flexDirection: 'row', backgroundColor: COLORS.light, elevation: 0.1}}>
 
-                    <View style={{width: "25%", padding: 20,}}>
+                    <View style={{width: "25%", padding: 21,}}>
                         <Image
                             source={images.issatso}
                             style={{
