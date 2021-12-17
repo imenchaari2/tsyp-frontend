@@ -39,9 +39,31 @@ const iheb = require("../assets/images/iheb.png")
 const ahmed = require("../assets/images/ahmed.jpg")
 const enis = require("../assets/images/enis.png")
 const paq = require("../assets/images/PAQ.png")
+const paq1 = require("../assets/images/paq2.png")
 const essths = require("../assets/images/essths.png")
+const lunch = require("../assets/images/lunch.png")
+const room = require("../assets/images/room.png")
+const conference= require("../assets/images/conference.png")
+const networking= require("../assets/images/networking.png")
+const surprise= require("../assets/images/surprise.png")
+const jobFair= require("../assets/images/jobFair.png")
+const challenge= require("../assets/images/challenge.png")
+const stand= require("../assets/images/stand.png")
+const award= require("../assets/images/award.png")
+const awards= require("../assets/images/awards.png")
 
 export default {
+    stand,
+    award,
+    awards,
+    challenge,
+    jobFair,
+    networking,
+    surprise,
+    conference,
+    room,
+    lunch,
+    paq1,
     essths,
     paq,
     enis,
@@ -87,6 +109,14 @@ export default {
 }
 export const imgref={
     "tsyp": tsyp,
+    "challenge": challenge,
+    "stand": stand,
+    "surprise": surprise,
+    "jobFair": jobFair,
+    "lunch": lunch,
+    "conference": conference,
+    "networking": networking,
+    "room": room,
     "firstday":firstday,
     "mask":coronaReminder,
     "photo":photo,
@@ -98,6 +128,8 @@ export const imgref={
     "workshop":workshop,
     "gel":gel,
     "qrCode":qrCode,
-    "trackingMap":trackingMap
+    "trackingMap":trackingMap,
+    "award":award,
+    "awards":awards,
 
 }
