@@ -1,44 +1,44 @@
-import { createStackNavigator } from "@react-navigation/stack";
-import React, { useEffect, useState } from "react";
+import {createStackNavigator} from "@react-navigation/stack";
+import React, {useEffect, useState} from "react";
 import "react-native-gesture-handler";
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 import {
-  CheckIn,
-  DetailsScreen,
-  Feedback,
-  ForgotPassword,
-  ProfileContent,
-  SignIn,
-  Speakers,
-  SpeakersDetailsScreen,
-  UserProfile,
+    CheckIn,
+    DetailsScreen,
+    Feedback,
+    ForgotPassword,
+    ProfileContent,
+    SignIn,
+    Speakers,
+    SpeakersDetailsScreen,
+    UserProfile,
 } from "../appComponents/screens";
 import OnBoarding from "../appComponents/screens/OnBoarding";
 import CustomDrawer from "../navigation/CustomDrawer";
-import { NavigationContainer } from "@react-navigation/native";
+import {NavigationContainer} from "@react-navigation/native";
 import notificationList from "../appComponents/screens/details/notificationList";
-import { useAppDispatch } from "../appComponents/redux/store";
-import { addToNotificationList } from "../appComponents/redux/notification/notificationSlice";
+import {useAppDispatch} from "../appComponents/redux/store";
+import {addToNotificationList} from "../appComponents/redux/notification/notificationSlice";
 import * as Notifications from "expo-notifications";
 import {
-  saveUserInfo,
-  setflowCompleted,
+    saveUserInfo,
+    setflowCompleted,
 } from "../appComponents/redux/profile/profileSlice";
 
 const Stack = createStackNavigator();
 
 Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: false,
-    priority: "high",
-  }),
+    handleNotification: async () => ({
+        shouldShowAlert: true,
+        shouldPlaySound: false,
+        shouldSetBadge: false,
+    }),
 });
 
+/*
 async function schedulePushNotification() {
   try {
-    notificationList.map(async (item) => {
+   /!* notificationList.map(async (item) => {
       if (new Date() < new Date(item.trigger)) {
         await Notifications.scheduleNotificationAsync({
           content: {
@@ -49,214 +49,273 @@ async function schedulePushNotification() {
           trigger: item.trigger,
         });
       }
+    });*!/
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: notificationList[0].title,
+        body: notificationList[0].body,
+        data: { data: notificationList[0].data },
+      },
+      trigger:notificationList[0].trigger,
     });
   } catch (error) {
     console.log(error);
   }
+}*/
+async function schedulePushNotification() {
+    await Notifications.scheduleNotificationAsync({
+        content: {
+            title: "You've got mail! 📬",
+            body: 'Here is the notification body',
+            data: { data: 'goes here' },
+        },
+        trigger: { seconds: 2 },
+    });
 }
 
-const Navigator = () => {
-  const dispatch = useAppDispatch();
-  const user = useSelector((state) => state.profileSlice.profile.user);
-  const userFlow = useSelector(
-    (state) => state.profileSlice.profile.flowCompleted
-  );
+async function registerForPushNotificationsAsync() {
+    let token;
+    if (Constants.isDevice) {
+        const { status: existingStatus } = await Notifications.getPermissionsAsync();
+        let finalStatus = existingStatus;
+        if (existingStatus !== 'granted') {
+            const { status } = await Notifications.requestPermissionsAsync();
+            finalStatus = status;
+        }
+        if (finalStatus !== 'granted') {
+            alert('Failed to get push token for push notification!');
+            return;
+        }
+        token = (await Notifications.getExpoPushTokenAsync()).data;
+        console.log(token);
+    } else {
+        alert('Must use physical device for Push Notifications');
+    }
 
-  const userToken = useSelector((state) => state?.profileSlice?.profile?.token);
-  const notification = useSelector(
-    (state) => state?.notificationSlice?.notification
-  );
+    if (Platform.OS === 'android') {
+        Notifications.setNotificationChannelAsync('default', {
+            name: 'default',
+            importance: Notifications.AndroidImportance.MAX,
+            vibrationPattern: [0, 250, 250, 250],
+            lightColor: '#FF231F7C',
+        });
+    }
+
+    return token;
+}
+
+
+const Navigator = () => {
+    const dispatch = useAppDispatch();
+    const user = useSelector((state) => state.profileSlice.profile.user);
+    const userFlow = useSelector(
+        (state) => state.profileSlice.profile.flowCompleted
+    );
+
+    const userToken = useSelector((state) => state?.profileSlice?.profile?.token);
+    const notification = useSelector(
+        (state) => state?.notificationSlice?.notification
+    );
 //   const token = useSelector((state) => state.profileSlice.profile.token);
 
-  const [userInfoCompleted, setUserInfoCompleted] = useState(true);
-  const [checkinCompleted, setCheckinCompleted] = useState(true);
-  const [flow, setflow] = useState(true);
-  const newNotifList = notificationList.filter((item) => {
-    if (
-      new Date() > new Date(item.trigger) &&
-      new Date(item.trigger) > new Date(notification.clearDate)
-    ) {
-      return item;
-      // dispatch(addToNotificationList(item));
-    }
-  });
-  const [userInfoRecieved, setuserInfoRecieved] = useState(false);
+    const [userInfoCompleted, setUserInfoCompleted] = useState(true);
+    const [checkinCompleted, setCheckinCompleted] = useState(true);
+    const [flow, setflow] = useState(true);
+    const newNotifList = notificationList.filter((item) => {
+        if (
+            new Date() > new Date(item.trigger) &&
+            new Date(item.trigger) > new Date(notification.clearDate)
+        ) {
+            return item;
+            // dispatch(addToNotificationList(item));
+        }
+    });
+    const [userInfoRecieved, setuserInfoRecieved] = useState(false);
 
-  const getUserInfo = async () => {
-    try {
-        //console.log(userToken,"token");
-      setuserInfoRecieved(false);
-      const res = await fetch("http://51.38.248.170/tsyp/api/connected-user", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: "Bearer " + userToken,
-        },
-      }).then((res) =>
-        res.json().then((res) => {
-          //console.log("here,res", res);
-          // //console.log(res);
+    const getUserInfo = async () => {
+        try {
+            //console.log(userToken,"token");
+            setuserInfoRecieved(false);
+            const res = await fetch("http://51.38.248.170/tsyp/api/connected-user", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: "Bearer " + userToken,
+                },
+            }).then((res) =>
+                res.json().then((res) => {
+                    //console.log("here,res", res);
+                    // //console.log(res);
 
-          dispatch(saveUserInfo(res || {}));
-          //console.log("dispatched");
-          setuserInfoRecieved(true);
-        })
-      );
-    } catch (error) {
-      //console.log(error, "error");
-    }
-  };
+                    dispatch(saveUserInfo(res || {}));
+                    //console.log("dispatched");
+                    setuserInfoRecieved(true);
+                })
+            );
+        } catch (error) {
+            //console.log(error, "error");
+        }
+    };
+    useEffect(() => {
+        registerForPushNotificationsAsync().then(()=>{schedulePushNotification();})
+    }, []);
 
-  useEffect(() => {
-    if (newNotifList.length > 0) {
-      newNotifList.reverse();
-      dispatch(addToNotificationList(newNotifList));
+    useEffect(() => {
+        if (newNotifList.length > 0) {
+            newNotifList.reverse();
+            dispatch(addToNotificationList(newNotifList));
+        }
+    }, [notification.notificationRecieved, userInfoRecieved]);
+
+    useEffect(() => {
+        try {
+            if (userToken) {
+                console.log("hello");
+                schedulePushNotification();
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }, [userToken]);
+    useEffect(() => {
+        //check all field of user filled
+        if (
+            user?.fullName &&
+            user?.fullName !== "" &&
+            user?.email &&
+            user?.email !== "" &&
+            user?.phone &&
+            user?.phone !== "" &&
+            user?.idMember &&
+            user?.idMember !== "" &&
+            user?.branch &&
+            user?.branch !== "" &&
+            user?.occupation &&
+            user?.occupation !== "" &&
+            user?.hotel &&
+            user?.hotel !== "" &&
+            user?.sharedWith &&
+            user?.sharedWith !== ""
+        ) {
+            //console.log("user  completed");
+            setUserInfoCompleted(true);
+        } else {
+            setUserInfoCompleted(false);
+        }
+        if (
+            user?.cin &&
+            user?.cin !== "" &&
+            user?.firstName &&
+            user?.firstName !== "" &&
+            user?.lastName &&
+            user?.lastName !== ""
+        ) {
+            //console.log("user cin completed");
+            setCheckinCompleted(true);
+        } else {
+            setCheckinCompleted(false);
+        }
+    }, [
+        user?.fullName,
+        user?.idMember,
+        user?.branch,
+        user?.occupation,
+        user?.hotel,
+        user?.sharedWith,
+        user?.firstName,
+        user?.lastName,
+        user?.cin,
+        user?.phone,
+        userFlow,
+        userInfoRecieved,
+    ]);
+    useEffect(() => {
+        setflow(userFlow);
+    }, [userFlow, flow]);
+
+    useEffect(() => {
+        getUserInfo();
+    }, [userToken]);
+
+    //console.log(user);
+    if (!userInfoRecieved) {
+        return <></>;
     }
-  }, [notification.notificationRecieved, userInfoRecieved]);
-  useEffect(() => {
     if (userToken) {
-      schedulePushNotification();
-    }
-  }, [userToken]);
-  useEffect(() => {
-    //check all field of user filled
-    if (
-      user?.fullName &&
-      user?.fullName !== "" &&
-      user?.email &&
-      user?.email !== "" &&
-      user?.phone &&
-      user?.phone !== "" &&
-      user?.idMember &&
-      user?.idMember !== "" &&
-      user?.branch &&
-      user?.branch !== "" &&
-      user?.occupation &&
-      user?.occupation !== "" &&
-      user?.hotel &&
-      user?.hotel !== "" &&
-      user?.sharedWith &&
-      user?.sharedWith !== ""
-    ) {
-      //console.log("user  completed");
-      setUserInfoCompleted(true);
+        if (!userInfoCompleted && !userFlow) {
+            //console.log("user not completed");
+            return (
+                <NavigationContainer>
+                    <Stack.Navigator
+                        screenOptions={{
+                            headerShown: false,
+                        }}
+                        // initialRouteName={"checkIn"}
+                        //  initialRouteName={"userProfile"}
+                    >
+                        <Stack.Screen name="ProfileContent" component={ProfileContent}/>
+                    </Stack.Navigator>
+                </NavigationContainer>
+            );
+        } else if (!checkinCompleted) {
+            return (
+                <NavigationContainer>
+                    <Stack.Navigator
+                        screenOptions={{
+                            headerShown: false,
+                        }}
+                        // initialRouteName={"checkIn"}
+                        //  initialRouteName={"userProfile"}
+                    >
+                        <Stack.Screen name="checkIn" component={CheckIn}/>
+                    </Stack.Navigator>
+                </NavigationContainer>
+            );
+        } else {
+            //console.log("user  completed here");
+            return (
+                <NavigationContainer>
+                    <Stack.Navigator
+                        screenOptions={{
+                            headerShown: false,
+                        }}
+                        // initialRouteName={"checkIn"}
+                        initialRouteName={"Home"}
+                    >
+                        <Stack.Screen name="Home" component={CustomDrawer}/>
+
+                        <Stack.Screen name="DetailsScreen" component={DetailsScreen}/>
+                        <Stack.Screen name="Speakers" component={Speakers}/>
+                        <Stack.Screen name="checkIn" component={CheckIn}/>
+                        <Stack.Screen name="Feedback" component={Feedback}/>
+
+                        <Stack.Screen
+                            name="speakerDetailsScreen"
+                            component={SpeakersDetailsScreen}
+                        />
+                        <Stack.Screen name="userProfile" component={UserProfile}/>
+                        <Stack.Screen name="ProfileContent" component={ProfileContent}/>
+                    </Stack.Navigator>
+                </NavigationContainer>
+            );
+        }
     } else {
-      setUserInfoCompleted(false);
+        return (
+            <NavigationContainer>
+                <Stack.Navigator
+                    screenOptions={{
+                        headerShown: false,
+                    }}
+                    //initialRouteName={"OnBoarding"}
+                >
+                    <Stack.Screen name="OnBoarding" component={OnBoarding}/>
+                    <Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
+                    <Stack.Screen name="SignIn" component={SignIn}/>
+                </Stack.Navigator>
+            </NavigationContainer>
+        );
     }
-    if (
-      user?.cin &&
-      user?.cin !== "" &&
-      user?.firstName &&
-      user?.firstName !== "" &&
-      user?.lastName &&
-      user?.lastName !== ""
-    ) {
-      //console.log("user cin completed");
-      setCheckinCompleted(true);
-    } else {
-      setCheckinCompleted(false);
-    }
-  }, [
-    user?.fullName,
-    user?.idMember,
-    user?.branch,
-    user?.occupation,
-    user?.hotel,
-    user?.sharedWith,
-    user?.firstName,
-    user?.lastName,
-    user?.cin,
-    user?.phone,
-    userFlow,
-    userInfoRecieved,
-  ]);
-  useEffect(() => {
-    setflow(userFlow);
-  }, [userFlow, flow]);
-
-  useEffect(() => {
-    getUserInfo();
-  }, [userToken]);
-
-  //console.log(user);
-  if (!userInfoRecieved) {
-    return <></>;
-  }
-  if (userToken) {
-    if (!userInfoCompleted && !userFlow) {
-      //console.log("user not completed");
-      return (
-        <NavigationContainer>
-          <Stack.Navigator
-            screenOptions={{
-              headerShown: false,
-            }}
-            // initialRouteName={"checkIn"}
-            //  initialRouteName={"userProfile"}
-          >
-            <Stack.Screen name="ProfileContent" component={ProfileContent} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      );
-    } else if (!checkinCompleted) {
-      return (
-        <NavigationContainer>
-          <Stack.Navigator
-            screenOptions={{
-              headerShown: false,
-            }}
-            // initialRouteName={"checkIn"}
-            //  initialRouteName={"userProfile"}
-          >
-            <Stack.Screen name="checkIn" component={CheckIn} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      );
-    } else {
-      //console.log("user  completed here");
-      return (
-        <NavigationContainer>
-          <Stack.Navigator
-            screenOptions={{
-              headerShown: false,
-            }}
-            // initialRouteName={"checkIn"}
-            initialRouteName={"Home"}
-          >
-            <Stack.Screen name="Home" component={CustomDrawer} />
-
-            <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
-            <Stack.Screen name="Speakers" component={Speakers} />
-            <Stack.Screen name="checkIn" component={CheckIn} />
-            <Stack.Screen name="Feedback" component={Feedback} />
-
-            <Stack.Screen
-              name="speakerDetailsScreen"
-              component={SpeakersDetailsScreen}
-            />
-            <Stack.Screen name="userProfile" component={UserProfile} />
-            <Stack.Screen name="ProfileContent" component={ProfileContent} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      );
-    }
-  } else {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
-          //initialRouteName={"OnBoarding"}
-        >
-          <Stack.Screen name="OnBoarding" component={OnBoarding} />
-          <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-          <Stack.Screen name="SignIn" component={SignIn} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  }
 };
 
 export default Navigator;

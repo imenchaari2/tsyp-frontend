@@ -82,8 +82,8 @@ const HomeScreen = ({navigation}) => {
                     <Text style={style.textStyle}> Our Sponsors</Text>
                 <View style={{flexDirection: 'row', backgroundColor: COLORS.light, elevation: 0.5}}>
                     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                        {sponsors.map((item) => {
-                            return (<Card place={item}/>)
+                        {sponsors.map((item,index) => {
+                            return (<Card key={index} place={item}/>)
                         })}
                     </ScrollView>
                 </View>
