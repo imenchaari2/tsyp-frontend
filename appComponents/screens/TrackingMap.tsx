@@ -38,6 +38,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {fetchCloseMembers} from "../../api/Backend";
 import CloseMembersIndicator from "../map/CloseMembersIndicator";
+import {useSelector} from "react-redux";
 
 const styles = StyleSheet.create({
 	mapview: {
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
 const TrackingMap = () => {
 	let backHandler: NativeEventSubscription | null = null;
 	const mapRef: any = useRef(null);
+	const userToken: string = useSelector((state: any) => state.profileSlice.profile.token);
 	const [fadeAnim] = useState(new Animated.Value(0));
 	const [positioningTimer, setPositioningTimer] = useState<number>(1);
 	const [isDirectionLoading, setIsDirectionLoading] = useState<boolean>(false); // checks if the direction loading indicator is visible
@@ -86,7 +88,7 @@ const TrackingMap = () => {
 	const [currentPosition, setCurrentPosition] = useState<any>(null); // user's current position (coordinates)
 	const getBuildingInfo: Function = (): void => {
 		fetchBuildingInfo((buildingInfo: any) => {
-			// console.log(JSON.stringify(buildingInfo)) TODO : remove this line
+			// console.log(JSON.stringify(buildingInfo)) // TODO : remove this line
 			setBuilding(buildingInfo.building); // setting building object
 			setLastValidCamera(buildingInfo.building.center);
 			if (0 < buildingInfo.floors.length) {
@@ -119,7 +121,7 @@ const TrackingMap = () => {
 			}  // setting geofences array
 			if (0 < buildingInfo.indoorPOIs.length) {
 				for (let poi of buildingInfo.indoorPOIs) {
-					poi.images = poi.customFields ? [poi.customFields.image1, poi.customFields.image2, poi.customFields.image3, poi.customFields.image4, poi.customFields.image5].filter(elem => null != elem) : []
+					poi.images = poi.customFields ? [poi.customFields.image1, poi.customFields.image2, poi.customFields.image3] : []
 					poi.description = poi.infoHtml.replace(/<[^>]*>?/gm, "");
 					poi.category.poiCategoryName = poi.category.poiCategoryName.toUpperCase();
 				}
@@ -155,7 +157,7 @@ const TrackingMap = () => {
 		if (0 === timer) {
 			setPositioningTimer(CLOSE_MEMBERS_REFRESH_RATE);
 			setIsCloseMembersLoadingInProgress(true);
-			fetchCloseMembers(coordinate, (coordinates: any) => {
+			fetchCloseMembers(coordinate, userToken, (coordinates: any) => {
 				if (Array.isArray(coordinates)) {
 					console.log('membersCoordinates: ',coordinates.length); // TODO remove this line
 					setCloseMembersCoordinates(coordinates);

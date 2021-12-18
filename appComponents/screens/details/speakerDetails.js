@@ -198,7 +198,7 @@ IEEE member since September 2018. From October 2018 to December
 2018, He was the Webmaster of the IEEE Computer Society
 Tunisia Section ENIS SBC. Then he became the chairman
 of the IEEE Computer Society ENIS SBC. He is also the Webmaster
-Assistant of IEEE DAY 2019.
+Assistant of IEEE DAY 2019. 
 `
     },
 

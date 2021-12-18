@@ -11,19 +11,17 @@ const styles = StyleSheet.create({
 		top: 0,
 	},
 	searchBar: {
-		marginTop:10,
-		marginHorizontal:15,
+		marginTop: 10,
+		marginHorizontal: 9,
+		paddingHorizontal: 10,
 		height: 50,
 		backgroundColor: "white",
-		borderRadius: 15,
 		borderColor: "gold",
 		borderWidth:1,
-		paddingHorizontal: 20,
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'space-between',
-		elevation:10
-
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-between",
+		elevation: 10,
 	},
 	searchButton: {
 		flexGrow: 0,
@@ -50,7 +48,6 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		paddingLeft: 5,
 		paddingRight: 3,
-		backgroundColor: "rgba(236,202,87,0.9)",
 		borderRadius: 10,
 		height: "100%",
 		width: 50,
@@ -111,7 +108,7 @@ const SearchBar = (props: any) => {
 				)}
 				{!props.isSearchClicked && (
 					<TouchableOpacity style={styles.menuButton} onPress={() => setSearchScreenVisibility(true, false)}>
-						<FontAwesomeIcon icon={faBars} color={"#FFFFFF"} size={25}/>
+						<FontAwesomeIcon icon={faBars} color={"#ECCA57"} size={25}/>
 					</TouchableOpacity>
 				)}
 			</View>

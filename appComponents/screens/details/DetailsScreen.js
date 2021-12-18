@@ -342,7 +342,7 @@ const DetailsScreen = ({navigation, route}) => {
                 </View>
                 <ScrollView>
 
-                    <Text style={style.comment}> About the workshop: </Text>
+                    <Text style={style.comment1}> About the workshop: </Text>
                         <Text style={style.comment}>{workshop?.description}</Text>
 
 
@@ -379,6 +379,14 @@ const style = StyleSheet.create({
         shadowRadius: 3.84,
 
         elevation: 8,
+    },
+    comment1: {
+        marginTop: 10,
+        fontSize: 14,
+        fontWeight:'bold',
+        color: COLORS.darkGray,
+        lineHeight: 20,
+        marginHorizontal: 20,
     },
     comment: {
         marginTop: 10,
