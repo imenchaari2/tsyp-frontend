@@ -69,7 +69,7 @@ export const CLOSE_MEMBERS_REFRESH_RATE: number = 5;
 export const SERVER_URL: string = "http://51.38.248.170/tsyp";
 export const POSITIONING_PROVIDER: string = "EXPO"; // SITUM / EXPO / LEGACY
 export const FETCH_BUILDING_FROM_CACHE: boolean = true;
-export const USE_SITUM_DIRECTIONING: boolean = true;
+export const USE_SITUM_DIRECTIONING: boolean = false;
 
 export default {
 	CATEGORIES,
