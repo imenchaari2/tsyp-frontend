@@ -1,5 +1,5 @@
 // @ts-ignore
-import SitumPlugin from "react-native-situm-plugin";
+// import SitumPlugin from "react-native-situm-plugin";
 import {
 	BUILDING_IDENTIFIER,
 	BUILDING_INFO,
