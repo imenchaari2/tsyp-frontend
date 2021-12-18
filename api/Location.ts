@@ -1,3 +1,5 @@
+// @ts-ignore
+import SitumPlugin from "react-native-situm-plugin";
 import {
 	BUILDING_IDENTIFIER,
 	BUILDING_INFO,
@@ -17,22 +19,16 @@ import Geolocation, {GeoError, GeoPosition} from "react-native-geolocation-servi
 import {requestForegroundPermissionsAsync, watchPositionAsync} from 'expo-location';
 import {LocationObject, LocationPermissionResponse} from "expo-location/src/Location.types";
 
-let SitumPlugin: any = null;
-
 const handle_error: Function = (error: any): void => {
 	ToastAndroid.show(error, ToastAndroid.SHORT);
 	console.log('Error: ', error);
 }
 
 export const initSitumSdk: Function = (): void => {
-	if (USE_SITUM_DIRECTIONING || !FETCH_BUILDING_FROM_CACHE || "SITUM" === POSITIONING_PROVIDER) {// @ts-
-		// @ts-ignore
-		import("react-native-situm-plugin").then(plugin => {
-			SitumPlugin = plugin;
-			SitumPlugin.initSitumSDK();
-			SitumPlugin.setApiKey(SITUM_EMAIL, SITUM_API_KEY, () => {});
-			SitumPlugin.setCacheMaxAge(SITUM_CACHE_MAX_AGE, () => {});
-		});
+	if (USE_SITUM_DIRECTIONING || !FETCH_BUILDING_FROM_CACHE || "SITUM" === POSITIONING_PROVIDER) {
+		SitumPlugin.initSitumSDK();
+		SitumPlugin.setApiKey(SITUM_EMAIL, SITUM_API_KEY, () => {});
+		SitumPlugin.setCacheMaxAge(SITUM_CACHE_MAX_AGE, () => {});
 	}
 }
 

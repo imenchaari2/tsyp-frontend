@@ -1,14 +1,16 @@
 {
   "expo": {
-    "name": "my-app",
-    "slug": "my-app",
-    "version": "1.0.0",
+    "name": "IEEE TSYP",
+    "slug": "ieee-tsyp",
+    "version": "0.1.3",
+    "backgroundColor": "#000000",
+    "primaryColor": "#000000",
     "icon": "./assets/icon.png",
     "orientation": "portrait",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "androidStatusBar": {
       "barStyle": "light-content",
@@ -36,7 +38,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#DF6E57"
       },
       "config": {
         "googleMaps": {

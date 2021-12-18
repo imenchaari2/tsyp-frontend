@@ -74,7 +74,7 @@ const SearchScreenItem: any = (props: any) => {
 				</View>
 			</View>
 			{-1 === ["", null].indexOf(props.item.description) && (
-				<Text style={styles.placeDescription}>{props.item.description}</Text>
+				<Text style={styles.placeDescription} numberOfLines={3} >{props.item.description}</Text>
 			)}
 			{USE_SITUM_DIRECTIONING && (<TouchableOpacity
 				disabled={props.isPositioningInProgress || !props.isPositionInsideBuilding || props.isDirectionLoading}

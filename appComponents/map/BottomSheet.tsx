@@ -175,8 +175,9 @@ const BottomSheet = (props: any) => {
 						                 color={"#D0BB6D"} size={25}/>
 						<Text style={[styles.bottomBarText, {
 							fontSize: 20,
-							color: "#D0BB6D"
-						}]}>{props.selectedPointsOfInterest.poiName}</Text>
+							color: "#D0BB6D",
+							width: "50%",
+						}]} numberOfLines={2} ellipsizeMode="tail">{props.selectedPointsOfInterest.poiName}</Text>
 						{USE_SITUM_DIRECTIONING && !props.polylineLatlng && (
 							<TouchableOpacity
 								disabled={props.isPositioningInProgress || !props.isPositionInsideBuilding || props.isDirectionLoading}
@@ -198,16 +199,14 @@ const BottomSheet = (props: any) => {
 							</TouchableOpacity>
 						)}
 						{props.polylineLatlng && (
-							<TouchableOpacity style={styles.exitNavigationButton} onPress={() => {
-								props.onPlaceUnselected()
-							}}>
+							<TouchableOpacity style={styles.exitNavigationButton} onPress={() => props.onPlaceUnselected()}>
 								<Text style={{color: "#FFFFFF"}}>Exit navigation</Text>
 							</TouchableOpacity>
 						)}
 					</View>
 					<View style={styles.placeContainer}>
 						{-1 === ["", null].indexOf(props.selectedPointsOfInterest.description) && (
-							<Text style={styles.placeDescription}>{props.selectedPointsOfInterest.description}</Text>
+							<Text style={styles.placeDescription} numberOfLines={4}>{props.selectedPointsOfInterest.description}</Text>
 						)}
 						{0 != props.selectedPointsOfInterest.images.length && (
 							<ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.placeImagesContainer}>
