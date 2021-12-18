@@ -70,7 +70,7 @@ const ProfileContent = ({navigation}) => {
                             editable={false}
                             value={email}
                             label="Email"
-                            keyboardType="Email-address"
+                            keyboardType="email-address"
                             autoCompleteType="email"
                             onchange={(value) => {
                                 validation.validateEmail(value, setEmailError);

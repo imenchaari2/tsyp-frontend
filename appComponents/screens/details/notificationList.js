@@ -1,13 +1,5 @@
 const notificationList = [
-    {
-        title: ":kjh 💖",
-        body: "Welcome dear attendee, Get ready for the fun !",
-        trigger: new Date("December 18, 2021 21:35:00"),
-        time: "18/12/21 10:00",
-        data: {
-            image: "tsyp",
-        },
-    },
+   
     {
         title: "Welcome 💖",
         body: "Welcome dear attendee, Get ready for the fun !",
