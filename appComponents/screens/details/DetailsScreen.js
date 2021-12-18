@@ -14,6 +14,7 @@ import Constants from "expo-constants";
 import {saveUserInfo} from "../../redux/profile/profileSlice";
 import {useSelector} from "react-redux";
 import {withDelay} from "react-native-reanimated";
+import {imgref} from "../../../constants/images";
 
 const DetailsScreen = ({navigation, route}) => {
     const token = useSelector((state) => state.profileSlice.profile.token);
@@ -21,7 +22,11 @@ const DetailsScreen = ({navigation, route}) => {
     const [IsSubscribed, setIsSubscribed] = useState(true);
     const [IsFull, setIsFull] = useState(false);
     const [IsAlreadySubscribedPerSession, setIsAlreadySubscribedPerSession] = useState(true);
+    const workshopsCategories = [
+        {technical: "technical"},
+        {nonTechnical: "nonTechnical"},
 
+    ];
     const verifyWorkshopSubscription = async () => {
         try {
             const res = await fetch("http://51.38.248.170/tsyp/api/verify-workshop/" + workshop.id, {
@@ -252,12 +257,16 @@ const DetailsScreen = ({navigation, route}) => {
             <View style={{
                 height: 400, backgroundColor: COLORS.light, marginTop: Constants.statusBarHeight,
             }}>
+
                 <ImageBackground
                     resizeMode="cover"
-                    /*source={workshop?.image}*/
-                    source={images.ilyes}
+
+                    source={imgref[workshop?.isTechnical===true ? "technical" : "nonTechnical"]}
                     style={{
-                        height: "100%",
+
+                        height:'100%',
+                        marginBottom:30,
+                        marginTop:-30,
 
                     }}>
                     {/* Render  Header */}
@@ -271,6 +280,7 @@ const DetailsScreen = ({navigation, route}) => {
                         <Icon name="dots-vertical" size={28} color={COLORS.gray}/>
                     </View>
                 </ImageBackground>
+
 
                 <View style={style.detailsContainer}>
 

@@ -188,7 +188,7 @@ He is currently employed by Quicktext as a Scrum Master and PPO
     {
         name: 'Kadhem Belghuith',
         location: 'Tunisie',
-        image: require('../../../assets/images/kadhem.PNG'),
+        image: require('../../../assets/images/kadhem.jpg'),
         facebook: "https://www.facebook.com/kadhem.belghuith",
         instagram: "https://www.instagram.com/kadhem_belghuith/",
         linkedin: "https://www.linkedin.com/in/mohamed-kadhem-belghuith/?originalSubdomain=tn",
@@ -198,7 +198,7 @@ IEEE member since September 2018. From October 2018 to December
 2018, He was the Webmaster of the IEEE Computer Society
 Tunisia Section ENIS SBC. Then he became the chairman
 of the IEEE Computer Society ENIS SBC. He is also the Webmaster
-Assistant of IEEE DAY 2019. 
+Assistant of IEEE DAY 2019.
 `
     },
 

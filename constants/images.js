@@ -51,8 +51,18 @@ const challenge= require("../assets/images/challenge.png")
 const stand= require("../assets/images/stand.png")
 const award= require("../assets/images/award.png")
 const awards= require("../assets/images/awards.png")
+const session1= require("../assets/images/session1.png")
+const session2= require("../assets/images/session2.png")
+const session3= require("../assets/images/session3.png")
+const technical= require("../assets/images/technical.png")
+const nonTechnical= require("../assets/images/nonTechnical.png")
 
 export default {
+    technical,
+    nonTechnical,
+    session3,
+    session2,
+    session1,
     stand,
     award,
     awards,
@@ -109,7 +119,11 @@ export default {
 }
 export const imgref={
     "tsyp": tsyp,
-    "challenge": challenge,
+    "session1": session1,
+    "session2": session2,
+    "session3": session3,
+    "technical": technical,
+    "nonTechnical": nonTechnical,
     "stand": stand,
     "surprise": surprise,
     "jobFair": jobFair,
