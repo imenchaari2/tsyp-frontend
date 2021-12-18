@@ -18,12 +18,13 @@ import {useSelector} from "react-redux";
 import axios from "axios";
 import Constants from "expo-constants";
 import LayoutHeader from "../../utils/LayoutHeader";
+import {imgref} from "../../constants/images";
 
 const {height} = Dimensions.get("window");
 const workshopsCategories = [
-    {name: "SESSION 1"},
-    {name: "SESSION 2"},
-    {name: "SESSION 3"},
+    {name: "SESSION 1", image: "session1"},
+    {name: "SESSION 2",image: "session2"},
+    {name: "SESSION 3",image: "session3"},
 ];
 
 
@@ -37,11 +38,12 @@ const Card = ({workshop, navigation}) => {
                 {/* Render the card image */}
                 <View style={style.cardImageContainer}>
                     <Image
-                        source={icons.workshop}
+                        source={imgref[workshop?.isTechnical===true ? "technical" : "nonTechnical"]}
                         style={{
                             width: "100%",
                             height: "100%",
-                            resizeMode: "contain",
+                            resizeMode: "cover",
+                            backgroundColor: COLORS.light
                         }}
                     />
                 </View>
@@ -119,7 +121,7 @@ const HomeScreen = ({navigation, drawerAnimationStyle}) => {
 
     useEffect(() => {
         fetchSessions();
-        ////console.log(workshopss,"workshopss");
+        console.log(workshopss,"workshopss");
 
     }, []);
 
@@ -130,18 +132,6 @@ const HomeScreen = ({navigation, drawerAnimationStyle}) => {
                 item?.workshop?.toUpperCase() === workshopsCategories[index].name
         )[0]?.workshops;
         setFilteredWorkshops(currentWorkshops);
-    };
-
-    const filterTechOrNoTechWorkshops = index => {
-
-        const techWorkshops = workshopss.filter(
-            (item) =>
-                item?.workshop?.toUpperCase() === workshopsCategories[index].name
-        )[0]?.workshops.filter((value) =>
-            value?.isTechnical === 'true'
-        );
-        setTechnicalWorkshopss(techWorkshops);
-        //console.log(technicalWorkshopss, "technical ones")
 
     };
 
@@ -178,7 +168,9 @@ const HomeScreen = ({navigation, drawerAnimationStyle}) => {
                                 marginTop: 20,
                             }}
                         >
-                            {workshopsCategories.map((item, index) => (
+                            {
+                                workshopsCategories.map((item, index) => (
+
                                 <View
                                     key={"workshop" + index}
                                     style={{
@@ -202,15 +194,15 @@ const HomeScreen = ({navigation, drawerAnimationStyle}) => {
                                         ]}
                                     >
                                         <Image
-                                            source={icons.session1}
+                                            source={imgref[item.image]}
                                             resizeMode="contain"
                                             style={{
-                                                width: 39,
-                                                height: 40,
+                                                width:100,
+                                                height: 100,
                                                 tintColor:
                                                     selectedCategoryIndex === index
                                                         ? COLORS.black
-                                                        : COLORS.primary,
+                                                        : COLORS.gold
                                             }}
                                         />
                                     </TouchableOpacity>
@@ -287,8 +279,8 @@ const style = StyleSheet.create({
     cardImageContainer: {
         height: 140,
         width: 140,
-        backgroundColor: COLORS.lightGray2,
-        borderRadius: 40,
+        backgroundColor: COLORS.white3,
+
     },
 });
 export default HomeScreen;

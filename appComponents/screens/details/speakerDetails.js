@@ -188,7 +188,7 @@ He is currently employed by Quicktext as a Scrum Master and PPO
     {
         name: 'Kadhem Belghuith',
         location: 'Tunisie',
-        image: require('../../../assets/images/kadhem.png'),
+        image: require('../../../assets/images/kadhem.PNG'),
         facebook: "https://www.facebook.com/kadhem.belghuith",
         instagram: "https://www.instagram.com/kadhem_belghuith/",
         linkedin: "https://www.linkedin.com/in/mohamed-kadhem-belghuith/?originalSubdomain=tn",
