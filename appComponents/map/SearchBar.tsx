@@ -11,19 +11,17 @@ const styles = StyleSheet.create({
 		top: 0,
 	},
 	searchBar: {
-		marginTop:10,
-		marginHorizontal:15,
+		marginTop: 10,
+		marginHorizontal: 9,
+		paddingHorizontal: 10,
 		height: 50,
 		backgroundColor: "white",
-		borderRadius: 15,
 		borderColor: "gold",
 		borderWidth:1,
-		paddingHorizontal: 20,
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'space-between',
-		elevation:10
-
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-between",
+		elevation: 10,
 	},
 	searchButton: {
 		flexGrow: 0,
