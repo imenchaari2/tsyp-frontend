@@ -8,7 +8,6 @@ import { images, COLORS, SIZES, FONTS, constants } from "../constants";
 import { Feedback, MainLayout } from "../appComponents/screens";
 import icons from "../constants/icons";
 import UserProfile from "../appComponents/screens/User-profile";
-import Notifications from "../appComponents/screens/Notifications";
 import TsypPlan from "../appComponents/screens/Tsyp-Plan";
 import Workshops from "../appComponents/screens/Workshops";
 import Speakers from "../appComponents/screens/Speakers";
@@ -17,6 +16,7 @@ import QrCodeScanner from "../appComponents/screens/QrCodeScanner";
 import Animated from "react-native-reanimated";
 import { useAppDispatch } from "../appComponents/redux/store";
 import { logout } from "../appComponents/redux/profile/profileSlice";
+import * as Notifications from "expo-notifications";
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerItem = ({ label, icon, isFocused, onPress }) => {
@@ -237,7 +237,8 @@ const CustomDrawerContent = ({ navigation }) => {
               <CustomDrawerItem
                 label="Logout"
                 icon={icons.logout}
-                onPress={() => {
+                onPress={async () => {
+                    await Notifications.cancelAllScheduledNotificationsAsync();
                   dispatch(logout());
                 }}
               />

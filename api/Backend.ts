@@ -3,14 +3,14 @@ import {SERVER_URL} from "../constants/map";
 import {useSelector} from "react-redux";
 
 export const fetchCloseMembers: Function = (coordinate: LatLng, onSuccess: Function, onError: Function = () => null) => {
-	// const userToken = useSelector((state: any) => state.profileSlice.profile.token);
+	const userToken = useSelector((state: any) => state.profileSlice.profile.token);
 
 	fetch(SERVER_URL + '/api/close_members', {
 		method: 'PUT',
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',
-			// Authorization: "Bearer " + userToken,
+			Authorization: "Bearer " + userToken,
 		},
 		body: JSON.stringify({
 			latitude: coordinate.latitude,

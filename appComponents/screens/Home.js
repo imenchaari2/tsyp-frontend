@@ -113,10 +113,10 @@ const HomeScreen = ({navigation}) => {
                         />
                     </View>
                 </View>
-                    <Text style={style.textStyle}> Our partner</Text>
+                    <Text style={style.textStyle}> Our partners</Text>
                     <View style={{flexDirection: 'row', backgroundColor: COLORS.light, elevation: 0.1}}>
 
-                        <View style={{width: "28%", padding: 20,}}>
+                        <View style={{width: "25%", padding: 20,}}>
                             <Image
                                 source={images.press}
                                 style={{
@@ -126,7 +126,7 @@ const HomeScreen = ({navigation}) => {
                                 resizeMode='contain'
                             />
                         </View>
-                        <View style={{width: "39%", padding: 20}}>
+                        <View style={{width: "25%", padding: 20}}>
                             <Image
                                 source={images.paq}
                                 style={{
@@ -137,7 +137,18 @@ const HomeScreen = ({navigation}) => {
                                 resizeMode='contain'
                             />
                         </View>
-                        <View style={{width: "33%", padding: 20}}>
+                        <View style={{width: "25%", padding: 20}}>
+                            <Image
+                                source={images.paq1}
+                                style={{
+                                    width: "100%",
+                                    height: 50,
+
+                                }}
+                                resizeMode='contain'
+                            />
+                        </View>
+                        <View style={{width: "25%", padding: 20}}>
                             <Image
                                 source={images.enis}
                                 style={{
