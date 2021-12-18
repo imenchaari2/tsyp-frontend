@@ -275,7 +275,7 @@ const style = StyleSheet.create({
         borderBottomRightRadius: 10,
         padding: 20,
         justifyContent: "center",
-       
+
 
     },
     cardImageContainer: {

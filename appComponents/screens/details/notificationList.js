@@ -1,5 +1,14 @@
 const notificationList = [
     {
+        title: ":kjh 💖",
+        body: "Welcome dear attendee, Get ready for the fun !",
+        trigger: new Date("December 18, 2021 21:35:00"),
+        time: "18/12/21 10:00",
+        data: {
+            image: "tsyp",
+        },
+    },
+    {
         title: "Welcome 💖",
         body: "Welcome dear attendee, Get ready for the fun !",
         trigger: new Date("December 19, 2021 10:00:00"),
@@ -156,7 +165,6 @@ const notificationList = [
             image: "surprise",
         }
     },
-
     {
         title: "Feedback 📨",
         body: "Please click me and rate the evening ! we will appreciate it",
@@ -330,7 +338,6 @@ const notificationList = [
             image: "mask",
         }
     },
-
     {
         title: "Anouncement of awards ! 🏆 ",
         body: "Tunisia Section awards",
@@ -359,7 +366,6 @@ const notificationList = [
             image: "rate",
         }
     },
-
 ];
 
 export default notificationList;

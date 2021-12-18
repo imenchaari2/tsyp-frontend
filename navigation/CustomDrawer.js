@@ -16,7 +16,6 @@ import QrCodeScanner from "../appComponents/screens/QrCodeScanner";
 import Animated from "react-native-reanimated";
 import { useAppDispatch } from "../appComponents/redux/store";
 import { logout } from "../appComponents/redux/profile/profileSlice";
-import * as Notifications from "expo-notifications";
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerItem = ({ label, icon, isFocused, onPress }) => {
@@ -237,8 +236,7 @@ const CustomDrawerContent = ({ navigation }) => {
               <CustomDrawerItem
                 label="Logout"
                 icon={icons.logout}
-                onPress={async () => {
-                    await Notifications.cancelAllScheduledNotificationsAsync();
+                onPress={() => {
                   dispatch(logout());
                 }}
               />
