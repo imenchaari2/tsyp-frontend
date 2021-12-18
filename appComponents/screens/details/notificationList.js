@@ -1,22 +1,12 @@
 const notificationList = [
-   
+
     {
         title: "Welcome 💖",
         body: "Welcome dear attendee, Get ready for the fun !",
-        trigger: new Date("December 19, 2021 10:00:00"),
-        time: "18/12/21 10:00",
+        trigger: new Date("December 19, 2021 12:00:00"),
+        time: "18/12/21 12:00",
         data: {
             image: "tsyp",
-        },
-    },
-    {
-        title: "Workshop Subscription ✅",
-        body: "Have you subscribed in workshops? if not click me",
-        trigger: new Date("December 19, 2021 12:00:00"),
-        time: "19/12/21 12:00",
-        data: {
-            screen: "workshops",
-            image: "workshop",
         },
     },
     {
