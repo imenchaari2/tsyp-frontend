@@ -19,38 +19,44 @@ const plandetails = [
       },
       {
         id: 1,
-        hour: "3:30 PM : 4 PM",
+        hour: "3:30 PM : 4:15 PM",
         activity: "First SBs presentations session (3 min per SB)",
         location: "conference room"
 
       },
       {
         id: 2,
-        hour: "4 PM : 4:30 PM",
-        activity: "Job title, (talk title)",
+        hour: "4:15 PM : 4:45 PM",
+        activity: "Dr. Bilel Jamoussi intervention ",
         location: "conference room"
       },
       {
         id: 3,
-        hour: "4:30 PM : 4:45 PM",
+        hour: "4:45 PM : 5 PM",
         activity: "R8 (online  intervention )",
         location: "conference room"
       },
       {
         id: 4,
-        hour: "4:45 PM : 5 PM",
+        hour: "5 PM : 5:45 PM",
         activity: "Second SBs presentations session (3 min per SB)",
         location: "conference room"
       },
       {
         id: 5,
-        hour: "5 PM : 5:45 PM",
+        hour: "6 PM : 7:30 PM",
         activity: "SBS & press stands and Networking ",
         location: "conference room"
       },
             {
         id: 7,
-        hour: "6 PM : 8 PM",
+        hour: "7:30 PM : 7:45 PM",
+        activity: "Dinner",
+        location: "Restaurant"
+      },
+      {
+        id: 7,
+        hour: "7:45 PM : 9 PM",
         activity: "Free time ",
         location: "Hotel"
       },
@@ -81,13 +87,13 @@ const plandetails = [
       },
       {
         id: 2,
-        hour: "9:15 AM : 10 AM",
+        hour: "9:00 AM : 10:30 AM",
         activity: "Launch of the job fair & Sponsors intervention",
         location: "Conference room"
       },
       {
         id: 3,
-        hour: "10 AM : 12 AM",
+        hour: "10:30 AM : 12 AM",
         activity: "First workshop session (Parallel sessions)",
         location: "Workshops rooms"
       },

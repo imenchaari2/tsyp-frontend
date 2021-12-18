@@ -105,15 +105,15 @@ const notificationList = [
     {
         title: "Networking 🌎",
         body: "Get to know each other , have a great company",
-        trigger: new Date("December 20, 2021 16:50:00"),
-        time: "20/12/21 16:50",
+        trigger: new Date("December 20, 2021 17:50:00"),
+        time: "20/12/21 17:50",
         data: {
             image: "networking",
         }
     },
     {
         title: " Dinner 🍽 ",
-        body: "get ready and have a nice dinner 15 min later ",
+        body: "get ready and have a nice dinner  ",
         trigger: new Date("December 20, 2021 19:45:00"),
         time: "20/12/21 19:45",
         data: {
@@ -179,16 +179,25 @@ const notificationList = [
     {
         title: "Job fair ⏳",
         body: "Launch of the job fair & Sponsors intervention 15 min later ",
-        trigger: new Date("December 21, 2021 09:09:00"),
+        trigger: new Date("December 21, 2021 08:45:00"),
         time: "21/12/21 09:09",
         data: {
             image: "jobFair",
         }
     },
     {
-        title: "Workshops session 1 is near to begin ⏳ 🕙 ",
+        title: "Covid-19 Reminder !😷 ",
+        body: "Be safe and use hand sanitizer please",
+        trigger: new Date("December 21, 2021 09:30:00"),
+        time: "21/12/21 09:30",
+        data: {
+            image: "gel",
+        }
+    },
+    {
+        title: "Workshops session 1 is near to begin ⏳ 🕥 ",
         body: "Everyone should go to the room mentioned in the workshop you have subscribed in and scan the Qr code to validate your subscription ",
-        trigger: new Date("December 21, 2021 09:50:00"),
+        trigger: new Date("December 21, 2021 10:20:00"),
         time: "21/12/21 09:50",
         data: {
             image: "workshop",
