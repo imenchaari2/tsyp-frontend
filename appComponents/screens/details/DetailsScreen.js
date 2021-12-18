@@ -287,7 +287,7 @@ const DetailsScreen = ({navigation, route}) => {
                     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                         <Text
                             style={{fontSize: 20, color: COLORS.gray, fontWeight: 'bold'}}>
-                            {workshop?.domain?.name}
+                            Domain: {workshop?.domain?.name}
                         </Text>
                     </View>
 
@@ -298,7 +298,7 @@ const DetailsScreen = ({navigation, route}) => {
                             marginTop: 5,
                         }}>
 
-                        <Text style={{fontSize: 13, color: COLORS.gray}}>{workshop.numberOfParticipants}</Text>
+                        <Text style={{fontSize: 14, color: COLORS.gray}}>Number of participants required :{workshop.numberOfParticipants}</Text>
                     </View>
 
                     {/* Render location and icon */}
@@ -342,9 +342,9 @@ const DetailsScreen = ({navigation, route}) => {
                 </View>
                 <ScrollView>
 
-                    <Text style={style.comment}>
-                        {workshop?.description}
-                    </Text>
+                    <Text style={style.comment}> About the workshop: </Text>
+                        <Text style={style.comment}>{workshop?.description}</Text>
+
 
 
                 </ScrollView>
@@ -382,7 +382,7 @@ const style = StyleSheet.create({
     },
     comment: {
         marginTop: 10,
-        fontSize: 12.5,
+        fontSize: 14,
         color: COLORS.gray,
         lineHeight: 20,
         marginHorizontal: 20,
