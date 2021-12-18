@@ -68,11 +68,11 @@ const Card = ({workshop, navigation}) => {
 
                     {/* Render the age and type */}
                     <Text style={{fontSize: 12, marginTop: 5, color: COLORS.darkGray}}>
-                        {workshop?.speaker?.firstName}
+                        Speaker: {workshop?.speaker?.firstName}
                         {workshop?.speaker?.lastName}
                     </Text>
                     <Text style={{fontSize: 10, marginTop: 5, color: COLORS.gray}}>
-                        {workshop?.numberOfParticipants}
+                        Participants : {workshop?.numberOfParticipants}
                     </Text>
 
                     {/* Render distance and the icon */}
@@ -275,11 +275,15 @@ const style = StyleSheet.create({
         borderBottomRightRadius: 10,
         padding: 20,
         justifyContent: "center",
+       
+
     },
     cardImageContainer: {
+
         height: 140,
         width: 140,
         backgroundColor: COLORS.white3,
+        elevation:1
 
     },
 });
