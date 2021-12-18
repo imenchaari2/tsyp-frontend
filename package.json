@@ -1,13 +1,16 @@
 {
-  "name": "my-app",
-  "version": "1.0.0",
+  "name": "ieee-tsyp",
+  "version": "0.1.3",
   "private": true,
   "scripts": {
     "android": "expo run:android",
     "eject": "expo eject",
     "ios": "expo run:ios",
     "start": "expo start --dev-client",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build:bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
+    "build:bundleDebug": "react-native bundle --platform android --dev true --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/ ",
+    "release-build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && rm -rf android/app/src/main/res/drawable-* && rm -rf android/app/src/main/res/raw/* && ./android/gradlew assembleRelease"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -24,6 +27,7 @@
     "axios": "^0.24.0",
     "dayjs": "^1.10.7",
     "expo": "^44.0.0",
+    "expo-app-loading": "^1.3.0",
     "expo-constants": "~13.0.0",
     "expo-dev-client": "~0.7.2",
     "expo-linear-gradient": "~11.0.0",

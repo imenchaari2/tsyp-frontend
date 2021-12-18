@@ -86,7 +86,7 @@ const TrackingMap = () => {
 	const [currentPosition, setCurrentPosition] = useState<any>(null); // user's current position (coordinates)
 	const getBuildingInfo: Function = (): void => {
 		fetchBuildingInfo((buildingInfo: any) => {
-			// console.log(JSON.stringify(buildingInfo)) TODO : remove this line
+			// console.log(JSON.stringify(buildingInfo)) // TODO : remove this line
 			setBuilding(buildingInfo.building); // setting building object
 			setLastValidCamera(buildingInfo.building.center);
 			if (0 < buildingInfo.floors.length) {
@@ -119,7 +119,7 @@ const TrackingMap = () => {
 			}  // setting geofences array
 			if (0 < buildingInfo.indoorPOIs.length) {
 				for (let poi of buildingInfo.indoorPOIs) {
-					poi.images = poi.customFields ? [poi.customFields.image1, poi.customFields.image2, poi.customFields.image3, poi.customFields.image4, poi.customFields.image5].filter(elem => null != elem) : []
+					poi.images = poi.customFields ? [poi.customFields.image1, poi.customFields.image2, poi.customFields.image3] : []
 					poi.description = poi.infoHtml.replace(/<[^>]*>?/gm, "");
 					poi.category.poiCategoryName = poi.category.poiCategoryName.toUpperCase();
 				}
