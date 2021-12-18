@@ -38,6 +38,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {fetchCloseMembers} from "../../api/Backend";
 import CloseMembersIndicator from "../map/CloseMembersIndicator";
+import {useSelector} from "react-redux";
 
 const styles = StyleSheet.create({
 	mapview: {
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
 const TrackingMap = () => {
 	let backHandler: NativeEventSubscription | null = null;
 	const mapRef: any = useRef(null);
+	const userToken: string = useSelector((state: any) => state.profileSlice.profile.token);
 	const [fadeAnim] = useState(new Animated.Value(0));
 	const [positioningTimer, setPositioningTimer] = useState<number>(1);
 	const [isDirectionLoading, setIsDirectionLoading] = useState<boolean>(false); // checks if the direction loading indicator is visible
@@ -155,7 +157,7 @@ const TrackingMap = () => {
 		if (0 === timer) {
 			setPositioningTimer(CLOSE_MEMBERS_REFRESH_RATE);
 			setIsCloseMembersLoadingInProgress(true);
-			fetchCloseMembers(coordinate, (coordinates: any) => {
+			fetchCloseMembers(coordinate, userToken, (coordinates: any) => {
 				if (Array.isArray(coordinates)) {
 					console.log('membersCoordinates: ',coordinates.length); // TODO remove this line
 					setCloseMembersCoordinates(coordinates);
