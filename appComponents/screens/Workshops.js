@@ -58,7 +58,7 @@ const Card = ({workshop, navigation}) => {
                             style={{
                                 fontWeight: "bold",
                                 color: COLORS.darkGray,
-                                fontSize: 15,
+                                fontSize: 13,
                             }}
                         >
                             {workshop?.name}
@@ -68,8 +68,8 @@ const Card = ({workshop, navigation}) => {
 
                     {/* Render the age and type */}
                     <Text style={{fontSize: 12, marginTop: 5, color: COLORS.darkGray}}>
-                        Speaker: {workshop?.speaker?.firstName}
-                        {workshop?.speaker?.lastName}
+                        Speaker: {workshop?.speaker}
+                        {workshop?.speaker}
                     </Text>
                     <Text style={{fontSize: 10, marginTop: 5, color: COLORS.gray}}>
                         Participants : {workshop?.numberOfParticipants}

@@ -319,8 +319,8 @@ const DetailsScreen = ({navigation, route}) => {
 
                     <View style={{flex: 1, paddingLeft: 10}}>
                         <Text
-                            style={{color: COLORS.gray, fontSize: 12, fontWeight: 'bold'}}>
-                             speaker :{workshop?.speaker}
+                            style={{color: COLORS.black, fontSize: 14, fontWeight: 'bold'}}>
+                             Speaker :{workshop?.speaker}
                         </Text>
                         <Text
                             style={{
