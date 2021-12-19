@@ -58,7 +58,7 @@ const Card = ({workshop, navigation}) => {
                             style={{
                                 fontWeight: "bold",
                                 color: COLORS.darkGray,
-                                fontSize: 20,
+                                fontSize: 15,
                             }}
                         >
                             {workshop?.name}

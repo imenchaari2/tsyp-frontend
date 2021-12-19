@@ -35,10 +35,9 @@ Notifications.setNotificationHandler({
     }),
 });
 
-/*
 async function schedulePushNotification() {
   try {
-   /!* notificationList.map(async (item) => {
+    notificationList.map(async (item) => {
       if (new Date() < new Date(item.trigger)) {
         await Notifications.scheduleNotificationAsync({
           content: {
@@ -49,60 +48,11 @@ async function schedulePushNotification() {
           trigger: item.trigger,
         });
       }
-    });*!/
-    await Notifications.scheduleNotificationAsync({
-      content: {
-        title: notificationList[0].title,
-        body: notificationList[0].body,
-        data: { data: notificationList[0].data },
-      },
-      trigger:notificationList[0].trigger,
     });
-  } catch (error) {
-    console.log(error);
-  }
-}*/
-async function schedulePushNotification() {
-    await Notifications.scheduleNotificationAsync({
-        content: {
-            title: "You've got mail! 📬",
-            body: 'Here is the notification body',
-            data: { data: 'goes here' },
-        },
-        trigger: { seconds: 2 },
-    });
-}
 
-async function registerForPushNotificationsAsync() {
-    let token;
-    if (Constants.isDevice) {
-        const { status: existingStatus } = await Notifications.getPermissionsAsync();
-        let finalStatus = existingStatus;
-        if (existingStatus !== 'granted') {
-            const { status } = await Notifications.requestPermissionsAsync();
-            finalStatus = status;
-        }
-        if (finalStatus !== 'granted') {
-            alert('Failed to get push token for push notification!');
-            return;
-        }
-        token = (await Notifications.getExpoPushTokenAsync()).data;
-        console.log(token);
-    } else {
-        alert('Must use physical device for Push Notifications');
-    }
+}}
 
-    if (Platform.OS === 'android') {
-        Notifications.setNotificationChannelAsync('default', {
-            name: 'default',
-            importance: Notifications.AndroidImportance.MAX,
-            vibrationPattern: [0, 250, 250, 250],
-            lightColor: '#FF231F7C',
-        });
-    }
 
-    return token;
-}
 
 
 const Navigator = () => {
@@ -157,9 +107,6 @@ const Navigator = () => {
             //console.log(error, "error");
         }
     };
-    useEffect(() => {
-        registerForPushNotificationsAsync().then(()=>{schedulePushNotification();})
-    }, []);
 
     useEffect(() => {
         if (newNotifList.length > 0) {
