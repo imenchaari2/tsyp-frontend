@@ -97,48 +97,48 @@ const plandetails = [
                 location: "Workshops rooms"
             },
             {
-                id: 3,
+                id: 4,
                 hour: "12 AM : 12:30 AM",
                 activity: " Stands visit & Networking ",
                 location: "Hotel hall"
             },
             {
-                id: 4,
+                id: 5,
                 hour: "12:30 AM : 2 PM",
                 activity: "Lunch",
                 location: "Return to hotels for lunch"
             },
             {
-                id: 5,
+                id: 6,
                 hour: "2 PM : 4 PM",
                 activity: "Second workshop session",
                 location: "workshops rooms"
             },
             {
-                id: 6,
+                id: 7,
                 hour: "4 PM : 4:30 PM",
                 activity: " Stands visit & Networking ",
                 location: "Hotel hall"
             },
             {
-                id: 7,
+                id: 8,
                 hour: "4:30 PM : 6:30 PM",
                 activity: "Third workshop session",
                 location: "workshops rooms"
             },
             {
-                id: 8,
+                id: 9,
                 hour: "7 PM : 8 PM",
                 activity: "Dinner ",
                 location: "Return to hotels for dinner "
             }, {
-                id: 9,
+                id: 10,
                 hour: "8 PM : 9 PM",
                 activity: "Free time ",
                 location: "hotel "
             },
             {
-                id: 10,
+                id: 11,
                 hour: "9 PM : 11 pm",
                 activity: "Hollywood party + announcements",
                 location: "Conference room"
