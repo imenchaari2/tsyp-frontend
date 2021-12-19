@@ -316,14 +316,11 @@ const DetailsScreen = ({navigation, route}) => {
             <View style={{marginTop: 80, justifyContent: 'space-between', flex: 1}}>
                 {/* Render user image , name and date */}
                 <View style={{flexDirection: 'row', paddingHorizontal: 20}}>
-                    <Image
-                        source={require('../../../assets/images/ilyes.jpg')}
-                        style={{height: 40, width: 40, borderRadius: 20}}
-                    />
+
                     <View style={{flex: 1, paddingLeft: 10}}>
                         <Text
                             style={{color: COLORS.gray, fontSize: 12, fontWeight: 'bold'}}>
-                            {workshop?.speaker?.firstName}
+                             speaker :{workshop?.speaker?.firstName}
                         </Text>
                         <Text
                             style={{
