@@ -287,7 +287,7 @@ const DetailsScreen = ({navigation, route}) => {
                     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                         <Text
                             style={{fontSize: 20, color: COLORS.gray, fontWeight: 'bold'}}>
-                            Domain: {workshop?.name}
+                            Domain: {workshop?.domain}
                         </Text>
                     </View>
 
@@ -320,7 +320,7 @@ const DetailsScreen = ({navigation, route}) => {
                     <View style={{flex: 1, paddingLeft: 10}}>
                         <Text
                             style={{color: COLORS.gray, fontSize: 12, fontWeight: 'bold'}}>
-                             speaker :{workshop?.speaker?.firstName}
+                             speaker :{workshop?.speaker}
                         </Text>
                         <Text
                             style={{
