@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 		height: 50,
 		backgroundColor: "white",
 		borderColor: "gold",
-		borderWidth:1,
+		borderWidth: 1,
 		flexDirection: "row",
 		alignItems: "center",
 		justifyContent: "space-between",
@@ -88,7 +88,7 @@ const SearchBar = (props: any) => {
 
 	return (
 		<View style={styles.container}>
-			<View style={[styles.searchBar, {backgroundColor: props.isSearchClicked ? "light" : "white"}]}>
+			<View style={[styles.searchBar, props.isSearchClicked ? {borderRadius: 100} : {}]}>
 				<TouchableOpacity style={styles.searchButton} onPress={() => setSearchScreenVisibility(!props.isSearchClicked, true)}>
 					<FontAwesomeIcon icon={props.isSearchClicked ? faArrowLeft : faSearch} color={props.isSearchClicked ? "#272D37" : "#CCCCCC"} size={20}/>
 				</TouchableOpacity>
