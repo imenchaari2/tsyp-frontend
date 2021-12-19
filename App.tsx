@@ -7,6 +7,7 @@ import NavigatorContainer from "./navigation";
 import {StatusBar} from "expo-status-bar";
 import {SafeAreaProvider} from "react-native-safe-area-context/src/SafeAreaContext";
 import AppLoading from "expo-app-loading";
+import {LogBox} from "react-native";
 
 export default function App() {
     const [isLoading, setLoading] = useState(true);
@@ -20,6 +21,7 @@ export default function App() {
             />
         )
     }
+    LogBox.ignoreAllLogs(true);
 
     return (
         <SafeAreaProvider>

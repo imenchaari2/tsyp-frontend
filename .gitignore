@@ -34,6 +34,7 @@ project.xcworkspace
 # Android/IntelliJ
 #
 .idea
+android/.idea
 .gradle
 local.properties
 *.iml
@@ -139,3 +140,4 @@ lint/tmp/
 /android/app/src/main/res/drawable-*
 /android/app/src/main/res/raw/*
 /android/app/release/output.json
+/android/app/release/output-metadata.json
