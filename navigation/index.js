@@ -50,6 +50,9 @@ async function schedulePushNotification() {
       }
     });
 
+}
+catch (error){
+    console.log(error);
 }}
 
 
